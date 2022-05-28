@@ -1,6 +1,6 @@
 # About
 
- :warning: This module is still in experimental state. 
+ :warning: This module is still in experimental state. Only pure algorithmic blocks are available for the moment, Foundry specific ones are under implementation.
 
 You love creating fantastic worlds and stories in Foundry, but you're afraid of macros? Would you rather plan your campaign than lear how to program? 
 
