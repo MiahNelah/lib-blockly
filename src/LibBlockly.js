@@ -7,19 +7,20 @@ export class LibBlocky {
      */
     constructor(options) {
         try {
-            console.log(`[${LibBlocky.name}] Initialising...`);
+            console.log(`[${LibBlocky.name()}] Initialising...`);
             this._registerHooks();
             this._registerSettings();
             this._toolbox = options?.toolbox;
             this._customToolbox = {};
+            this._editors = {};
             game.modules.get(LibBlocky.ID()).instance = this;
         }
         catch (e) {
-            console.log(`[${LibBlocky.name}] Something wrong happned while initialising!`);
+            console.log(`[${LibBlocky.name()}] Something wrong happned while initialising!`);
             throw Error(e);
         }
         finally {
-            console.log(`[${LibBlocky.name}] Successfuly initialised`);
+            console.log(`[${LibBlocky.name()}] Successfuly initialised`);
         }
     }
 
@@ -29,17 +30,7 @@ export class LibBlocky {
      */
     updateToolbox(toolbox) {
         this._customToolbox = mergeObject(this._customToolbox, toolbox);
-        console.log(`[${LibBlocky.name}] Toolbox updated`);
-    }
-
-    /**
-     * 
-     * @returns 
-     */
-    createWorkspace() {
-        const workspace = mergeObject(new Blockly.Workspace(), config);
-        Blockly.JavaScript.addReservedWords(workspace);
-        return workspace;
+        console.log(`[${LibBlocky.name()}] Toolbox updated`);
     }
 
     /**
@@ -47,7 +38,7 @@ export class LibBlocky {
      * @param {Blockly.Workspace} workspace 
      * @returns 
      */
-    saveWorkspace(workspace) {
+    static saveWorkspace(workspace) {
         const json = Blockly.serialization.workspaces.save(workspace);
         return JSON.stringify(json);
     }
@@ -57,8 +48,9 @@ export class LibBlocky {
      * @param {Macro} macroObject 
      * @returns 
      */
-    loadWorkspace(macroObject) {
-        let workspace = this.createWorkspace();
+    static loadWorkspace(macroObject, config) {
+        let workspace = mergeObject(new Blockly.Workspace(), config);
+        Blockly.JavaScript.addReservedWords(workspace);
         Blockly.serialization.workspaces.load(JSON.parse(macroObject.data.flags.blockly?.workspace), workspace);
         return workspace;
     }
@@ -68,7 +60,7 @@ export class LibBlocky {
      * @param {Blockly.Workspace} workspace 
      * @returns 
      */
-    toJavascript(workspace) {
+    static toJavascript(workspace) {
         return Blockly.JavaScript.workspaceToCode(workspace);
     }
 
@@ -92,7 +84,10 @@ export class LibBlocky {
      * @param {Object} others 
      */
     _onMacroConfigRender(data, html, others) {
-        new BlocklyEditor(html, data, this._buildWorkspaceConfig());
+        if (html[0].tagName === "DIV" && html[0].id.startsWith("macro-config")) {
+            const id = html[0].id;            
+            this._editors[id] = new BlocklyEditor(html, data, this._buildWorkspaceConfig());
+        }
     }
 
     /**
@@ -107,8 +102,8 @@ export class LibBlocky {
             return wrapped(...args);
         }
         else {
-            const workspace = this.loadWorkspace(macro);
-            const code = this.toJavascript(workspace);
+            const workspace = LibBlocky.loadWorkspace(macro, this._buildWorkspaceConfig());
+            const code = LibBlocky.toJavascript(workspace);
             const intialCommand = macro.data.command;
             const intialType = macro.data.type;
             macro.data.command = code;

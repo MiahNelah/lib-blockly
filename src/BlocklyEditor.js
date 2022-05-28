@@ -1,4 +1,4 @@
-import { LibBlocky } from "./LibBlockly";
+import { LibBlocky } from "./LibBlockly.js";
 
 export class BlocklyEditor {
     /**
@@ -20,9 +20,14 @@ export class BlocklyEditor {
 
 
         this._formElements = {
-            editorArea: document.querySelector(`${this._context} div.form-group.stacked.command`),
-            typeSelect: document.querySelector(`${this._context} select[name='type']`),
-            commandTextArea: document.querySelector(`${this._context} div.form-group.stacked.command textarea[name="command"]`)
+            editorArea: () => document.querySelector(`${this._context} div.form-group.stacked.command`),
+            typeSelect: () => document.querySelector(`${this._context} select[name='type']`),
+            commandTextArea: () => document.querySelector(`${this._context} div.form-group.stacked.command textarea[name="command"]`),
+            editorContainer: () => document.querySelector(`${this._context} div.blocklyContainer`),
+            editor: () => document.querySelector(`${this._context} div.blockly`),
+            flagEnabled: () => document.querySelector(`${this._context} input[name="flags.blockly.enabled"]`),
+            flagWorkspace: () => document.querySelector(`${this._context} input[name="flags.blockly.workspace"]`),
+            blocklyTypeOption: () => document.querySelector(`${this._context} select[name='type'] option[data-blockly]`)
         }
 
         this._prepareMacroConfig(data.document, config);
@@ -32,41 +37,41 @@ export class BlocklyEditor {
      *
      */
     _appendBlockyTypeToSelect() {
-        const blocklyOption = document.createElement("option");
-        blocklyOption.value = "chat";
-        blocklyOption.dataset.blockly = true;
-        blocklyOption.innerText = "Blockly";
+        if (this._formElements.blocklyTypeOption() === null) {
+            const blocklyOption = document.createElement("option");
+            blocklyOption.value = "chat";
+            blocklyOption.dataset.blockly = true;
+            blocklyOption.innerText = "Blockly";
 
-        this._formElements.typeSelect.appendChild(blocklyOption);
-
-        this._formElements.blocklyTypeOption = document.querySelector(`${this._context} select[name='type'] option[data-blockly]`);
+            this._formElements.typeSelect().appendChild(blocklyOption);
+        }
     }
 
     /**
-     *
-     * @param {HTMLElement} editor
-     * @param {HTMLElement} command
+     * 
+     * @param {*} event 
      */
-    _onMacroTypeChanged(editor, command) {
-        const currentSelection = this._formElements.typeSelect.querySelector("option:selected");
-        const isBlocklyTypeSelected = currentSelection.dataset.blockly === true;
-        editor.hidden = isBlocklyTypeSelected ? "" : "hidden";
-        command.hidden = !isBlocklyTypeSelected ? "" : "hidden";
+    _onMacroTypeChanged(event) {
+        //const currentSelection = event.target.querySelector("option[selected]");
+        //const isBlocklyTypeSelected = currentSelection.dataset.blockly === "true";
+        //if (isBlocklyTypeSelected) {
+        if ((event !== undefined && event.target?.selectedOptions !== undefined && event.target.selectedOptions[0].dataset.blockly !== undefined)
+            || (this._formElements.typeSelect().querySelector("option[selected]")?.dataset.blockly === "true")) {
+            this._formElements.editorContainer().removeAttribute("hidden");
+            this._formElements.commandTextArea().setAttribute("hidden", undefined);
+        } else {
+            this._formElements.editorContainer().setAttribute("hidden", undefined);
+            this._formElements.commandTextArea().removeAttribute("hidden");
+        }
     }
 
     /**
-     *
+     * 
      */
     _activateListeners() {
-        // Create hidden input to persist blockly state (true: is a blockly script, false: not a blockly script)
-        const editorArea = this._appendFlagsInput(blocklyTag);
-
-        // Create editor placeholder
-        const blocklyTag = this._appendEditorPlaceholder(editorArea);
-
         // Setup event listener on Type select to enable editor if needed
-        this._formElements.typeSelect.adEventListener("change", function () {
-            this._onMacroTypeChanged(this._formElements.editor, this._formElements.commandTextArea);
+        this._formElements.typeSelect().addEventListener("change", (event) => {
+            this._onMacroTypeChanged(event);
         });
     }
 
@@ -74,12 +79,17 @@ export class BlocklyEditor {
      *
      */
     _appendEditorPlaceholder() {
-        const blocklyTag = document.createElement("div");
-        blocklyTag.classname = "blockly";
+        if (this._formElements.editorContainer() === null) {
+            const blocklyContainerTag = document.createElement("div");
+            blocklyContainerTag.className = "blocklyContainer";
 
-        this._formElements.editorArea.appendChild(blocklyTag);
+            const blocklyTag = document.createElement("div");
+            blocklyTag.className = "blockly";
 
-        this._formElements.editor = document.querySelector(`${this._context} div.blockly`);
+            blocklyContainerTag.appendChild(blocklyTag);
+
+            this._formElements.editorArea().appendChild(blocklyContainerTag);
+        }
     }
 
     /**
@@ -87,24 +97,22 @@ export class BlocklyEditor {
      */
     _appendFlagsInput() {
         // Create hidden input to store workspace blocks
-        const blocklyFlagEnabledInput = document.createElement("input");
-        blocklyFlagEnabledInput.name = "flags.blockly.enabled";
-        blocklyFlagEnabledInput.type = "hidden";
-        blocklyFlagEnabledInput.value = "false";
+        if (this._formElements.flagEnabled() === null) {
+            const blocklyFlagEnabledInput = document.createElement("input");
+            blocklyFlagEnabledInput.name = "flags.blockly.enabled";
+            blocklyFlagEnabledInput.type = "hidden";
+            blocklyFlagEnabledInput.value = "false";
+            this._formElements.editorArea().appendChild(blocklyFlagEnabledInput);
+        }
 
-        this._formElements.editorArea.appendChild(blocklyFlagEnabledInput);
+        if (this._formElements.flagWorkspace() === null) {
+            const blocklyFlagWorkspacedInput = document.createElement("input");
+            blocklyFlagWorkspacedInput.name = "flags.blockly.workspace";
+            blocklyFlagWorkspacedInput.type = "hidden";
+            blocklyFlagWorkspacedInput.value = "";
+            this._formElements.editorArea().appendChild(blocklyFlagWorkspacedInput);
+        }
 
-        this._formElements.flagEnabled = document.querySelector(`${this._context} input[name=flags.blockly.enabled]`);
-
-
-        const blocklyFlagWorkspacedInput = document.createElement("input");
-        blocklyFlagWorkspacedInput.name = "flags.blockly.workspace";
-        blocklyFlagWorkspacedInput.type = "hidden";
-        blocklyFlagWorkspacedInput.value = "";
-
-        this._formElements.editorArea.appendChild(blocklyFlagWorkspacedInput);
-
-        this._formElements.flagWorkspace = document.querySelector(`${this._context} input[name=flags.blockly.workspace]`);
     }
 
     /**
@@ -115,22 +123,22 @@ export class BlocklyEditor {
         switch (type) {
             case "chat":
             case "script":
-                typeSelect.value = type;
-                this._formElements.flagEnabled.value = "false";
+                this._formElements.typeSelect().value = type;
+                this._formElements.flagEnabled().value = "false";
                 break;
 
             case "blockly":
-                typeSelect.querySelectorAll("option").forEach(option => option.removeAttribute("selected"));
-                this._formElements.blocklyTypeOption.selected = "selected";
-                this._formElements.flagEnabled.value = "true";
+                this._formElements.typeSelect().querySelectorAll("option").forEach(option => option.removeAttribute("selected"));
+                this._formElements.blocklyTypeOption().selected = "selected";
+                this._formElements.flagEnabled().value = "true";
                 break;
 
             default:
-                console.warn(`[${LibBlocky.name}] Invalid macro type ${type}. Expecting values are "chat", "script" or "blockly".`);
+                console.warn(`[${LibBlocky.name()}] Invalid macro type ${type}. Expecting values are "chat", "script" or "blockly".`);
                 return;
         }
 
-        this._onMacroTypeChanged(blocklyTag, commandTextArea);
+        this._onMacroTypeChanged();
     }
 
     /**
@@ -140,7 +148,7 @@ export class BlocklyEditor {
     _onWorkspaceChanged(event) {
         // TODO: this event handling cause a lot of useless operation. Need to try to catch less events from overzealous blockly events
         if (!event.isUiEvent) {
-            this._formElements.flagWorkspace.value = this.save();
+            this._formElements.flagWorkspace().value = this.save();
         }
     }
 
@@ -150,7 +158,7 @@ export class BlocklyEditor {
      * @param {Object} config
      */
     _prepareMacroConfig(macro, config) {
-        console.log(`[${LibBlocky.name}] Initialising editor for macro config ${macro.id}`);
+        console.log(`[${LibBlocky.name()}] Initialising editor for macro config ${macro.id}`);
         this._appendBlockyTypeToSelect();
         this._appendFlagsInput();
         this._appendEditorPlaceholder();
@@ -159,18 +167,17 @@ export class BlocklyEditor {
         this._inject(`${this._context} div.blockly`, config);
 
         // Call this once to setup default state
-        if (this._isBlocklyEnabled(dmacro)) {
-            this._onMacroTypeChanged(blocklyTag, commandTextArea);
-        }
+        this._onMacroTypeChanged();
 
         // Load existing workspace if there some
-        if (this._isMacroWorkspaceEmpty(macro)) {
-            this._workspace = mergeObject(this._workspace, this.load(this._getMacroWorkspace(macro)));
+        if (!this._isMacroWorkspaceEmpty(macro)) {
+            this.load(macro);
+            this._changeType("blockly");
         }
 
 
-        this._workspace.addChangeListener(onWorkspaceChanged);
-        console.log(`[${LibBlocky.name}] Editor initialised for macro config ${macro.id}`);
+        this._workspace.addChangeListener((event) => this._onWorkspaceChanged(event));
+        console.log(`[${LibBlocky.name()}] Editor initialised for macro config ${macro.id}`);
     }
 
     /**
@@ -185,7 +192,7 @@ export class BlocklyEditor {
         Blockly.JavaScript.addReservedWords(workspace);
 
         // TODO: remove this hack once resize issues are fixed
-        $(selector).find("svg.blocklySvg").attr('width', "100%").attr('height', "100%");
+        $(this._context).find(`svg.blocklySvg`).attr('width', "100%").attr('height', "100%");
 
         this._workspace = workspace;
     }
@@ -205,7 +212,7 @@ export class BlocklyEditor {
      * @returns
      */
     _isMacroWorkspaceEmpty(macro) {
-        return this._getMacroWorkspace(macro);
+        return this._getMacroWorkspace(macro).trim() === "";
     }
 
     /**
@@ -222,7 +229,7 @@ export class BlocklyEditor {
      * @returns
      */
     _isBlockyType() {
-        return this._formElements.typeSelect.innerText === "Blockly";
+        return this._formElements.typeSelect().innerText === "Blockly";
     }
 
     /**
@@ -239,7 +246,7 @@ export class BlocklyEditor {
      * @returns {Blockly.Workspace} workspace
      */
     load(macro) {
-        return LibBlocky.loadWorkspace(macro);
+        Blockly.serialization.workspaces.load(JSON.parse(this._getMacroWorkspace(macro)), this._workspace);
     }
 
     /**
