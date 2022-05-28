@@ -73,6 +73,12 @@ export class LibBlocky {
             libWrapper.register(LibBlocky.ID(), "Macro.prototype.execute", function (wrapped, ...args) {
                 that._handleBlocklyMacroExecution(this, wrapped, ...args);
             }, libWrapper.WRAPPER);
+
+            libWrapper.register(LibBlocky.ID(), "MacroConfig.prototype._onExecute", async function (event) {                
+                event.preventDefault();
+                await this._onSubmit(event, {preventClose: true, preventRender: true}); // Submit pending changes
+                this.object.execute(); // Execute the macro
+            }, libWrapper.OVERRIDE);
         }
         Hooks.on("renderMacroConfig", this._onMacroConfigRender.bind(this));
     }
@@ -85,7 +91,7 @@ export class LibBlocky {
      */
     _onMacroConfigRender(data, html, others) {
         if (html[0].tagName === "DIV" && html[0].id.startsWith("macro-config")) {
-            const id = html[0].id;            
+            const id = html[0].id;
             this._editors[id] = new BlocklyEditor(html, data, this._buildWorkspaceConfig());
         }
     }
@@ -103,14 +109,19 @@ export class LibBlocky {
         }
         else {
             const workspace = LibBlocky.loadWorkspace(macro, this._buildWorkspaceConfig());
-            const code = LibBlocky.toJavascript(workspace);
             const intialCommand = macro.data.command;
             const intialType = macro.data.type;
-            macro.data.command = code;
+            macro.data.command = LibBlocky.toJavascript(workspace);
             macro.data.type = "script";
-            const result = wrapped(...args);
-            macro.data.command = intialCommand;
-            macro.data.type = intialType;
+            let result;
+            try {
+                result = wrapped(...args);
+            } catch (e) {
+                log.erro(e);
+            } finally {
+                macro.data.command = intialCommand;
+                macro.data.type = intialType;
+            }            
             return result;
 
         }
