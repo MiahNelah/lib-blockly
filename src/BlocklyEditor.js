@@ -56,7 +56,7 @@ export class BlocklyEditor {
         //const isBlocklyTypeSelected = currentSelection.dataset.blockly === "true";
         //if (isBlocklyTypeSelected) {
         if ((event !== undefined && event.target?.selectedOptions !== undefined && event.target.selectedOptions[0].dataset.blockly !== undefined)
-            || (this._formElements.typeSelect().querySelector("option[selected]")?.dataset.blockly === "true")) {
+            || (this._formElements.flagEnabled().value === "true")) {
             this._formElements.editorContainer().removeAttribute("hidden");
             this._formElements.commandTextArea().setAttribute("hidden", undefined);
         } else {
@@ -172,7 +172,6 @@ export class BlocklyEditor {
         // Load existing workspace if there some
         if (!this._isMacroWorkspaceEmpty(macro)) {
             this.load(macro);
-            this._changeType("blockly");
         }
 
 
