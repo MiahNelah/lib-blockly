@@ -10,8 +10,12 @@ export class LibBlocky {
             console.log(`[${LibBlocky.name()}] Initialising...`);
             this._registerHooks();
             this._registerSettings();
-            this._toolbox = options?.toolbox;
-            this._customToolbox = {};
+            this._toolbox = {
+                kind: "categoryToolbox",
+                contents: [
+                    ...options?.toolbox
+                ]
+            };
             this._editors = {};
             game.modules.get(LibBlocky.ID()).instance = this;
         }
@@ -29,7 +33,7 @@ export class LibBlocky {
      * @param {Object} toolbox 
      */
     updateToolbox(toolbox) {
-        this._customToolbox = mergeObject(this._customToolbox, this._encapsulateToolbox(toolbox));
+        this._toolbox.contents.push(...toolbox);
         console.log(`[${LibBlocky.name()}] Toolbox updated`);
     }
 
@@ -147,7 +151,7 @@ export class LibBlocky {
                 wheel: false
             },
             horizontalLayout: game.settings.get(LibBlocky.ID(), "horizontalLayout"),
-            toolbox: mergeObject(this._toolbox, this._customToolbox)
+            toolbox: this._toolbox
         };
     }
 
@@ -199,15 +203,6 @@ export class LibBlocky {
             type: Boolean,
             default: false
         });
-    }
-
-    _encapsulateToolbox(toolbox) {
-        return {
-            "kind": "categoryToolbox",
-            "contents": [
-                ...toolbox
-            ]
-        };
     }
 
     /**

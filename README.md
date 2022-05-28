@@ -35,10 +35,51 @@ Minimum Core Version: 0.9.242 (not tested on newer versions)
   * (let's see later...)
 
 # Known bugs
-  * blockly editor is not resized when window changed 
-    * temp fix: set desired window size, save your macro and reopen it
-  * blockly editor not showing when another blockly editor is open
+  * Editor is only resized when interacting with editor, not on macro window resizing
+    * this is a temporary solution, it will be fixed later  
 
 # Extensibility
 
 Extensibility is still very WIP. Creating custom blocks and code geenrator is easy to do : you just have to follow Google Blockly documentation. However, Lib-Blockly need a way to register some custom toolbox settings in order to provide newly created custom blocks to user.
+
+Here is an example of custom block:
+```javascript
+Blockly.Blocks["my_roll_example"] = {
+    init: async function () {
+        this.appendDummyInput()
+            .appendField("Roll");
+        this.appendValueInput("rollExpression")            
+            .setCheck("String");
+        this.setOutput(true, 'String');
+        this.setInput(false);
+        this.setNextStatement(false);
+        this.setPreviousStatement(false);
+        this.setColour(160);
+        this.setHelpUrl("");
+        this.setTooltip("");
+    }
+}
+
+Blockly.JavaScript["my_roll_example"] = function (block) {
+    const rollexpression_value = block.getField("rollExpression").getValue();
+    return `(await (new Roll("${rollexpression_value}")).roll()).result`;
+}
+
+const toolbox = [
+    {
+        "kind": "category",
+        "name": "My custom blocks",
+        "contents": [
+            {
+                "kind": "block",
+                "type": "my_roll_example"
+            }
+        ]
+    }
+]
+
+Hooks.once('ready', () => {
+  game.modules.get("lib-blockly").instance.updateToolbox(toolbox);
+})
+
+```
