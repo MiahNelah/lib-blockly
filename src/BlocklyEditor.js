@@ -95,13 +95,13 @@ export class BlocklyEditor {
     /**
      *
      */
-    _appendFlagsInput() {
+    _appendFlagsInput(macro) {
         // Create hidden input to store workspace blocks
         if (this._formElements.flagEnabled() === null) {
             const blocklyFlagEnabledInput = document.createElement("input");
             blocklyFlagEnabledInput.name = "flags.blockly.enabled";
             blocklyFlagEnabledInput.type = "hidden";
-            blocklyFlagEnabledInput.value = "false";
+            blocklyFlagEnabledInput.value = macro.data.flags.blockly?.enabled;
             this._formElements.editorArea().appendChild(blocklyFlagEnabledInput);
         }
 
@@ -109,7 +109,7 @@ export class BlocklyEditor {
             const blocklyFlagWorkspacedInput = document.createElement("input");
             blocklyFlagWorkspacedInput.name = "flags.blockly.workspace";
             blocklyFlagWorkspacedInput.type = "hidden";
-            blocklyFlagWorkspacedInput.value = "";
+            blocklyFlagWorkspacedInput.value = macro.data.flags.blockly?.workspace;
             this._formElements.editorArea().appendChild(blocklyFlagWorkspacedInput);
         }
 
@@ -160,7 +160,7 @@ export class BlocklyEditor {
     _prepareMacroConfig(macro, config) {
         console.log(`[${LibBlocky.name()}] Initialising editor for macro config ${macro.id}`);
         this._appendBlockyTypeToSelect();
-        this._appendFlagsInput();
+        this._appendFlagsInput(macro);
         this._appendEditorPlaceholder();
         this._activateListeners();
 
