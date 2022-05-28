@@ -1,0 +1,24 @@
+{
+  "LibBlocky.Settings.Collapse.Title": "Allow collapsed blocks ?",
+  "LibBlocky.Settings.Collapse.Description": "Allows blocks to be collapsed or expanded.",
+
+  "LibBlocky.Settings.Comments.Title": "Allow comments on blocks ?",
+  "LibBlocky.Settings.Comments.Description": "Allows blocks to have comments.",
+
+  "LibBlocky.Settings.Disable.Title": "Allow disabled blocks ?",
+  "LibBlocky.Settings.Disable.Description": "Allows blocks to be disabled.",
+
+  "LibBlocky.Settings.Trashcan.Title": "Show trashcan ?",
+  "LibBlocky.Settings.Trashcan.Description": "If activated, audio files will loop when listening in file picker.",
+
+  "LibBlocky.Settings.HorizontalLayout.Title": "Use horizontal layout ?",
+  "LibBlocky.Settings.HorizontalLayout.Description": "If true toolbox is horizontal, if false toolbox is vertical. Defaults to false.",
+
+  "LibBlocky.Blocks.Variables.CategoryName": "Variables",
+  "LibBlocky.Blocks.Variables.CreateVariable": "CreateVariable",
+  "LibBlocky.Blocks.Variables.SetVarTo": "set %1 to",
+  "LibBlocky.Blocks.Variables.ChangeVarby": "change %1 by",
+
+  "LibBlocky.Blocks.Foundry.Rolltable.Roll": "Roll %1"
+
+}
