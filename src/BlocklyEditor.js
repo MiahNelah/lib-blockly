@@ -171,8 +171,10 @@ export class BlocklyEditor {
         this._onMacroTypeChanged();
 
         // Load existing workspace if there some
-        if (this._isBlocklyEnabled(macro) && !this._isMacroWorkspaceEmpty(macro)) {
-            this.load(macro);
+        if (this._isBlocklyEnabled(macro)) {
+            if (!this._isMacroWorkspaceEmpty(macro)) {
+                this.load(macro);
+            }
             this._changeType("blockly");
         }
 
@@ -236,7 +238,7 @@ export class BlocklyEditor {
     _isBlockyType() {
         return this._formElements.typeSelect().innerText === "Blockly";
     }
-    
+
 
     /**
      *
