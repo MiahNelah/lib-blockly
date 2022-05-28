@@ -29,7 +29,7 @@ export class LibBlocky {
      * @param {Object} toolbox 
      */
     updateToolbox(toolbox) {
-        this._customToolbox = mergeObject(this._customToolbox, toolbox);
+        this._customToolbox = mergeObject(this._customToolbox, this._encapsulateToolbox(toolbox));
         console.log(`[${LibBlocky.name()}] Toolbox updated`);
     }
 
@@ -75,9 +75,9 @@ export class LibBlocky {
             }, libWrapper.WRAPPER);
 
             // We override to prevent render on execute
-            libWrapper.register(LibBlocky.ID(), "MacroConfig.prototype._onExecute", async function (event) {                
-                event.preventDefault();                
-                await this._onSubmit(event, {preventClose: true, preventRender: true});
+            libWrapper.register(LibBlocky.ID(), "MacroConfig.prototype._onExecute", async function (event) {
+                event.preventDefault();
+                await this._onSubmit(event, { preventClose: true, preventRender: true });
                 this.object.execute();
             }, libWrapper.OVERRIDE);
         }
@@ -122,7 +122,7 @@ export class LibBlocky {
             } finally {
                 macro.data.command = intialCommand;
                 macro.data.type = intialType;
-            }            
+            }
             return result;
 
         }
@@ -199,6 +199,15 @@ export class LibBlocky {
             type: Boolean,
             default: false
         });
+    }
+
+    _encapsulateToolbox(toolbox) {
+        return {
+            "kind": "categoryToolbox",
+            "contents": [
+                ...toolbox
+            ]
+        };
     }
 
     /**
