@@ -150,6 +150,8 @@ export class BlocklyEditor {
         // TODO: this event handling cause a lot of useless operation. Need to try to catch less events from overzealous blockly events
         if (!event.isUiEvent) {
             this._formElements.flagWorkspace().value = this.save();
+        } else {
+            Blockly.svgResize(this._workspace);
         }
     }
 
