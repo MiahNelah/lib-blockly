@@ -23,7 +23,6 @@ export class BlocklyEditor {
             editorArea: () => document.querySelector(`${this._context} div.form-group.stacked.command`),
             typeSelect: () => document.querySelector(`${this._context} select[name='type']`),
             commandTextArea: () => document.querySelector(`${this._context} div.form-group.stacked.command textarea[name="command"]`),
-            editorContainer: () => document.querySelector(`${this._context} div.blocklyContainer`),
             editor: () => document.querySelector(`${this._context} div.blockly`),
             flagEnabled: () => document.querySelector(`${this._context} input[name="flags.blockly.enabled"]`),
             flagWorkspace: () => document.querySelector(`${this._context} input[name="flags.blockly.workspace"]`),
@@ -57,10 +56,10 @@ export class BlocklyEditor {
         //if (isBlocklyTypeSelected) {
         if ((event !== undefined && event.target?.selectedOptions !== undefined && event.target.selectedOptions[0].dataset.blockly !== undefined)
             || (this._formElements.flagEnabled().value === "true")) {
-            this._formElements.editorContainer().removeAttribute("hidden");
+            this._formElements.editor().removeAttribute("hidden");
             this._formElements.commandTextArea().setAttribute("hidden", undefined);
         } else {
-            this._formElements.editorContainer().setAttribute("hidden", undefined);
+            this._formElements.editor().setAttribute("hidden", undefined);
             this._formElements.commandTextArea().removeAttribute("hidden");
         }
     }
@@ -79,17 +78,12 @@ export class BlocklyEditor {
      *
      */
     _appendEditorPlaceholder() {
-        if (this._formElements.editorContainer() === null) {
-            const blocklyContainerTag = document.createElement("div");
-            blocklyContainerTag.className = "blocklyContainer";
-            blocklyContainerTag.hidden = "hidden";
-
+        if (this._formElements.editor() === null) {
             const blocklyTag = document.createElement("div");
             blocklyTag.className = "blockly";
 
-            blocklyContainerTag.appendChild(blocklyTag);
-
-            this._formElements.editorArea().appendChild(blocklyContainerTag);
+            this._formElements.editorArea().classList.add("blocklyContainer");
+            this._formElements.editorArea().appendChild(blocklyTag);
         }
     }
 
