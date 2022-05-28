@@ -48,17 +48,10 @@ export class BlocklyEditor {
 
     /**
      * 
-     * @param {*} event 
      */
-    _onMacroTypeChanged(event) {
-        //const currentSelection = event.target.querySelector("option[selected]");
-        //const isBlocklyTypeSelected = currentSelection.dataset.blockly === "true";
-        //if (isBlocklyTypeSelected) {
+    _onMacroTypeChanged() {
         const selectedOption = this._formElements.typeSelect()[this._formElements.typeSelect().selectedIndex];
         const isBlockly = selectedOption.dataset.blockly === "true";
-
-        //if ((event !== undefined && event.target?.selectedOptions !== undefined && event.target.selectedOptions[0].dataset.blockly !== undefined)
-        //    || (this._formElements.flagEnabled().value === "true")) {
 
         if (isBlockly) {
             this._formElements.editor().removeAttribute("hidden");
@@ -76,8 +69,8 @@ export class BlocklyEditor {
      */
     _activateListeners() {
         // Setup event listener on Type select to enable editor if needed
-        this._formElements.typeSelect().addEventListener("change", (event) => {
-            this._onMacroTypeChanged(event);
+        this._formElements.typeSelect().addEventListener("change", () => {
+            this._onMacroTypeChanged();
         });
     }
 

@@ -74,10 +74,11 @@ export class LibBlocky {
                 that._handleBlocklyMacroExecution(this, wrapped, ...args);
             }, libWrapper.WRAPPER);
 
+            // We override to prevent render on execute
             libWrapper.register(LibBlocky.ID(), "MacroConfig.prototype._onExecute", async function (event) {                
-                event.preventDefault();
-                await this._onSubmit(event, {preventClose: true, preventRender: true}); // Submit pending changes
-                this.object.execute(); // Execute the macro
+                event.preventDefault();                
+                await this._onSubmit(event, {preventClose: true, preventRender: true});
+                this.object.execute();
             }, libWrapper.OVERRIDE);
         }
         Hooks.on("renderMacroConfig", this._onMacroConfigRender.bind(this));
