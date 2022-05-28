@@ -54,8 +54,13 @@ export class BlocklyEditor {
         //const currentSelection = event.target.querySelector("option[selected]");
         //const isBlocklyTypeSelected = currentSelection.dataset.blockly === "true";
         //if (isBlocklyTypeSelected) {
-        if ((event !== undefined && event.target?.selectedOptions !== undefined && event.target.selectedOptions[0].dataset.blockly !== undefined)
-            || (this._formElements.flagEnabled().value === "true")) {
+        const selectedOption = this._formElements.typeSelect()[this._formElements.typeSelect().selectedIndex];
+        const isBlockly = selectedOption.dataset.blockly === "true";
+
+        //if ((event !== undefined && event.target?.selectedOptions !== undefined && event.target.selectedOptions[0].dataset.blockly !== undefined)
+        //    || (this._formElements.flagEnabled().value === "true")) {
+
+        if (isBlockly) {
             this._formElements.editor().removeAttribute("hidden");
             this._formElements.commandTextArea().setAttribute("hidden", undefined);
         } else {
@@ -132,7 +137,6 @@ export class BlocklyEditor {
                 console.warn(`[${LibBlocky.name()}] Invalid macro type ${type}. Expecting values are "chat", "script" or "blockly".`);
                 return;
         }
-
         this._onMacroTypeChanged();
     }
 
@@ -167,8 +171,10 @@ export class BlocklyEditor {
         // Load existing workspace if there some
         if (!this._isMacroWorkspaceEmpty(macro)) {
             this.load(macro);
-            this._changeType("blockly");
         }
+
+        this._onMacroTypeChanged();
+
 
         this._workspace.addChangeListener((event) => this._onWorkspaceChanged(event));
         console.log(`[${LibBlocky.name()}] Editor initialised for macro config ${macro.id}`);
