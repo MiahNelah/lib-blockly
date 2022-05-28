@@ -206,7 +206,8 @@ export class BlocklyEditor {
      * @returns
      */
     _isMacroWorkspaceEmpty(macro) {
-        return this._getMacroWorkspace(macro).trim() === "";
+        const workspace = this._getMacroWorkspace(macro);
+        return workspace === undefined || workspace.trim() === "";
     }
 
     /**
