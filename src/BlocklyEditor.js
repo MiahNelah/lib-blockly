@@ -82,6 +82,7 @@ export class BlocklyEditor {
         if (this._formElements.editorContainer() === null) {
             const blocklyContainerTag = document.createElement("div");
             blocklyContainerTag.className = "blocklyContainer";
+            blocklyContainerTag.hidden = "hidden";
 
             const blocklyTag = document.createElement("div");
             blocklyTag.className = "blockly";
@@ -167,13 +168,13 @@ export class BlocklyEditor {
         this._inject(`${this._context} div.blockly`, config);
 
         // Call this once to setup default state
-        this._onMacroTypeChanged();
+        //this._onMacroTypeChanged();
 
         // Load existing workspace if there some
         if (!this._isMacroWorkspaceEmpty(macro)) {
             this.load(macro);
+            this._changeType("blockly");
         }
-
 
         this._workspace.addChangeListener((event) => this._onWorkspaceChanged(event));
         console.log(`[${LibBlocky.name()}] Editor initialised for macro config ${macro.id}`);
