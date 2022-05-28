@@ -2,7 +2,7 @@
   "name": "lib-blockly",
   "title": "libBlockly",
   "description": "",
-  "author": "Daimakaicho#5991",
+  "author": "Miah Nelah#5991",
   "version":"0.0.1",  
   "scripts": [
     "libs/blockly.min.js", 
