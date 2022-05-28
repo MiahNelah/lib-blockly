@@ -12,6 +12,9 @@ Minimum Core Version: 0.9.242 (not tested on newer versions)
 
 # Demo
 
+"Hello, World !"
+
+![HelloWorld](https://user-images.githubusercontent.com/1334405/170825801-e54456d6-5bea-4874-a5de-b670f1a79a03.gif)
 
 (more to come :blush:)
 
@@ -32,8 +35,9 @@ Minimum Core Version: 0.9.242 (not tested on newer versions)
   * (let's see later...)
 
 # Known bugs
-  * blockly editor is not resized where window changed 
+  * blockly editor is not resized when window changed 
     * temp fix: set desired window size, save your macro and reopen it
+  * blockly editor not showing when another blockly editor is open
 
 # Extensibility
 
