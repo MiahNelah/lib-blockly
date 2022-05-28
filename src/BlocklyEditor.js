@@ -63,9 +63,11 @@ export class BlocklyEditor {
         if (isBlockly) {
             this._formElements.editor().removeAttribute("hidden");
             this._formElements.commandTextArea().setAttribute("hidden", undefined);
+            this._setBlocklyState("true");
         } else {
             this._formElements.editor().setAttribute("hidden", undefined);
             this._formElements.commandTextArea().removeAttribute("hidden");
+            this._setBlocklyState("false");
         }
     }
 
@@ -166,15 +168,13 @@ export class BlocklyEditor {
         this._inject(`${this._context} div.blockly`, config);
 
         // Call this once to setup default state
-        //this._onMacroTypeChanged();
-
-        // Load existing workspace if there some
-        if (!this._isMacroWorkspaceEmpty(macro)) {
-            this.load(macro);
-        }
-
         this._onMacroTypeChanged();
 
+        // Load existing workspace if there some
+        if (this._isBlocklyEnabled(macro) && !this._isMacroWorkspaceEmpty(macro)) {
+            this.load(macro);
+            this._changeType("blockly");
+        }
 
         this._workspace.addChangeListener((event) => this._onWorkspaceChanged(event));
         console.log(`[${LibBlocky.name()}] Editor initialised for macro config ${macro.id}`);
@@ -206,6 +206,10 @@ export class BlocklyEditor {
         return macro.data.flags.blockly?.enabled === "true";
     }
 
+    _setBlocklyState(state) {
+        this._formElements.flagEnabled().value = state;
+    }
+
     /**
      *
      * @param {Macro} macro
@@ -213,7 +217,7 @@ export class BlocklyEditor {
      */
     _isMacroWorkspaceEmpty(macro) {
         const workspace = this._getMacroWorkspace(macro);
-        return workspace === undefined || workspace.trim() === "";
+        return workspace === undefined || workspace === 'undefined' || workspace.trim() === "";
     }
 
     /**
@@ -232,6 +236,7 @@ export class BlocklyEditor {
     _isBlockyType() {
         return this._formElements.typeSelect().innerText === "Blockly";
     }
+    
 
     /**
      *
