@@ -7,7 +7,7 @@
   "compatibleCoreVersion": "9",
   "author": "Miah Nelah#5991",
   "scripts": [
-    "libs/blockly.min.js", 
+    "libs/blockly.min.js",
     "libs/javascript_compressed.js"
   ],
   "esmodules": [
@@ -16,14 +16,16 @@
   "styles": [
     "styles/lib-blockly.css"
   ],
-  "dependencies" : [ 
-    { "name": "lib-wrapper", "type": "module" }
+  "dependencies": [
+    {
+      "name": "lib-wrapper"
+    }
   ],
   "languages": [
     {
-        "lang": "en",
-        "name": "English",
-        "path": "languages/en.json"
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
     }
   ],
   "bugs": "https://github.com/MiahNelah/lib-blockly/issues",
