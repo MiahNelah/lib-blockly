@@ -1,8 +1,10 @@
 {
   "name": "lib-blockly",
   "title": "libBlockly",
-  "description": "",
-  "author": "Miah Nelah#5991",
+  "description": "An integration of Google Blockly into Foundry VirtualTop.",
+  "authors": [
+    "Miah Nelah#5991"
+  ],
   "version":"0.0.1",  
   "scripts": [
     "libs/blockly.min.js", 
