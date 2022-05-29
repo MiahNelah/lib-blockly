@@ -16,6 +16,11 @@ Minimum Core Version: 0.9.242 (not tested on newer versions)
 
 ![HelloWorld](https://user-images.githubusercontent.com/1334405/170825801-e54456d6-5bea-4874-a5de-b670f1a79a03.gif)
 
+Change tokens visibility
+
+![TokenVisibility](https://user-images.githubusercontent.com/1334405/170879543-21ac8ed0-e198-458d-a79b-2b8d902f3901.gif)
+
+
 (more to come :blush:)
 
 # Roadmap
