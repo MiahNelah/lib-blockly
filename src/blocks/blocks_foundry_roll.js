@@ -18,28 +18,26 @@ Blockly.defineBlocksWithJsonArray([
 
 Blockly.JavaScript["foundry_roll_roll"] = function (block) {
     const rollexpression_value = block.getField("rollExpression").getValue();
-    return [`(await (new Roll("${rollexpression_value}")).roll()).result`, Blockly.JavaScript.ORDER_NONE];
+    return [`(await (new Roll("${rollexpression_value}")).roll({async:true})).result`, Blockly.JavaScript.ORDER_NONE];
 }
 
 const toolbox = [
     {
         "kind": "category",
-        "name": "Foundry",
+        "name": "Roll",
         "contents": [
             {
-                "kind": "category",
-                "name": "Roll",
-                "contents": [
-                    {
-                        "kind": "block",
-                        "type": "foundry_roll_roll"
-                    }
-                ]
+                "kind": "block",
+                "type": "foundry_roll_roll"
             }
         ]
     }
 ]
 
 Hooks.once('ready', () => {
-    game.modules.get("lib-blockly").instance.updateToolbox(toolbox);
+    // TODO: find a better way to add custom blocks than this...
+    game.modules.get("lib-blockly").instance.toolbox()
+        .contents // root contents
+        .find(x => x.name === "Foundry").contents // foundry category contents
+        .push(...toolbox);
 })
