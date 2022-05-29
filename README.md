@@ -24,24 +24,8 @@ Change tokens visibility
 (more to come :blush:)
 
 # Roadmap
-  * Initialise docs
-    * How to create a blockly macro
-    * Basic blocks documentation  
-  * Create dedicated Foundry's blocks
-    * Actors
-    * Tokens
-    * Rolltables
-    * ChatMessage
-    * Playlists
-    * Encounters
-    * Journal  
-  * Make it easier to create custom blocks for developers  
-  * Add better localisation handling  
-  * (let's see later...)
 
-# Known bugs
-  * Editor is only resized when interacting with editor, not on macro window resizing
-    * this is a temporary solution, it will be fixed later  
+The current roadmap is here : https://github.com/MiahNelah/lib-blockly/projects/1
 
 # Extensibility
 
