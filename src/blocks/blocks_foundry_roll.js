@@ -18,7 +18,7 @@ Blockly.defineBlocksWithJsonArray([
 
 Blockly.JavaScript["foundry_roll_roll"] = function (block) {
     const rollexpression_value = block.getField("rollExpression").getValue();
-    return [`(await (new Roll("${rollexpression_value}")).roll({async:true})).result`, Blockly.JavaScript.ORDER_NONE];
+    return [`(await (new Roll("${rollexpression_value}")).roll({async:true})).total`, Blockly.JavaScript.ORDER_NONE];
 }
 
 const toolbox = [
