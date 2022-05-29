@@ -21,6 +21,36 @@ Blockly.defineBlocksWithJsonArray([
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
+      },
+      {
+        "type": "foundry_token_hide",
+        "message0": "Hide tokens %1",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "token"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      },
+      {
+        "type": "foundry_token_show",
+        "message0": "Show tokens %1",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "token"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
       }
 ]);
 
@@ -41,6 +71,32 @@ Blockly.JavaScript["foundry_token_change_visibility"] = function (block) {
     return code;
 }
 
+Blockly.JavaScript["foundry_token_hide"] = function (block) {
+    var token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+    
+    let code = `if (${token_input} !== undefined && ${token_input}.length>0) {\n`;        
+    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", ${token_input}.map(t => { return {_id: t.id, hidden: true}}));\n`
+    code += "} else {\n";
+    code += `\tif (${token_input} instanceof Token) {\n`
+    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", {_id: ${token_input}.id, hidden: true});\n`
+    code += `\t}\n`
+    code += "}";
+    return code;
+}
+
+Blockly.JavaScript["foundry_token_show"] = function (block) {
+    var token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+    
+    let code = `if (${token_input} !== undefined && ${token_input}.length>0) {\n`;        
+    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", ${token_input}.map(t => { return {_id: t.id, hidden: false}}));\n`
+    code += "} else {\n";
+    code += `\tif (${token_input} instanceof Token) {\n`
+    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", {_id: ${token_input}.id, hidden: false});\n`
+    code += `\t}\n`
+    code += "}";
+    return code;
+}
+
 const toolbox = [
     {
         "kind": "category",
@@ -53,6 +109,14 @@ const toolbox = [
             {
                 "kind": "block",
                 "type": "foundry_token_change_visibility"
+            },
+            {
+                "kind": "block",
+                "type": "foundry_token_hide"
+            },
+            {
+                "kind": "block",
+                "type": "foundry_token_show"
             }
         ]
     }
@@ -65,3 +129,5 @@ Hooks.once('ready', () => {
         .find(x => x.name === "Foundry").contents // foundry category contents
         .push(...toolbox);
 })
+
+
