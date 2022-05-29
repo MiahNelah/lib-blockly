@@ -1,5 +1,5 @@
 {
-  "name": "lib-blockly",
+  "name": "libblockly",
   "title": "LibBlockly",
   "description": "An integration of Google Blockly into Foundry VirtualTop.",
   "version": "0.0.1",
