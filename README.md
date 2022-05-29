@@ -35,10 +35,76 @@ Minimum Core Version: 0.9.242 (not tested on newer versions)
   * (let's see later...)
 
 # Known bugs
-  * blockly editor is not resized when window changed 
-    * temp fix: set desired window size, save your macro and reopen it
-  * blockly editor not showing when another blockly editor is open
+  * Editor is only resized when interacting with editor, not on macro window resizing
+    * this is a temporary solution, it will be fixed later  
 
 # Extensibility
 
-Extensibility is still very WIP. Creating custom blocks and code geenrator is easy to do : you just have to follow Google Blockly documentation. However, Lib-Blockly need a way to register some custom toolbox settings in order to provide newly created custom blocks to user.
+You can easily add new custom blocks using Google Blockly documentation. Keep in mind there is two way to declare a block : a JSON object or a Javascript function. Both are useful in many situations : for instance, JSON object is better to handle localisation, but javascript function is better at handling dynamic usecases.
+
+If you really need to benefits from both, call `this.jsonInit()` inside a javascript function to load a JSON object. You can then complete with custom, dynamic code.
+
+Here is how "Roll 1d6" block could be implemented:
+```javascript
+// You can define your block as a JSON object
+// This is fast to do and very handy for localisation
+Blockly.defineBlocksWithJsonArray([
+    {
+        "type": "my_roll_example",
+        "message0": "Roll %1",
+        "args0": [
+          {
+            "type": "field_input",
+            "name": "rollExpression",
+            "text": "1d6"
+          }
+        ],
+        "output": "String",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      }
+]);
+
+// OR you can define block using Javascript
+Blockly.Blocks["my_roll_example"] = {
+    init: async function () {
+        this.appendDummyInput()
+            .appendField("Roll ")
+            .appendField(new Blockly.FieldTextInput("1d6"), "rollExpression");
+        this.setOutput(true, 'String');
+        this.setNextStatement(false);
+        this.setPreviousStatement(false);
+        this.setColour(160);
+        this.setHelpUrl("");
+        this.setTooltip("");
+    }
+}
+
+// Your block will be far more useful if code can be generated from it!
+// Here is how to implement it. Block defintion and code generator are linked using the 'type' key.
+Blockly.JavaScript["my_roll_example"] = function (block) {
+    const rollexpression_value = block.getField("rollExpression").getValue();
+    return `(await (new Roll("${rollexpression_value}")).roll()).result`;
+}
+
+// We're almost done! Your block is declared and code generator is ready.
+// We still have a last thing to do: add custom block to toolbox to make it usable!
+const toolbox = [
+    {
+        "kind": "category",
+        "name": "My custom blocks",
+        "contents": [
+            {
+                "kind": "block",
+                "type": "my_roll_example"
+            }
+        ]
+    }
+]
+
+Hooks.once('ready', () => {
+  game.modules.get("lib-blockly").instance.toolbox().contents.find(x => x.name === "Foundry").contents.push(...toolbox);
+})
+
+```

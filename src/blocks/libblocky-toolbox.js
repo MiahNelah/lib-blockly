@@ -1,6 +1,6 @@
 export default {
-    "kind": "categoryToolbox",
-    "contents": [
+    kind: "categoryToolbox",
+    contents: [
         // Dynamic Variables category
         {
             "kind": "category",
@@ -314,7 +314,7 @@ export default {
             "name": "Foundry",
             "contents": [
                 {
-                    
+
                     "kind": "category",
                     "name": "Actor",
                     "contents": [
@@ -331,6 +331,6 @@ export default {
                     ]
                 },
             ]
-        },
+        }
     ]
 }
