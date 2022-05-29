@@ -119,7 +119,7 @@ export class LibBlocky {
             try {
                 result = wrapped(...args);
             } catch (e) {
-                log.error(e);
+                console.error(e);
                 alert(e.message);
             } finally {
                 macro.data.command = intialCommand;
