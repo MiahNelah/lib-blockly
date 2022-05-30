@@ -51,6 +51,25 @@ Blockly.defineBlocksWithJsonArray([
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
+      },
+      {
+        "type": "foundry_token_select_tokens",
+        "message0": "Select tokens in scene %1",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "tokens",
+            "check": [
+              "Array",
+              "Token"
+            ]
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
       }
 ]);
 
@@ -97,6 +116,15 @@ Blockly.JavaScript["foundry_token_show"] = function (block) {
     return code;
 }
 
+Blockly.JavaScript["foundry_token_select_tokens"] = function (block) {
+  var tokens_value =  Blockly.JavaScript.valueToCode(block, 'tokens', Blockly.JavaScript.ORDER_ATOMIC);
+  var tempVar = Blockly.JavaScript.variableDB_.getDistinctName('temp', Blockly.Variables.NAME_TYPE);
+
+  let code = `let ${tempVar} = ${tokens_value};\n`;
+  code += `if (${tempVar}) {canvas.tokens.selectObjects(${tempVar}); }\n`;
+  return code;
+}
+
 const toolbox = [
     {
         "kind": "category",
@@ -117,6 +145,10 @@ const toolbox = [
             {
                 "kind": "block",
                 "type": "foundry_token_show"
+            },
+            {
+                "kind": "block",
+                "type": "foundry_token_select_tokens"
             }
         ]
     }
