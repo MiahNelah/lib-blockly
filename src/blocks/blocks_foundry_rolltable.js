@@ -114,7 +114,7 @@ const toolbox = [
 
 Hooks.once('ready', () => {
   // TODO: find a better way to add custom blocks than this...
-  game.modules.get("lib-blockly").instance.toolbox()
+  game.modules.get("libblockly").instance.toolbox()
     .contents // root contents
     .find(x => x.name === "Foundry").contents // foundry category contents
     .push(...toolbox);

@@ -109,7 +109,7 @@ const toolbox = [
 ]
 
 Hooks.once('ready', () => {
-  game.modules.get("lib-blockly").instance.toolbox().contents.find(x => x.name === "Foundry").contents.push(...toolbox);
+  game.modules.get("libblockly").instance.toolbox().contents.find(x => x.name === "Foundry").contents.push(...toolbox);
 })
 
 ```

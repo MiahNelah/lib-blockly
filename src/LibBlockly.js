@@ -212,7 +212,7 @@ export class LibBlocky {
      * @returns 
      */
     static ID() {
-        return "lib-blockly";
+        return "libblockly";
     }
 
     /**
