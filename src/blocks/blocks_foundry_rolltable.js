@@ -66,7 +66,22 @@ Blockly.Blocks['foundry_rolltable_get_rolltable_dropdown'] = {
 };
 Blockly.JavaScript["foundry_rolltable_roll_table"] = function (block) {
   var rollTableName_value = Blockly.JavaScript.valueToCode(block, 'rollTableName', Blockly.JavaScript.ORDER_ATOMIC);
-  return [`(${rollTableName_value} !== undefined && ${rollTableName_value} instanceof RollTable) ? (await ${rollTableName_value}.roll()).results : []`, Blockly.JavaScript.ORDER_NONE];
+  let rolltableHelper = Blockly.JavaScript.provideFunction_("blockly_rolltable_roll_helper", [
+    `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(rolltable) {`,
+    `  if (!rolltable) return undefined;`,
+    `  if (rolltable instanceof RollTable) {`,
+    `    const roll = await rolltable.roll();`,
+    `    return roll.results;`,
+    `  }`,
+    `  if (rolltable instanceof String) {`,
+    `    const rolltable_object = game.tables.get(rolltable);`,
+    `    return await ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(rolltable_object);`,
+    `  }`,
+    "}"
+  ]);
+
+
+  return [`await ${rolltableHelper}(${rollTableName_value})`, Blockly.JavaScript.ORDER_NONE];
 }
 
 Blockly.JavaScript["foundry_rolltable_get_rolltable_dropdown"] = function (block) {

@@ -18,7 +18,15 @@ Blockly.defineBlocksWithJsonArray([
 
 Blockly.JavaScript["foundry_roll_roll"] = function (block) {
     const rollexpression_value = block.getField("rollExpression").getValue();
-    return [`(await (new Roll("${rollexpression_value}")).roll({async:true})).total`, Blockly.JavaScript.ORDER_NONE];
+    let rollHelper = Blockly.JavaScript.provideFunction_("blockly_roll_helper",  [
+        `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(rollExpression) {`,
+        `  const roll_object = new Roll(rollExpression);`,
+        `  const roll = await roll_object.roll({async:true});`,
+        `  return roll.total;`,
+        "}"
+    ]);
+
+    return [`await ${rollHelper}("${rollexpression_value}")`, Blockly.JavaScript.ORDER_NONE];
 }
 
 const toolbox = [
