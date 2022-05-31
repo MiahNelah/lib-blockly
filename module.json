@@ -8,7 +8,8 @@
   "author": "Miah Nelah#5991",
   "scripts": [
     "libs/blockly.min.js",
-    "libs/javascript_compressed.js"
+    "libs/javascript_compressed.js",
+    "libs/beautify.min.js"    
   ],
   "esmodules": [
     "src/lib-blockly.js"
