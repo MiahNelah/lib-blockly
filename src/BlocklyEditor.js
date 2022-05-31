@@ -83,9 +83,7 @@ export class BlocklyEditor {
 
     _onConvertToJavascriptButtonClicked(event) {
         event.preventDefault();
-        const code = js_beautify(this.toJavascript(), {
-            "break_chained_methods": true
-          });
+        const code = this.toJavascript();
         this._formElements.commandTextArea().innerHTML = code;
         this._changeType("script");
     }
@@ -178,7 +176,7 @@ export class BlocklyEditor {
         button.appendChild(buttonIcon);
         button.appendChild(document.createTextNode(game.i18n.localize("LibBlocky.MacroConfig.ConvertToJavascript")));
 
-        executeButton.parentElement.insertBefore(button,  executeButton);
+        executeButton.parentElement.insertBefore(button, executeButton);
     }
 
     /**
