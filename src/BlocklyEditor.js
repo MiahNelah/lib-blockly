@@ -26,7 +26,8 @@ export class BlocklyEditor {
             editor: () => document.querySelector(`${this._context} div.blockly`),
             flagEnabled: () => document.querySelector(`${this._context} input[name="flags.blockly.enabled"]`),
             flagWorkspace: () => document.querySelector(`${this._context} input[name="flags.blockly.workspace"]`),
-            blocklyTypeOption: () => document.querySelector(`${this._context} select[name='type'] option[data-blockly]`)
+            blocklyTypeOption: () => document.querySelector(`${this._context} select[name='type'] option[data-blockly]`),
+            convertToJavascriptButton: () => document.querySelector(`${this._context} button#convert-to-js`),
         }
 
         this._prepareMacroConfig(data.document, config);
@@ -47,7 +48,7 @@ export class BlocklyEditor {
     }
 
     /**
-     * 
+     *
      */
     _onMacroTypeChanged() {
         const selectedOption = this._formElements.typeSelect()[this._formElements.typeSelect().selectedIndex];
@@ -55,23 +56,36 @@ export class BlocklyEditor {
 
         if (isBlockly) {
             this._formElements.editor().removeAttribute("hidden");
+            this._formElements.convertToJavascriptButton().removeAttribute("hidden");
             this._formElements.commandTextArea().setAttribute("hidden", undefined);
             this._setBlocklyState("true");
         } else {
             this._formElements.editor().setAttribute("hidden", undefined);
+            this._formElements.convertToJavascriptButton().setAttribute("hidden", undefined);
             this._formElements.commandTextArea().removeAttribute("hidden");
             this._setBlocklyState("false");
         }
     }
 
     /**
-     * 
+     *
      */
     _activateListeners() {
         // Setup event listener on Type select to enable editor if needed
         this._formElements.typeSelect().addEventListener("change", () => {
             this._onMacroTypeChanged();
         });
+
+        this._formElements.convertToJavascriptButton().addEventListener("click", (event) => {
+            this._onConvertToJavascriptButtonClicked(event)
+        });
+    }
+
+    _onConvertToJavascriptButtonClicked(event) {
+        event.preventDefault();
+        const code = this.toJavascript();        
+        this._formElements.commandTextArea().innerText = code;
+        this._changeType("script");
     }
 
     /**
@@ -150,6 +164,23 @@ export class BlocklyEditor {
 
     /**
      *
+     */
+    _appendConvertToJavascriptButton() {
+        const executeButton = document.querySelector(`${this._context} footer button:last-child`);
+        
+        const button = document.createElement("button");
+        button.id = "convert-to-js";        
+
+        const buttonIcon = document.createElement("i");
+        buttonIcon.classList.add("fas", "fa-code");
+        button.appendChild(buttonIcon);
+        button.appendChild(document.createTextNode(game.i18n.localize("LibBlocky.MacroConfig.ConvertToJavascript")));
+        
+        executeButton.parentElement.insertBefore(button,  executeButton);
+    }
+
+    /**
+     *
      * @param {Macro} macro
      * @param {Object} config
      */
@@ -158,6 +189,7 @@ export class BlocklyEditor {
         this._appendBlockyTypeToSelect();
         this._appendFlagsInput(macro);
         this._appendEditorPlaceholder();
+        this._appendConvertToJavascriptButton();
         this._activateListeners();
 
         this._inject(`${this._context} div.blockly`, config);
@@ -254,10 +286,9 @@ export class BlocklyEditor {
 
     /**
      *
-     * @param {Blockly.Workspace} workspace
      * @returns {String} Javascript code generated for workspace
      */
-    toJavascript(workspace) {
+    toJavascript() {
         return LibBlocky.toJavascript(this._workspace);
     }
 

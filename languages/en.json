@@ -1,4 +1,6 @@
 {
+  "LibBlocky.MacroConfig.ConvertToJavascript": "Convert to Javascript",
+
   "LibBlocky.Settings.Collapse.Title": "Allow collapsed blocks ?",
   "LibBlocky.Settings.Collapse.Description": "Allows blocks to be collapsed or expanded.",
 
