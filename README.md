@@ -10,6 +10,10 @@ Lib-Blockly is also extensible framework which allow developers to create new bl
 
 Minimum Core Version: 0.9.242 (not tested on newer versions)
 
+# Tutorials
+
+You can find first steps guides here : [English](https://github.com/MiahNelah/lib-blockly/wiki/First-steps) [Français](https://github.com/MiahNelah/lib-blockly/wiki/Premiers-pas)
+
 # Demo
 
 "Hello, World !"
