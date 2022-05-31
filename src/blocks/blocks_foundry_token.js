@@ -80,40 +80,48 @@ Blockly.JavaScript["foundry_token_get_selected_tokens"] = function (block) {
 Blockly.JavaScript["foundry_token_change_visibility"] = function (block) {
     var token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
     
-    let code = `if (${token_input}!==undefined) {\n`;
-    code += `\tif(Array.isArray(${token_input}) && ${token_input}.length>0) {\n`;
-    code += `\t\t${token_input}.filter(token => token instanceof Token).forEach(async token => token.toggleVisibility());`
-    code += `\t\t} else if (${token_input} instanceof Token) {`;
-    code += `\t\t\tawait ${token_input}.toggleVisibility();`;
-    code += `\t}`;
-    code += `}`;
-    return code;
+    const tokenVisibilityeHelper = Blockly.JavaScript.provideFunction_("blockly_token_toggle_visibility", [
+      `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
+      `  if(Array.isArray(token) && token.length > 0) {`,
+      `    token.forEach(async t => await t.toggleVisibility());`,
+      `  } else if (token instanceof Token) {`,
+      `    await token.toggleVisibility();`,
+      `  }`,
+      `}`
+    ]);
+
+    return `await ${tokenVisibilityeHelper}(${token_input});\n`;
 }
 
 Blockly.JavaScript["foundry_token_hide"] = function (block) {
     var token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
-    
-    let code = `if (${token_input} !== undefined && ${token_input}.length>0) {\n`;        
-    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", ${token_input}.map(t => { return {_id: t.id, hidden: true}}));\n`
-    code += "} else {\n";
-    code += `\tif (${token_input} instanceof Token) {\n`
-    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", {_id: ${token_input}.id, hidden: true});\n`
-    code += `\t}\n`
-    code += "}";
-    return code;
+
+    const tokenHideeHelper = Blockly.JavaScript.provideFunction_("blockly_token_hide", [
+      `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
+      `  if(Array.isArray(token) && token.length > 0) {`,
+      `    await canvas.scene.updateEmbeddedDocuments("Token", token.map(t => { return {_id: t.id, hidden: true}}));`,
+      `  } else if (token instanceof Token) {`,
+      `    await canvas.scene.updateEmbeddedDocuments("Token", {_id: token.id, hidden: true});`,
+      `  }`,
+      `}`
+    ]);
+    return `await ${tokenHideeHelper}(${token_input});\n`;
 }
 
 Blockly.JavaScript["foundry_token_show"] = function (block) {
     var token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
     
-    let code = `if (${token_input} !== undefined && ${token_input}.length>0) {\n`;        
-    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", ${token_input}.map(t => { return {_id: t.id, hidden: false}}));\n`
-    code += "} else {\n";
-    code += `\tif (${token_input} instanceof Token) {\n`
-    code += `\tawait canvas.scene.updateEmbeddedDocuments("Token", {_id: ${token_input}.id, hidden: false});\n`
-    code += `\t}\n`
-    code += "}";
-    return code;
+    const tokenShoweHelper = Blockly.JavaScript.provideFunction_("blockly_token_show", [
+      `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
+      `  if(Array.isArray(token) && token.length > 0) {`,
+      `    await canvas.scene.updateEmbeddedDocuments("Token", token.map(t => { return {_id: t.id, hidden: false}}));`,
+      `  } else if (token instanceof Token) {`,
+      `    await canvas.scene.updateEmbeddedDocuments("Token", {_id: token.id, hidden: false});`,
+      `  }`,
+      `}`
+    ]);
+
+    return `await ${tokenShoweHelper}(${token_input});\n`;
 }
 
 Blockly.JavaScript["foundry_token_select_tokens"] = function (block) {
@@ -121,7 +129,7 @@ Blockly.JavaScript["foundry_token_select_tokens"] = function (block) {
   var tempVar = Blockly.JavaScript.variableDB_.getDistinctName('temp', Blockly.Variables.NAME_TYPE);
 
   let code = `let ${tempVar} = ${tokens_value};\n`;
-  code += `if (${tempVar}) {canvas.tokens.selectObjects(${tempVar}); }\n`;
+  code += `if (${tempVar}) canvas.tokens.selectObjects(${tempVar});\n`;
   return code;
 }
 
