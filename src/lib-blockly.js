@@ -6,6 +6,7 @@ import "./blocks/blocks_foundry_token.js";
 import "./blocks/blocks_foundry_scene.js";
 import "./blocks/blocks_foundry_user.js";
 import "./blocks/blocks_foundry_rolltable.js";
+import "./blocks/blocks_foundry_playlist.js";
 
 Hooks.once("init", () => {
 
