@@ -10,6 +10,7 @@ export class LibBlocky {
             console.log(`[${LibBlocky.name()}] Initialising...`);
             this._registerHooks();
             this._registerSettings();
+            Blockly.ShortcutRegistry.registry.reset();
             this._toolbox = options?.toolbox;
             this._editors = {};
             game.modules.get(LibBlocky.ID()).instance = this;
