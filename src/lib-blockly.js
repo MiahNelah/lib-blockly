@@ -7,6 +7,8 @@ import "./blocks/blocks_foundry_scene.js";
 import "./blocks/blocks_foundry_user.js";
 import "./blocks/blocks_foundry_rolltable.js";
 import "./blocks/blocks_foundry_macro.js";
+import "./blocks/blocks_foundry_notification.js";
+import "./blocks/blocks_foundry_utils.js";
 
 Hooks.once("init", () => {
 
