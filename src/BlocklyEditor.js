@@ -1,4 +1,4 @@
-import { LibBlocky } from "./LibBlockly.js";
+import {LibBlocky} from "./LibBlockly.js";
 
 export class BlocklyEditor {
     /**
@@ -17,7 +17,6 @@ export class BlocklyEditor {
         this._html = html;
         this._config = config;
         this._context = `div#${this._id}`;
-
 
         this._formElements = {
             editorArea: () => document.querySelector(`${this._context} div.form-group.stacked.command`),
@@ -79,6 +78,13 @@ export class BlocklyEditor {
         this._formElements.convertToJavascriptButton().addEventListener("click", (event) => {
             this._onConvertToJavascriptButtonClicked(event)
         });
+
+        this._data._onResize = this._data._onResize
+            ? this._onWorkspaceResized.bind(this)
+            : (event) => {
+                this._data._onResize(event);
+                this._onWorkspaceResized.bind(this);
+            };
     }
 
     _onConvertToJavascriptButtonClicked(event) {
@@ -151,19 +157,6 @@ export class BlocklyEditor {
 
     /**
      *
-     * @param {*} event
-     */
-    _onWorkspaceChanged(event) {
-        // TODO: this event handling cause a lot of useless operation. Need to try to catch less events from overzealous blockly events
-        if (!event.isUiEvent) {
-            this._formElements.flagWorkspace().value = this.save();
-        } else {
-            Blockly.svgResize(this._workspace);
-        }
-    }
-
-    /**
-     *
      */
     _appendConvertToJavascriptButton() {
         const executeButton = document.querySelector(`${this._context} footer button:last-child`);
@@ -177,6 +170,21 @@ export class BlocklyEditor {
         button.appendChild(document.createTextNode(game.i18n.localize("LibBlocky.MacroConfig.ConvertToJavascript")));
 
         executeButton.parentElement.insertBefore(button, executeButton);
+    }
+
+    /**
+     *
+     * @param {*} event
+     */
+    _onWorkspaceChanged(event) {
+        // TODO: this event handling cause a lot of useless operation. Need to try to catch less events from overzealous blockly events
+        if (!event.isUiEvent) {
+            this._formElements.flagWorkspace().value = this.save();
+        }
+    }
+
+    _onWorkspaceResized(event) {
+        Blockly.svgResize(this._workspace)
     }
 
     /**
