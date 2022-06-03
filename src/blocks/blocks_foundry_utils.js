@@ -33,10 +33,8 @@ Blockly.JavaScript["foundry_utils_delay"] = function (block) {
     const delayHelper = Blockly.JavaScript.provideFunction_("blockly_delay_helper", [
         `function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(delay) {`,
         `  return new Promise(resolve => {`,
-        `    setTimeout(() => {`,
-        `      resolve(2);`,
-        `    }, delay);`,
-        `  }`,
+        `    setTimeout(() => resolve(2), delay);`,
+        `  });`,
         `}`
     ]);
 

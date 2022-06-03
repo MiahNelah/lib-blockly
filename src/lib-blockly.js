@@ -11,6 +11,7 @@ import "./blocks/blocks_foundry_playlist.js";
 import "./blocks/blocks_foundry_macro.js";
 import "./blocks/blocks_foundry_notification.js";
 import "./blocks/blocks_foundry_utils.js";
+import "./blocks/blocks_foundry_item.js";
 
 Hooks.once("init", () => {
 
