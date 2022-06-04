@@ -16,7 +16,11 @@ You can find first steps guides here : [English](https://github.com/MiahNelah/li
 
 # Demo
 
-"Hello, World !"
+How to create new Blockly Macro :
+![new_macro](https://user-images.githubusercontent.com/1334405/171999317-df2e74d6-3f27-4170-bd01-e2e694dc3f25.gif)
+
+
+Hello, World !
 
 ![HelloWorld](https://user-images.githubusercontent.com/1334405/170825801-e54456d6-5bea-4874-a5de-b670f1a79a03.gif)
 
