@@ -1,26 +1,44 @@
 {
-  "LibBlocky.MacroConfig.ConvertToJavascript": "Convert to Javascript",
+  "LibBlockly.BlocklyEditorSheet.Sheet.Label": "Blockly Macro Editor",
+  "LibBlockly.BlocklyEditorSheet.UI.PreviewButton.Label": "Preview Javascript",
 
-  "LibBlocky.Settings.Collapse.Title": "Allow collapsed blocks ?",
-  "LibBlocky.Settings.Collapse.Description": "Allows blocks to be collapsed or expanded.",
+  "LibBlockly.JavascriptPreview.Title": "Javascript preview",
+  "LibBlockly.JavascriptPreview.Copy": "Copy to clipboard",
+  "LibBlockly.JavascriptPreview.Close": "Close",
 
-  "LibBlocky.Settings.Comments.Title": "Allow comments on blocks ?",
-  "LibBlocky.Settings.Comments.Description": "Allows blocks to have comments.",
+  "LibBlockly.Settings.Collapse.Title": "Allow collapsed blocks ?",
+  "LibBlockly.Settings.Collapse.Description": "Allows blocks to be collapsed or expanded.",
 
-  "LibBlocky.Settings.Disable.Title": "Allow disabled blocks ?",
-  "LibBlocky.Settings.Disable.Description": "Allows blocks to be disabled.",
+  "LibBlockly.Settings.Comments.Title": "Allow comments on blocks ?",
+  "LibBlockly.Settings.Comments.Description": "Allows blocks to have comments.",
 
-  "LibBlocky.Settings.Trashcan.Title": "Show trashcan ?",
-  "LibBlocky.Settings.Trashcan.Description": "If activated, audio files will loop when listening in file picker.",
+  "LibBlockly.Settings.Disable.Title": "Allow disabled blocks ?",
+  "LibBlockly.Settings.Disable.Description": "Allows blocks to be disabled.",
 
-  "LibBlocky.Settings.HorizontalLayout.Title": "Use horizontal layout ?",
-  "LibBlocky.Settings.HorizontalLayout.Description": "If true toolbox is horizontal, if false toolbox is vertical. Defaults to false.",
+  "LibBlockly.Settings.Trashcan.Title": "Show trashcan ?",
+  "LibBlockly.Settings.Trashcan.Description": "Displays or hides the trashcan. Defaults to checked if the toolbox has categories, false otherwise.",
 
-  "LibBlocky.Blocks.Variables.CategoryName": "Variables",
-  "LibBlocky.Blocks.Variables.CreateVariable": "CreateVariable",
-  "LibBlocky.Blocks.Variables.SetVarTo": "set %1 to",
-  "LibBlocky.Blocks.Variables.ChangeVarby": "change %1 by",
+  "LibBlockly.Settings.HorizontalLayout.Title": "Use horizontal layout ?",
+  "LibBlockly.Settings.HorizontalLayout.Description": "If checked toolbox is horizontal, if unchecked toolbox is vertical. Defaults to unchecked.",
 
-  "LibBlocky.Blocks.Foundry.Rolltable.Roll": "Roll %1"
+  "LibBlockly.Settings.Zoom.ShowControls.Title": "Show zoom controls ?",
+  "LibBlockly.Settings.Zoom.ShowControls.Description": "Check to show zoom-centre, zoom-in, and zoom-out buttons. Defaults to unchecked.",
 
+  "LibBlockly.Settings.Zoom.Wheel.Title": "Allow mouse wheel to zoom ?",
+  "LibBlockly.Settings.Zoom.Wheel.Description": "Check to allow the mouse wheel to zoom. Defaults to unchecked.",
+
+  "LibBlockly.Settings.Zoom.StartScale.Title": "Zoom Start Scale",
+  "LibBlockly.Settings.Zoom.StartScale.Description": "Initial magnification factor. Defaults to 1.0.",
+
+  "LibBlockly.Settings.Zoom.MaxScale.Title": "Zoom Max Scale",
+  "LibBlockly.Settings.Zoom.MaxScale.Description": "Maximum multiplication factor for how far one can zoom in. Defaults to 3.",
+
+  "LibBlockly.Settings.Zoom.MinScale.Title": "Zoom Min Scale",
+  "LibBlockly.Settings.Zoom.MinScale.Description": "Minimum multiplication factor for how far one can zoom out. Defaults to 0.3.",
+
+  "LibBlockly.Settings.Zoom.ScaleSpeed.Title": "Zoom Scale Speed",
+  "LibBlockly.Settings.Zoom.ScaleSpeed.Description": "For each zooming in-out step the scale is multiplied or divided respectively by the scale speed, this means that: scale = scaleSpeed ^ steps. Defaults to 1.2.",
+
+  "LibBlockly.Settings.Zoom.Pinch.Title": "Allow pinch ?",
+  "LibBlockly.Settings.Zoom.Pinch.Description": "Check to enable pinch to zoom support on touch devices. Defaults to checked if either the wheel or controls option is checked."
 }
