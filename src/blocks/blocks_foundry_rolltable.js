@@ -1,3 +1,5 @@
+import {LibBlockly} from "../LibBlockly.js";
+
 Blockly.defineBlocksWithJsonArray([
   {
     "type": "foundry_rolltable_roll_table",
@@ -129,7 +131,7 @@ const toolbox = [
 
 Hooks.once('ready', () => {
   // TODO: find a better way to add custom blocks than this...
-  game.modules.get("libblockly").instance.toolbox()
+  LibBlockly.toolbox
     .contents // root contents
     .find(x => x.name === "Foundry").contents // foundry category contents
     .push(...toolbox);

@@ -11,10 +11,11 @@
     "libs/javascript_compressed.js"
   ],
   "esmodules": [
-    "src/lib-blockly.js"
+    "src/LibBlockly.js",
+    "src/BlocklyEditorSheet.js"
   ],
   "styles": [
-    "styles/lib-blockly.css"
+    "styles/LibBlockly.css"
   ],
   "dependencies": [
     {
