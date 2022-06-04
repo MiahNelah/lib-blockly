@@ -101,7 +101,7 @@ Blockly.JavaScript["foundry_token_change_visibility"] = function (block) {
     const tokenVisibilityeHelper = Blockly.JavaScript.provideFunction_("blockly_token_toggle_visibility", [
         `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
         `  if(Array.isArray(token) && token.length > 0) {`,
-        `    token.forEach(async t => await t.toggleVisibility());`,
+        `    await Promise.all(token.map(t => t.toggleVisibility()));`,
         `  } else if (token instanceof Token) {`,
         `    await token.toggleVisibility();`,
         `  }`,
