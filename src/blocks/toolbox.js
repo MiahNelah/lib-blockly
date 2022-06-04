@@ -313,23 +313,8 @@ export default {
             "kind": "category",
             "name": "Foundry",
             "contents": [
-                {
 
-                    "kind": "category",
-                    "name": "Actor",
-                    "contents": [
-                        /*
-                        {
-                            "kind": "block",
-                            "type": "controls_if"
-                        },
-                        {
-                            "kind": "block",
-                            "type": "controls_ifelse"
-                        }
-                        */
-                    ]
-                },
+
             ]
         }
     ]
