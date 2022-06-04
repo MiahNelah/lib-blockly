@@ -1,0 +1,16 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <header class="sheet-header" style="flex:initial">
+        <img src="{{data.img}}" data-edit="img" title="{{data.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{data.name}}" placeholder="{{ localize "Name" }}"/></h1>
+    </header>
+
+    <div class="form-group blocklyContainer">
+        <div class="blockly" data-macro-id="{{document.id}}"></div>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="submit"><i class="fas fa-save"></i> {{ localize "MACRO.Save" }}</button>
+        <button class="convert" type="button"><i class="fa fa-code"></i> {{ localize "LibBlockly.BlocklyEditorSheet.UI.PreviewButton.Label" }}</button>
+        <button class="execute" type="button"><i class="fas fa-dice-d20"></i> {{ localize "MACRO.Execute" }}</button>
+    </footer>
+</form>
