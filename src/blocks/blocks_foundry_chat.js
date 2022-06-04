@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.Blocks['foundry_chat_sendmessage'] = {
     init: function () {
         this.appendValueInput("message")
@@ -45,23 +43,9 @@ Blockly.JavaScript["foundry_chat_sendmessage"] = function (block) {
     return code;
 }
 
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Chat",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_chat_sendmessage"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Chat")
+        .addBlock("block", "foundry_chat_sendmessage");
 })

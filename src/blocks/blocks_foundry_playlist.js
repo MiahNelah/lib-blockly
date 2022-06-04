@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_playlist_get_current_playing_playlist",
@@ -193,53 +191,16 @@ Blockly.JavaScript['foundry_playlist_stop'] = function (block) {
     return `await game.playlists.playing.forEach(async playlist => await playlist.stopAll());\n`;
 };
 
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Playlist",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_playlist_get_playlist"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_get_current_playing_playlist"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_play"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_play_next"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_stop"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_play_next2"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_play_previous2"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_playlist_loop_playlist"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Playlist")
+        .addBlock("block", "foundry_playlist_get_playlist")
+        .addBlock("block", "foundry_playlist_get_current_playing_playlist")
+        .addBlock("block", "foundry_playlist_play")
+        .addBlock("block", "foundry_playlist_play_next")
+        .addBlock("block", "foundry_playlist_stop")
+        .addBlock("block", "foundry_playlist_play_next2")
+        .addBlock("block", "foundry_playlist_play_previous2")
+        .addBlock("block", "foundry_playlist_loop_playlist");
 })
-
-

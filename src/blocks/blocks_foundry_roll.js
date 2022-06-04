@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_roll_roll",
@@ -31,23 +29,9 @@ Blockly.JavaScript["foundry_roll_roll"] = function (block) {
     return [`await ${rollHelper}("${rollexpression_value}")`, Blockly.JavaScript.ORDER_NONE];
 }
 
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Roll",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_roll_roll"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Roll")
+        .addBlock("block", "foundry_roll_roll");
 })

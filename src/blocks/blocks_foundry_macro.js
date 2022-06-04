@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_macro_run_macro",
@@ -67,32 +65,11 @@ Blockly.JavaScript['foundry_macro_get_macro'] = function (block) {
     return [`game.macros.get("${macro_input}")`, Blockly.JavaScript.ORDER_NONE];
 };
 
-
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Macro",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_macro_all_macro"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_macro_get_macro"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_macro_run_macro"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Macro")
+        .addBlock("block", "foundry_macro_all_macro")
+        .addBlock("block", "foundry_macro_get_macro")
+        .addBlock("block", "foundry_macro_run_macro");
 })

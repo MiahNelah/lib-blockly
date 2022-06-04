@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_notifications_show",
@@ -36,23 +34,9 @@ Blockly.JavaScript["foundry_notifications_show"] = function (block) {
     return `ui.notifications.${type_value}(${message_input});\n`
 }
 
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Notification",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_notifications_show"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Notification")
+        .addBlock("block", "foundry_notifications_show");
 })

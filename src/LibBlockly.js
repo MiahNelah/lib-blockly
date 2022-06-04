@@ -1,27 +1,16 @@
 import {BlocklyEditorSheet} from "./BlocklyEditorSheet.js";
-import defaultToolbox from "./blocks/toolbox.js";
-import "./blocks/blocks_foundry_roll.js";
-import "./blocks/blocks_foundry_chat.js";
-import "./blocks/blocks_foundry_token.js";
-import "./blocks/blocks_foundry_scene.js";
-import "./blocks/blocks_foundry_user.js";
-import "./blocks/blocks_foundry_rolltable.js";
-import "./blocks/blocks_foundry_combat.js";
-import "./blocks/blocks_foundry_playlist.js";
-import "./blocks/blocks_foundry_macro.js";
-import "./blocks/blocks_foundry_notification.js";
-import "./blocks/blocks_foundry_utils.js";
-import "./blocks/blocks_foundry_item.js";
+import {ToolboxManager} from "./ToolboxManager.js";
 
 export const LibBlockly = {
     ID: "libblockly",
-    toolbox: defaultToolbox,
+    toolboxManager: new ToolboxManager(),
     backpack: [],
 
     init: function () {
         Blockly.ShortcutRegistry.registry.reset();
         this._registerHooks();
         this._registerSettings();
+        game.modules.get(this.ID).toolboxManager = this.toolboxManager;
     },
 
     _registerSettings: function () {
@@ -176,7 +165,7 @@ export const LibBlockly = {
         return {
             collapse: game.settings.get(LibBlockly.ID, "collapse"),
             comments: game.settings.get(LibBlockly.ID, "comments"),
-            disable:  game.settings.get(LibBlockly.ID, "disable"),
+            disable: game.settings.get(LibBlockly.ID, "disable"),
             trashcan: game.settings.get(LibBlockly.ID, "trashcan"),
             move: {
                 scrollbars: {
@@ -196,7 +185,7 @@ export const LibBlockly = {
                 pinch: game.settings.get(LibBlockly.ID, "zoom-pinch"),//true
             },
             horizontalLayout: game.settings.get(LibBlockly.ID, "horizontalLayout"),
-            toolbox: this.toolbox
+            toolbox: this.toolboxManager.toJson()
         };
     }
 }

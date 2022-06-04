@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_token_get_selected_tokens",
@@ -166,45 +164,14 @@ Blockly.JavaScript["foundry_token_toggle_combat_state"] = function (block) {
     return `if (${token_input}) await ${toggleCombatStateHelper}(${token_input});\n`;
 }
 
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Token",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_token_get_selected_tokens"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_token_change_visibility"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_token_hide"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_token_show"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_token_select_tokens"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_token_toggle_combat_state"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Token")
+        .addBlock("block", "foundry_token_get_selected_tokens")
+        .addBlock("block", "foundry_token_change_visibility")
+        .addBlock("block", "foundry_token_hide")
+        .addBlock("block", "foundry_token_show")
+        .addBlock("block", "foundry_token_select_tokens")
+        .addBlock("block", "foundry_token_toggle_combat_state");
 })
-
-

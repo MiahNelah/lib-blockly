@@ -87,21 +87,11 @@ Blockly.JavaScript["my_roll_example"] = function (block) {
 
 // We're almost done! Your block is declared and code generator is ready.
 // We still have a last thing to do: add custom block to toolbox to make it usable!
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "My custom blocks",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "my_roll_example"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    LibBlockly.toolbox.contents.find(x => x.name === "Foundry").contents.push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("My own category", true)
+        .addCategory("My sub category")
+        .addBlock("block", "my_roll_example");
 })
 
 ```

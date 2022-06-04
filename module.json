@@ -12,7 +12,7 @@
   ],
   "esmodules": [
     "src/LibBlockly.js",
-    "src/BlocklyEditorSheet.js"
+    "src/blocks/LibBlockly_Blocks.js"
   ],
   "styles": [
     "styles/LibBlockly.css"

@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_utils_delay",
@@ -43,23 +41,9 @@ Blockly.JavaScript["foundry_utils_delay"] = function (block) {
     return `await ${delayHelper}(${dropdown_units === "s" ? number_delay*1000 : number_delay});\n`;
 }
 
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Utils",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_utils_delay"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Utils")
+        .addBlock("block", "foundry_utils_delay");
 })

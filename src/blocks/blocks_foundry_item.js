@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_item_add_item_to_token_or_actor",
@@ -174,41 +172,13 @@ Blockly.JavaScript['foundry_item_get_item_by_id'] = function(block) {
     }
 };
 
-
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Item",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_item_get_item_from_world"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_item_add_item_to_token_or_actor"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_items_get_items_from_actor_or_token"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_items_remove_item_from_actor_or_token"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_item_get_item_by_id"
-            }
-
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Item")
+        .addBlock("block", "foundry_item_get_item_from_world")
+        .addBlock("block", "foundry_item_add_item_to_token_or_actor")
+        .addBlock("block", "foundry_items_get_items_from_actor_or_token")
+        .addBlock("block", "foundry_items_remove_item_from_actor_or_token")
+        .addBlock("block", "foundry_item_get_item_by_id");
 })

@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
   {
     "type": "foundry_scene_get_current_scene",
@@ -101,41 +99,14 @@ Blockly.JavaScript["foundry_scene_rename_scene"] = function (block) {
   return `await game.scenes.get("${sceneId_input}").update({name:"${text_newname}"});`;
 }
 
-const toolbox = [
-  {
-    "kind": "category",
-    "name": "Scene",
-    "contents": [
-      {
-        "kind": "block",
-        "type": "foundry_scene_get_scene_dropdown"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_scene_get_current_scene"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_scene_activate"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_scene_view"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_scene_rename_scene"
-      }
-    ]
-  }
-]
 
 Hooks.once('ready', () => {
-  // TODO: find a better way to add custom blocks than this...
-  LibBlockly.toolbox
-    .contents // root contents
-    .find(x => x.name === "Foundry").contents // foundry category contents
-    .push(...toolbox);
+  game.modules.get("libblockly")
+      .toolboxManager.getCategory("Foundry", true)
+      .addCategory("Scene")
+      .addBlock("block", "foundry_scene_get_scene_dropdown")
+      .addBlock("block", "foundry_scene_get_current_scene")
+      .addBlock("block", "foundry_scene_activate")
+      .addBlock("block", "foundry_scene_view")
+      .addBlock("block", "foundry_scene_rename_scene");
 })
-
-

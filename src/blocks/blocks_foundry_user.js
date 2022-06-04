@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
   {
     "type": "foundry_user_list",
@@ -207,49 +205,15 @@ Blockly.JavaScript['foundry_user_unban_user'] = function (block) {
   return code;
 };
 
-const toolbox = [
-  {
-    "kind": "category",
-    "name": "User",
-    "contents": [
-      {
-        "kind": "block",
-        "type": "foundry_user_list"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_user_get_user_actor"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_user_get_user_token_in_scene"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_user_get_user_dropdown"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_user_pull_to_scene"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_user_ban_user"
-      },
-      {
-        "kind": "block",
-        "type": "foundry_user_unban_user"
-      }
-    ]
-  }
-]
-
 Hooks.once('ready', () => {
-  // TODO: find a better way to add custom blocks than this...
-  LibBlockly.toolbox
-    .contents // root contents
-    .find(x => x.name === "Foundry").contents // foundry category contents
-    .push(...toolbox);
+  game.modules.get("libblockly")
+      .toolboxManager.getCategory("Foundry", true)
+      .addCategory("User")
+      .addBlock("block", "foundry_user_list")
+      .addBlock("block", "foundry_user_get_user_actor")
+      .addBlock("block", "foundry_user_get_user_token_in_scene")
+      .addBlock("block", "foundry_user_get_user_dropdown")
+      .addBlock("block", "foundry_user_pull_to_scene")
+      .addBlock("block", "foundry_user_ban_user")
+      .addBlock("block", "foundry_user_unban_user");
 })
-
-

@@ -1,5 +1,3 @@
-import {LibBlockly} from "../LibBlockly.js";
-
 Blockly.defineBlocksWithJsonArray([
     {
         "type": "foundry_combat_create_combat",
@@ -302,77 +300,24 @@ Blockly.JavaScript['foundry_combat_next_round'] = function (block) {
     return `if (${value_name}) await ${value_name}.nextRound();\n`;
 }
 
-
-const toolbox = [
-    {
-        "kind": "category",
-        "name": "Combat",
-        "contents": [
-            {
-                "kind": "block",
-                "type": "foundry_combat_create_combat"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_start"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_activate_combat"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_get_active_combat"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_stop"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_get_round"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_get_turns"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_get_current_turn"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_is_active"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_reset"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_previous_turn"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_previous_round"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_next_turn"
-            },
-            {
-                "kind": "block",
-                "type": "foundry_combat_next_round"
-            }
-        ]
-    }
-]
-
 Hooks.once('ready', () => {
-    // TODO: find a better way to add custom blocks than this...
-    LibBlockly.toolbox
-        .contents // root contents
-        .find(x => x.name === "Foundry").contents // foundry category contents
-        .push(...toolbox);
+    game.modules.get("libblockly")
+        .toolboxManager.getCategory("Foundry", true)
+        .addCategory("Combat")
+        .addBlock("block", "foundry_combat_create_combat")
+        .addBlock("block", "foundry_combat_start")
+        .addBlock("block", "foundry_combat_activate_combat")
+        .addBlock("block", "foundry_combat_get_active_combat")
+        .addBlock("block", "foundry_combat_stop")
+        .addBlock("block", "foundry_combat_get_round")
+        .addBlock("block", "foundry_combat_get_turns")
+        .addBlock("block", "foundry_combat_get_current_turn")
+        .addBlock("block", "foundry_combat_is_active")
+        .addBlock("block", "foundry_combat_reset")
+        .addBlock("block", "foundry_combat_previous_turn")
+        .addBlock("block", "foundry_combat_previous_round")
+        .addBlock("block", "foundry_combat_next_turn")
+        .addBlock("block", "foundry_combat_next_round");
+
 })
 
