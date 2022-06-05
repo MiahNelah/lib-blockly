@@ -234,11 +234,24 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _onDropRollTable(event, data, uuid) {
-        const id = data.id;
-        const newChild = this.workspace.newBlock("foundry_rolltable_get_rolltable_dropdown");
-        newChild.getField("rolltable-id").setValue(id);
-        newChild.initSvg();
-        newChild.render();
+        const rolltable = await fromUuid(uuid);
+
+        const getRolltableBlock = this.workspace.newBlock("foundry_rolltable_get_roltable_by_name_or_id");
+        getRolltableBlock.getField("lookupType").setValue("name");
+        getRolltableBlock.initSvg();
+        getRolltableBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(rolltable.name);
+        text.initSvg();
+        text.render();
+
+        getRolltableBlock.getInput("input").connection.connect(text.outputConnection);
+
+        const rollTableBlock = this.workspace.newBlock("foundry_rolltable_roll_table");
+        rollTableBlock.initSvg();
+        rollTableBlock.render();
+        rollTableBlock.getInput("rolltable").connection.connect(getRolltableBlock.outputConnection);
     }
 
     async _onDropPlaylist(event, data, uuid) {
@@ -263,8 +276,6 @@ export class BlocklyEditorSheet extends DocumentSheet {
 
     async _onDropMacro(event, data, uuid) {
         const macro = await fromUuid(uuid);
-
-
 
         const getMacroBlock = this.workspace.newBlock("foundry_macro_get_macro_by_name_or_id");
         getMacroBlock.getField("lookupType").setValue("name");

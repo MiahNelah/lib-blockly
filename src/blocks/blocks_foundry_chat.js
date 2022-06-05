@@ -72,7 +72,6 @@ class SendMessageCustomBlock {
     }
 }
 
-
 Hooks.once('ready', () => {
     game.modules.get("libblockly").blockManager.register([
         new SendMessageCustomBlock()
