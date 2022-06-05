@@ -40,5 +40,14 @@
   "LibBlockly.Settings.Zoom.ScaleSpeed.Description": "For each zooming in-out step the scale is multiplied or divided respectively by the scale speed, this means that: scale = scaleSpeed ^ steps. Defaults to 1.2.",
 
   "LibBlockly.Settings.Zoom.Pinch.Title": "Allow pinch ?",
-  "LibBlockly.Settings.Zoom.Pinch.Description": "Check to enable pinch to zoom support on touch devices. Defaults to checked if either the wheel or controls option is checked."
+  "LibBlockly.Settings.Zoom.Pinch.Description": "Check to enable pinch to zoom support on touch devices. Defaults to checked if either the wheel or controls option is checked.",
+
+
+
+  "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
+  "LibBlockly.Blocks.Utils.Wait.Seconds": "seconds",
+  "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",
+  "LibBlockly.Blocks.Utils.Wait.Tooltip": "",
+  "LibBlockly.Blocks.Utils.Wait.HelpUrl": "",
+  "LibBlockly.Blocks.Utils.Wait.Colour": 230
 }
