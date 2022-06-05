@@ -1,31 +1,31 @@
 {
   "LibBlockly.BlocklyEditorSheet.Sheet.Label": "Blockly Macro Editor",
-  "LibBlockly.BlocklyEditorSheet.UI.PreviewButton.Label": "Preview Javascript",
+  "LibBlockly.BlocklyEditorSheet.UI.PreviewButton.Label": "Aperçu du javascript",
 
-  "LibBlockly.JavascriptPreview.Title": "Javascript preview",
-  "LibBlockly.JavascriptPreview.Copy": "Copy to clipboard",
-  "LibBlockly.JavascriptPreview.Close": "Close",
+  "LibBlockly.JavascriptPreview.Title": "Aperçu du javascript",
+  "LibBlockly.JavascriptPreview.Copy": "Copier dans le presse-papier",
+  "LibBlockly.JavascriptPreview.Close": "Fermer",
 
-  "LibBlockly.Settings.Collapse.Title": "Allow collapsed blocks ?",
-  "LibBlockly.Settings.Collapse.Description": "Allows blocks to be collapsed or expanded.",
+  "LibBlockly.Settings.Collapse.Title": "Autoriser les blocs repliés ?",
+  "LibBlockly.Settings.Collapse.Description": "Permet de réduire ou de développer les blocs.",
 
-  "LibBlockly.Settings.Comments.Title": "Allow comments on blocks ?",
-  "LibBlockly.Settings.Comments.Description": "Allows blocks to have comments.",
+  "LibBlockly.Settings.Comments.Title": "Autoriser les commentaires sur les blocs ?",
+  "LibBlockly.Settings.Comments.Description": "Permet aux blocs d'avoir des commentaires.",
 
-  "LibBlockly.Settings.Disable.Title": "Allow disabled blocks ?",
-  "LibBlockly.Settings.Disable.Description": "Allows blocks to be disabled.",
+  "LibBlockly.Settings.Disable.Title": "Autoriser les blocs désactivés ?",
+  "LibBlockly.Settings.Disable.Description": "Permet de désactiver les blocs.",
 
-  "LibBlockly.Settings.Trashcan.Title": "Show trashcan ?",
-  "LibBlockly.Settings.Trashcan.Description": "Displays or hides the trashcan. Defaults to checked if the toolbox has categories, false otherwise.",
+  "LibBlockly.Settings.Trashcan.Title": "Montrer la corbeille ?",
+  "LibBlockly.Settings.Trashcan.Description": "Affiche ou masque la corbeille.",
 
-  "LibBlockly.Settings.HorizontalLayout.Title": "Use horizontal layout ?",
-  "LibBlockly.Settings.HorizontalLayout.Description": "If checked toolbox is horizontal, if unchecked toolbox is vertical. Defaults to unchecked.",
+  "LibBlockly.Settings.HorizontalLayout.Title": "Utiliser une mise en page horizontale ?",
+  "LibBlockly.Settings.HorizontalLayout.Description": "Si coché, la boîte à outils est horizontale, si non coché, elle est verticale. Par défaut, cette option n'est pas cochée.",
 
-  "LibBlockly.Settings.Zoom.ShowControls.Title": "Show zoom controls ?",
-  "LibBlockly.Settings.Zoom.ShowControls.Description": "Check to show zoom-centre, zoom-in, and zoom-out buttons. Defaults to unchecked.",
+  "LibBlockly.Settings.Zoom.ShowControls.Title": "Afficher les commandes de zoom ?",
+  "LibBlockly.Settings.Zoom.ShowControls.Description": "Cochez cette case pour afficher les boutons de zoom central, de zoom avant et de zoom arrière. Par défaut, cette option n'est pas cochée.",
 
-  "LibBlockly.Settings.Zoom.Wheel.Title": "Allow mouse wheel to zoom ?",
-  "LibBlockly.Settings.Zoom.Wheel.Description": "Check to allow the mouse wheel to zoom. Defaults to unchecked.",
+  "LibBlockly.Settings.Zoom.Wheel.Title": "Permettre l'usage de la molette de la souris pour zoomer ?",
+  "LibBlockly.Settings.Zoom.Wheel.Description": "Cochez cette case pour permettre à la molette de la souris de zoomer. Par défaut, cette option n'est pas cochée.",
 
   "LibBlockly.Settings.Zoom.StartScale.Title": "Zoom Start Scale",
   "LibBlockly.Settings.Zoom.StartScale.Description": "Initial magnification factor. Defaults to 1.0.",
@@ -44,78 +44,78 @@
 
 
 
-  "LibBlockly.Blocks.User.GetAllUsers.Title": "Get users",
+  "LibBlockly.Blocks.User.GetAllUsers.Title": "Les joueurs",
   "LibBlockly.Blocks.User.GetAllUsers.Tooltip": "",
   "LibBlockly.Blocks.User.GetAllUsers.HelpUrl": "",
   "LibBlockly.Blocks.User.GetAllUsers.Colour": "230",
 
-  "LibBlockly.Blocks.User.GetActorOfUser.Title": "Get user's actor %1",
+  "LibBlockly.Blocks.User.GetActorOfUser.Title": "Trouver l'acteur du joueur %1",
   "LibBlockly.Blocks.User.GetActorOfUser.Tooltip": "",
   "LibBlockly.Blocks.User.GetActorOfUser.HelpUrl": "",
   "LibBlockly.Blocks.User.GetActorOfUser.Colour": "230",
 
-  "LibBlockly.Blocks.User.GetTokenOfUserInScene.Title": "Get user's token in scene %1",
+  "LibBlockly.Blocks.User.GetTokenOfUserInScene.Title": "Trouver le jeton du joueur dans la scène %1",
   "LibBlockly.Blocks.User.GetTokenOfUserInScene.Tooltip": "",
   "LibBlockly.Blocks.User.GetTokenOfUserInScene.HelpUrl": "",
   "LibBlockly.Blocks.User.GetTokenOfUserInScene.Colour": "230",
 
-  "LibBlockly.Blocks.User.GetUserNyNameOrId.Title": "Get user by %1 %2",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.Title": "Trouver le joueur par %1 %2",
   "LibBlockly.Blocks.User.GetUserNyNameOrId.Tooltip": "",
   "LibBlockly.Blocks.User.GetUserNyNameOrId.HelpUrl": "",
   "LibBlockly.Blocks.User.GetUserNyNameOrId.Colour": "230",
-  "LibBlockly.Blocks.User.GetUserNyNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.LookupByName": "nom",
   "LibBlockly.Blocks.User.GetUserNyNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.User.PullUsersToScene.Title": "Pull user %1 to scene %2",
+  "LibBlockly.Blocks.User.PullUsersToScene.Title": "Amener les joueurs %1 sur la scène %2",
   "LibBlockly.Blocks.User.PullUsersToScene.Tooltip": "",
   "LibBlockly.Blocks.User.PullUsersToScene.HelpUrl": "",
   "LibBlockly.Blocks.User.PullUsersToScene.Colour": "230",
 
-  "LibBlockly.Blocks.User.BanUser.Title": "Ban user %1",
+  "LibBlockly.Blocks.User.BanUser.Title": "Bannir le joueur %1",
   "LibBlockly.Blocks.User.BanUser.Tooltip": "",
   "LibBlockly.Blocks.User.BanUser.HelpUrl": "",
   "LibBlockly.Blocks.User.BanUser.Colour": "230",
 
-  "LibBlockly.Blocks.User.UnbanUser.Title": "Un-Ban user %1",
+  "LibBlockly.Blocks.User.UnbanUser.Title": "Dé-bannir les joueurs %1",
   "LibBlockly.Blocks.User.UnbanUser.Tooltip": "",
   "LibBlockly.Blocks.User.UnbanUser.HelpUrl": "",
   "LibBlockly.Blocks.User.UnbanUser.Colour": "230",
 
 
 
-  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Title": "Get playlist by %1 %2",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Title": "Trouver la liste de lecture par %1 %2",
   "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Tooltip": "",
   "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.LookupByName": "nom",
   "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Playlist.StopPlaylist.Title": "Stop playlist %1",
+  "LibBlockly.Blocks.Playlist.StopPlaylist.Title": "Arrêter la liste de lecture %1",
   "LibBlockly.Blocks.Playlist.StopPlaylist.Tooltip": "",
   "LibBlockly.Blocks.Playlist.StopPlaylist.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.StopPlaylist.Colour": "230",
 
-  "LibBlockly.Blocks.Playlist.PlayPlaylist.Title": "Play playlist %1",
+  "LibBlockly.Blocks.Playlist.PlayPlaylist.Title": "Jouer la liste de lecture %1",
   "LibBlockly.Blocks.Playlist.PlayPlaylist.Tooltip": "",
   "LibBlockly.Blocks.Playlist.PlayPlaylist.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.PlayPlaylist.Colour": "230",
 
-  "LibBlockly.Blocks.Playlist.PlayNextTrack.Title": "Play next track %1",
+  "LibBlockly.Blocks.Playlist.PlayNextTrack.Title": "Jouer la piste suivante %1",
   "LibBlockly.Blocks.Playlist.PlayNextTrack.Tooltip": "",
   "LibBlockly.Blocks.Playlist.PlayNextTrack.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.PlayNextTrack.Colour": "230",
 
-  "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Title": "Play previous track %1",
+  "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Title": "Jouer la piste précédente %1",
   "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Tooltip": "",
   "LibBlockly.Blocks.Playlist.PlayPreviousTrack.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Colour": "230",
 
-  "LibBlockly.Blocks.Playlist.GetAllPlaylists.Title": "All playlists",
+  "LibBlockly.Blocks.Playlist.GetAllPlaylists.Title": "Toutes les listes de lecture",
   "LibBlockly.Blocks.Playlist.GetAllPlaylists.Tooltip": "",
   "LibBlockly.Blocks.Playlist.GetAllPlaylists.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.GetAllPlaylists.Colour": "230",
 
-  "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Title": "Currently playing playlist",
+  "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Title": "Liste de lecture en cours",
   "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Tooltip": "",
   "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Colour": "230",
@@ -125,215 +125,216 @@
   "LibBlockly.Blocks.Playlist.CyclePlaylistMode.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.CyclePlaylistMode.Colour": "230",
 
-  "LibBlockly.Blocks.Item.GetItemByNameOrId.Title": "Get item by %1 %2",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.Title": "Trouver l'objet par %1 %2",
   "LibBlockly.Blocks.Item.GetItemByNameOrId.Tooltip": "",
   "LibBlockly.Blocks.Item.GetItemByNameOrId.HelpUrl": "",
   "LibBlockly.Blocks.Item.GetItemByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName": "nom",
   "LibBlockly.Blocks.Item.GetItemByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Title": "Add item %1 to actors/tokens %2",
+  "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Title": "Ajouter les objets %1 aux acteurs/jetons %2",
   "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Tooltip": "",
   "LibBlockly.Blocks.Item.AddItemToTokenOrActor.HelpUrl": "",
   "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Colour": "230",
 
-  "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Title": "Get items from actor/token %1",
+  "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Title": "Récupérer les objets de l'acteur/du jeton %1",
   "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Tooltip": "",
   "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.HelpUrl": "",
   "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Colour": "230",
 
-  "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Title": "Remove items %1 from actor/token %2",
+  "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Title": "Supprimer les objets %1 de l'acteur/jeton %2",
   "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Tooltip": "",
   "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.HelpUrl": "",
   "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Colour": "230",
 
 
 
-  "LibBlockly.Blocks.Chat.SendMessage.Title": "Send message %1 Flavor text %2 As actor/token %3 %4 Hide message",
+  "LibBlockly.Blocks.Chat.SendMessage.Title": "Envoyer un message %1 Description %2 En tant que %3 %4 Masquer le message",
   "LibBlockly.Blocks.Chat.SendMessage.Tooltip": "",
   "LibBlockly.Blocks.Chat.SendMessage.HelpUrl": "",
   "LibBlockly.Blocks.Chat.SendMessage.Colour": "230",
 
 
 
-  "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
-  "LibBlockly.Blocks.Utils.Wait.Seconds": "seconds",
-  "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",
+  "LibBlockly.Blocks.Utils.Wait.Title": "Attendre %1 %2",
+  "LibBlockly.Blocks.Utils.Wait.Seconds": "seconde(s)",
+  "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconde(s)",
   "LibBlockly.Blocks.Utils.Wait.Tooltip": "",
   "LibBlockly.Blocks.Utils.Wait.HelpUrl": "",
   "LibBlockly.Blocks.Utils.Wait.Colour": "230",
 
-  "LibBlockly.Blocks.Utils.ShowNotification.Title": "Show %1 notification %2",
+  "LibBlockly.Blocks.Utils.ShowNotification.Title": "Affichier une notification de type %1 %2",
   "LibBlockly.Blocks.Utils.ShowNotification.Tooltip": "",
   "LibBlockly.Blocks.Utils.ShowNotification.HelpUrl": "",
   "LibBlockly.Blocks.Utils.ShowNotification.Colour": "230",
   "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Info": "information",
-  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Warning": "warning",
-  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Error": "error",
+  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Warning": "avertissement",
+  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Error": "erreur",
 
 
 
-  "LibBlockly.Blocks.Macro.RunMacro.Title": "Run macro %1",
+  "LibBlockly.Blocks.Macro.RunMacro.Title": "Exécuter la macro %1",
   "LibBlockly.Blocks.Macro.RunMacro.Tooltip": "",
   "LibBlockly.Blocks.Macro.RunMacro.HelpUrl": "",
   "LibBlockly.Blocks.Macro.RunMacro.Colour": "230",
 
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Title": "Get macro by %1 %2",
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Title": "Trouver la macro par %1 %2",
   "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Tooltip": "",
   "LibBlockly.Blocks.Macro.GetMacroByNameOrId.HelpUrl": "",
   "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.LookupByName": "nom",
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Macro.GetAllMacros.Title": "All macros",
+  "LibBlockly.Blocks.Macro.GetAllMacros.Title": "Toutes les macros",
   "LibBlockly.Blocks.Macro.GetAllMacros.Tooltip": "",
   "LibBlockly.Blocks.Macro.GetAllMacros.HelpUrl": "",
   "LibBlockly.Blocks.Macro.GetAllMacros.Colour": "230",
 
 
 
-  "LibBlockly.Blocks.Combat.NextCombatRound.Title": "Next round %1",
+  "LibBlockly.Blocks.Combat.NextCombatRound.Title": "Round Suivant %1",
   "LibBlockly.Blocks.Combat.NextCombatRound.Tooltip": "",
   "LibBlockly.Blocks.Combat.NextCombatRound.HelpUrl": "",
   "LibBlockly.Blocks.Combat.NextCombatRound.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.PreviousCombatRound.Title": "Previous round %1",
+  "LibBlockly.Blocks.Combat.PreviousCombatRound.Title": "Round précédent %1",
   "LibBlockly.Blocks.Combat.PreviousCombatRound.Tooltip": "",
   "LibBlockly.Blocks.Combat.PreviousCombatRound.HelpUrl": "",
   "LibBlockly.Blocks.Combat.PreviousCombatRound.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.NextCombatTurn.Title": "Next turn %1",
+  "LibBlockly.Blocks.Combat.NextCombatTurn.Title": "Tour suivant %1",
   "LibBlockly.Blocks.Combat.NextCombatTurn.Tooltip": "",
   "LibBlockly.Blocks.Combat.NextCombatTurn.HelpUrl": "",
   "LibBlockly.Blocks.Combat.NextCombatTurn.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.PreviousCombatTurn.Title": "Previous turn %1",
+  "LibBlockly.Blocks.Combat.PreviousCombatTurn.Title": "Tour précédent %1",
   "LibBlockly.Blocks.Combat.PreviousCombatTurn.Tooltip": "",
   "LibBlockly.Blocks.Combat.PreviousCombatTurn.HelpUrl": "",
   "LibBlockly.Blocks.Combat.PreviousCombatTurn.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.ResetCombat.Title": "Reset combat %1",
+  "LibBlockly.Blocks.Combat.ResetCombat.Title": "Réinitialiser le combat %1",
   "LibBlockly.Blocks.Combat.ResetCombat.Tooltip": "",
   "LibBlockly.Blocks.Combat.ResetCombat.HelpUrl": "",
   "LibBlockly.Blocks.Combat.ResetCombat.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.EndCombat.Title": "Stop combat %1 %2 Ask confirmation ?",
+  "LibBlockly.Blocks.Combat.EndCombat.Title": "Arrêter le combat %1 %2 Demander une confirmation ?",
   "LibBlockly.Blocks.Combat.EndCombat.Tooltip": "",
   "LibBlockly.Blocks.Combat.EndCombat.HelpUrl": "",
   "LibBlockly.Blocks.Combat.EndCombat.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.ActivateCombat.Title": "Activate combat %1",
+  "LibBlockly.Blocks.Combat.ActivateCombat.Title": "Activer le combat %1",
   "LibBlockly.Blocks.Combat.ActivateCombat.Tooltip": "",
   "LibBlockly.Blocks.Combat.ActivateCombat.HelpUrl": "",
   "LibBlockly.Blocks.Combat.ActivateCombat.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.StartCombat.Title": "Start combat %1",
+  "LibBlockly.Blocks.Combat.StartCombat.Title": "Démarrer le combat %1",
   "LibBlockly.Blocks.Combat.StartCombat.Tooltip": "",
   "LibBlockly.Blocks.Combat.StartCombat.HelpUrl": "",
   "LibBlockly.Blocks.Combat.StartCombat.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.IsCombatActive.Title": "Is combat %1 active ?",
+  "LibBlockly.Blocks.Combat.IsCombatActive.Title": "Le combat %1 est-il actif ?",
   "LibBlockly.Blocks.Combat.IsCombatActive.Tooltip": "",
   "LibBlockly.Blocks.Combat.IsCombatActive.HelpUrl": "",
   "LibBlockly.Blocks.Combat.IsCombatActive.Colour": "230",
   "LibBlockly.Blocks.Combat.IsCombatActive.InlineInputs": "true",
 
-  "LibBlockly.Blocks.Combat.GetActiveCombat.Title": "Active combat",
+  "LibBlockly.Blocks.Combat.GetActiveCombat.Title": "Combat actif",
   "LibBlockly.Blocks.Combat.GetActiveCombat.Tooltip": "",
   "LibBlockly.Blocks.Combat.GetActiveCombat.HelpUrl": "",
   "LibBlockly.Blocks.Combat.GetActiveCombat.Colour": "230",
 
-  "LibBlockly.Blocks.Combat.CreateCombat.Title": "Create combat in scene %1",
+  "LibBlockly.Blocks.Combat.CreateCombat.Title": "Créer un combat dans la scène %1",
   "LibBlockly.Blocks.Combat.CreateCombat.Tooltip": "",
   "LibBlockly.Blocks.Combat.CreateCombat.HelpUrl": "",
   "LibBlockly.Blocks.Combat.CreateCombat.Colour": "230",
 
 
 
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Title": "Get rolltable by %1 %2",
+  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Title": "Trouver la table par %1 %2",
   "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Tooltip": "",
   "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.HelpUrl": "",
   "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupByName": "nom",
   "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Rolltable.RollTable.Title": "Roll table %1",
+  "LibBlockly.Blocks.Rolltable.RollTable.Title": "Lancer un jet sur la table %1",
   "LibBlockly.Blocks.Rolltable.RollTable.Tooltip": "",
   "LibBlockly.Blocks.Rolltable.RollTable.HelpUrl": "",
   "LibBlockly.Blocks.Rolltable.RollTable.Colour": "230",
 
-  "LibBlockly.Blocks.Rolltable.GetTableResultData.Title": "Get %1 %2 from table result %3",
+  "LibBlockly.Blocks.Rolltable.GetTableResultData.Title": "Récupérer %1 %2 depuis le résultat de table %3",
   "LibBlockly.Blocks.Rolltable.GetTableResultData.Tooltip": "",
   "LibBlockly.Blocks.Rolltable.GetTableResultData.HelpUrl": "",
   "LibBlockly.Blocks.Rolltable.GetTableResultData.Colour": "230",
   "LibBlockly.Blocks.Rolltable.GetTableResultData.InlineInputs": "true",
 
 
-  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Title": "Get scene by %1 %2",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Title": "Trouver la scène par %1 %2",
   "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Tooltip": "",
   "LibBlockly.Blocks.Scene.GetSceneByNameOrId.HelpUrl": "",
   "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.LookupByName": "nom",
   "LibBlockly.Blocks.Scene.GetSceneByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Scene.ViewScene.Title": "View scene %1",
+  "LibBlockly.Blocks.Scene.ViewScene.Title": "Voir la scène %1",
   "LibBlockly.Blocks.Scene.ViewScene.Tooltip": "",
   "LibBlockly.Blocks.Scene.ViewScene.HelpUrl": "",
   "LibBlockly.Blocks.Scene.ViewScene.Colour": "230",
 
-  "LibBlockly.Blocks.Scene.ActivateScene.Title": "Activate scene %1",
+  "LibBlockly.Blocks.Scene.ActivateScene.Title": "Activer la scèsne %1",
   "LibBlockly.Blocks.Scene.ActivateScene.Tooltip": "",
   "LibBlockly.Blocks.Scene.ActivateScene.HelpUrl": "",
   "LibBlockly.Blocks.Scene.ActivateScene.Colour": "230",
 
-  "LibBlockly.Blocks.Scene.GetCurrentScene.Title": "Current scene",
+  "LibBlockly.Blocks.Scene.GetCurrentScene.Title": "Scène actuelle",
   "LibBlockly.Blocks.Scene.GetCurrentScene.Tooltip": "",
   "LibBlockly.Blocks.Scene.GetCurrentScene.HelpUrl": "",
   "LibBlockly.Blocks.Scene.GetCurrentScene.Colour": "230",
 
-  "LibBlockly.Blocks.Scene.GetAllScenes.Title": "All scenes",
+  "LibBlockly.Blocks.Scene.GetAllScenes.Title": "Toutes les scènes",
   "LibBlockly.Blocks.Scene.GetAllScenes.Tooltip": "",
   "LibBlockly.Blocks.Scene.GetAllScenes.HelpUrl": "",
   "LibBlockly.Blocks.Scene.GetAllScenes.Colour": "230",
 
 
-  "LibBlockly.Blocks.Token.ShowTokens.Title": "Show token %1",
+  "LibBlockly.Blocks.Token.ShowTokens.Title": "Afficher le jeton %1",
   "LibBlockly.Blocks.Token.ShowTokens.Tooltip": "",
   "LibBlockly.Blocks.Token.ShowTokens.HelpUrl": "",
   "LibBlockly.Blocks.Token.ShowTokens.Colour": "230",
 
-  "LibBlockly.Blocks.Token.HideTokens.Title": "Hide token %1",
+  "LibBlockly.Blocks.Token.HideTokens.Title": "Masquer le jeton %1",
   "LibBlockly.Blocks.Token.HideTokens.Tooltip": "",
   "LibBlockly.Blocks.Token.HideTokens.HelpUrl": "",
   "LibBlockly.Blocks.Token.HideTokens.Colour": "230",
 
-  "LibBlockly.Blocks.Token.ToggleTokensVisibility.Title": "Toggle tokens visibility %1",
+  "LibBlockly.Blocks.Token.ToggleTokensVisibility.Title": "Intervertir la visibilité du jeton %1",
   "LibBlockly.Blocks.Token.ToggleTokensVisibility.Tooltip": "",
   "LibBlockly.Blocks.Token.ToggleTokensVisibility.HelpUrl": "",
   "LibBlockly.Blocks.Token.ToggleTokensVisibility.Colour": "230",
 
-  "LibBlockly.Blocks.Token.GetSelectedTokens.Title": "Selected tokens",
+  "LibBlockly.Blocks.Token.GetSelectedTokens.Title": "Jetons sélectionnés",
   "LibBlockly.Blocks.Token.GetSelectedTokens.Tooltip": "",
   "LibBlockly.Blocks.Token.GetSelectedTokens.HelpUrl": "",
   "LibBlockly.Blocks.Token.GetSelectedTokens.Colour": "230",
 
-  "LibBlockly.Blocks.Token.GetAllTokens.Title": "All tokens",
+  "LibBlockly.Blocks.Token.GetAllTokens.Title": "Tous les jetons",
   "LibBlockly.Blocks.Token.GetAllTokens.Tooltip": "",
   "LibBlockly.Blocks.Token.GetAllTokens.HelpUrl": "",
   "LibBlockly.Blocks.Token.GetAllTokens.Colour": "230",
 
-  "LibBlockly.Blocks.Token.ToggleCombatState.Title": "Toggle combat state %1",
+  "LibBlockly.Blocks.Token.ToggleCombatState.Title": "Basculer le mode combat %1",
   "LibBlockly.Blocks.Token.ToggleCombatState.Tooltip": "",
   "LibBlockly.Blocks.Token.ToggleCombatState.HelpUrl": "",
   "LibBlockly.Blocks.Token.ToggleCombatState.Colour": "230",
 
-  "LibBlockly.Blocks.Token.GetAllTokensInScene.Title": "Get tokens in scene %1",
+  "LibBlockly.Blocks.Token.GetAllTokensInScene.Title": "Trouver les jetons dans la scène %1",
   "LibBlockly.Blocks.Token.GetAllTokensInScene.Tooltip": "",
   "LibBlockly.Blocks.Token.GetAllTokensInScene.HelpUrl": "",
   "LibBlockly.Blocks.Token.GetAllTokensInScene.Colour": "230",
 
 
 
-
-  "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
+  "LibBlockly.Blocks.Roll.Roll.Title": "Lander un dé %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
   "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",
   "LibBlockly.Blocks.Roll.Roll.Colour": "230"

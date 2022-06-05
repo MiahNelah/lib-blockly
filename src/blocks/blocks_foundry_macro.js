@@ -49,8 +49,8 @@ class GetMacroByNameOrIdCustomBlock {
                     "type": "field_dropdown",
                     "name": "lookupType",
                     "options": [
-                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName"), "name"],
-                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupById"), "id"]
+                        [game.i18n.localize("LibBlockly.Blocks.Macro.GetMacroByNameOrId.LookupByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Macro.GetMacroByNameOrId.LookupById"), "id"]
                     ]
                 },
                 {
