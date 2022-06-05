@@ -83,6 +83,50 @@
 
 
 
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Title": "Get playlist by %1 %2",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Playlist.GetPlaylistByNameOrId.LookupById": "ID",
+
+  "LibBlockly.Blocks.Playlist.StopPlaylist.Title": "Stop playlist %1",
+  "LibBlockly.Blocks.Playlist.StopPlaylist.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.StopPlaylist.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.StopPlaylist.Colour": "230",
+
+  "LibBlockly.Blocks.Playlist.PlayPlaylist.Title": "Play playlist %1",
+  "LibBlockly.Blocks.Playlist.PlayPlaylist.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.PlayPlaylist.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.PlayPlaylist.Colour": "230",
+
+  "LibBlockly.Blocks.Playlist.PlayNextTrack.Title": "Play next track %1",
+  "LibBlockly.Blocks.Playlist.PlayNextTrack.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.PlayNextTrack.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.PlayNextTrack.Colour": "230",
+
+  "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Title": "Play previous track %1",
+  "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.PlayPreviousTrack.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.PlayPreviousTrack.Colour": "230",
+
+  "LibBlockly.Blocks.Playlist.GetAllPlaylists.Title": "All playlists",
+  "LibBlockly.Blocks.Playlist.GetAllPlaylists.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.GetAllPlaylists.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.GetAllPlaylists.Colour": "230",
+
+  "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Title": "Currently playing playlist",
+  "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.GetPlayingPlaylists.Colour": "230",
+
+  "LibBlockly.Blocks.Playlist.CyclePlaylistMode.Title": "Cycle playlist mode %1",
+  "LibBlockly.Blocks.Playlist.CyclePlaylistMode.Tooltip": "",
+  "LibBlockly.Blocks.Playlist.CyclePlaylistMode.HelpUrl": "",
+  "LibBlockly.Blocks.Playlist.CyclePlaylistMode.Colour": "230",
+
+
+
   "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
   "LibBlockly.Blocks.Utils.Wait.Seconds": "seconds",
   "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",

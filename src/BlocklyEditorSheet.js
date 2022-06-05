@@ -46,30 +46,31 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDrop(event) {
         const data = JSON.parse(event.dataTransfer.getData("text"));
         if (data) {
+            const uuid = `${data.pack ? data.pack + "." : ""}${data.type}.${data.id}`;
             switch (data.type) {
                 case "Scene":
-                    this._onDropScene(event, data);
+                    await this._onDropScene(event, data, uuid);
                     break;
                 case "Actor":
-                    this._onDropActor(event, data);
+                    await this._onDropActor(event, data, uuid);
                     break;
                 case "Item":
-                    this._onDropItem(event, data);
+                    await this._onDropItem(event, data, uuid);
                     break;
                 case "Journal":
-                    this._onDropJournal(event, data);
+                    await this._onDropJournal(event, data, uuid);
                     break;
                 case "RollTable":
-                    this._onDropRollTable(event, data);
+                    await this._onDropRollTable(event, data, uuid);
                     break;
                 case "Playlist":
-                    this._onDropPlaylist(event, data);
+                    await this._onDropPlaylist(event, data, uuid);
                     break;
                 case "Compendium":
-                    this._onDropCompendium(event, data);
+                    await this._onDropCompendium(event, data, uuid);
                     break;
                 case "Macro":
-                    this._onDropMacro(event, data);
+                    await this._onDropMacro(event, data, uuid);
                     break;
             }
         }
@@ -200,7 +201,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
         return fp.browse();
     }
 
-    _onDropScene(event, data) {
+    async _onDropScene(event, data, uuid) {
         const id = data.id;
         const newChild = this.workspace.newBlock("foundry_scene_get_scene_dropdown");
         newChild.getField("scene-id").setValue(id);
@@ -208,11 +209,11 @@ export class BlocklyEditorSheet extends DocumentSheet {
         newChild.render();
     }
 
-    _onDropActor(event, data) {
+    async _onDropActor(event, data, uuid) {
         ui.notifications.warn("Drag & dropping Actor is not yet implemented !");
     }
 
-    _onDropItem(event, data) {
+    async _onDropItem(event, data, uuid) {
         const id = data.id;
         const newChild = this.workspace.newBlock("foundry_item_get_item_from_world");
         newChild.getField("item-id").setValue(id);
@@ -220,11 +221,11 @@ export class BlocklyEditorSheet extends DocumentSheet {
         newChild.render();
     }
 
-    _onDropJournal(event, data) {
+    async _onDropJournal(event, data, uuid) {
         ui.notifications.warn("Drag & dropping Journal is not yet implemented !");
     }
 
-    _onDropRollTable(event, data) {
+    async _onDropRollTable(event, data, uuid) {
         const id = data.id;
         const newChild = this.workspace.newBlock("foundry_rolltable_get_rolltable_dropdown");
         newChild.getField("rolltable-id").setValue(id);
@@ -232,19 +233,27 @@ export class BlocklyEditorSheet extends DocumentSheet {
         newChild.render();
     }
 
-    _onDropPlaylist(event, data) {
-        const id = data.id;
-        const newChild = this.workspace.newBlock("foundry_playlist_get_playlist");
-        newChild.getField("playlist-id").setValue(id);
-        newChild.initSvg();
-        newChild.render();
+    async _onDropPlaylist(event, data, uuid) {
+        const playlist = await fromUuid(uuid);
+
+        const getPlaylistNyNameBlock = this.workspace.newBlock("foundry_playlist_get_playlist_by_name_or_id");
+        getPlaylistNyNameBlock.getField("lookupType").setValue("name");
+        getPlaylistNyNameBlock.initSvg();
+        getPlaylistNyNameBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(playlist.name);
+        text.initSvg();
+        text.render();
+
+        getPlaylistNyNameBlock.getInput("input").connection.connect(text.outputConnection);
     }
 
-    _onDropCompendium(event, data) {
+    async _onDropCompendium(event, data, uuid) {
         ui.notifications.warn("Drag & dropping Compendium is not yet implemented !");
     }
 
-    _onDropMacro(event, data) {
+    async _onDropMacro(event, data, uuid) {
         const id = data.id;
         const getMacroBlock = this.workspace.newBlock("foundry_macro_get_macro");
         getMacroBlock.getField("macro-id").setValue(id);
