@@ -27,6 +27,10 @@ Hello, World !
 Let's prepare a battle !
 ![image](https://user-images.githubusercontent.com/1334405/172059866-a4dc2502-1c26-4622-a048-24072c5744a6.png)
 
+Drag&Drop support
+
+![drag&drop](https://user-images.githubusercontent.com/1334405/171998545-0182f6a2-5c43-4610-b9a1-55a67c677384.gif)
+
 
 (more to come :blush:)
 
