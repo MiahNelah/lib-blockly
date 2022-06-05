@@ -357,5 +357,29 @@
   "LibBlockly.Blocks.Journal.ShowJournalAs.HelpUrl": "",
   "LibBlockly.Blocks.Journal.ShowJournalAs.Colour": "230",
   "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsText": "texte",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsImage": "image"
+  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsImage": "image",
+
+
+
+  "LibBlockly.Blocks.Actor.GetActorByNameOrId.Title": "Trouver un acteur par %1 %2",
+  "LibBlockly.Blocks.Actor.GetActorByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Actor.GetActorByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Actor.GetActorByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Actor.GetActorByNameOrId.LookupByName": "nom",
+  "LibBlockly.Blocks.Actor.GetActorByNameOrId.LookupById": "ID",
+
+  "LibBlockly.Blocks.Actor.GetTokenFromActor.Title": "Trouver l'acteur du jeton %1",
+  "LibBlockly.Blocks.Actor.GetTokenFromActor.Tooltip": "",
+  "LibBlockly.Blocks.Actor.GetTokenFromActor.HelpUrl": "",
+  "LibBlockly.Blocks.Actor.GetTokenFromActor.Colour": "230",
+
+  "LibBlockly.Blocks.Actor.GetAllActors.Title": "Tous les acteurs",
+  "LibBlockly.Blocks.Actor.GetAllActors.Tooltip": "",
+  "LibBlockly.Blocks.Actor.GetAllActors.HelpUrl": "",
+  "LibBlockly.Blocks.Actor.GetAllActors.Colour": "230",
+
+  "LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.Title": "Trouver les jetons de l'acteur %1 dans la scène actuelle",
+  "LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.Tooltip": "",
+  "LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.HelpUrl": "",
+  "LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.Colour": "230"
 }

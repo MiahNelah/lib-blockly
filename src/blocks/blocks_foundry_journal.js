@@ -139,7 +139,7 @@ class ShowJournalAsCustomBlock {
      */
     generateCode(block) {
         const value_name = Blockly.JavaScript.valueToCode(block, 'journal', Blockly.JavaScript.ORDER_ATOMIC);
-        var dropdown_showAs = block.getFieldValue('showAs');
+        const dropdown_showAs = block.getFieldValue('showAs');
         return `if (${value_name}) await ${value_name}.show("${dropdown_showAs}");\n`;
     }
 }

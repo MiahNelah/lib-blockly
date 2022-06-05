@@ -218,7 +218,19 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _onDropActor(event, data, uuid) {
-        ui.notifications.warn("Drag & dropping Actor is not yet implemented !");
+        const actor = await fromUuid(uuid);
+
+        const getActorNyNameBlock = this.workspace.newBlock("foundry_actor_get_actor_by_name_or_id");
+        getActorNyNameBlock.getField("lookupType").setValue("name");
+        getActorNyNameBlock.initSvg();
+        getActorNyNameBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(actor.name);
+        text.initSvg();
+        text.render();
+
+        getActorNyNameBlock.getInput("input").connection.connect(text.outputConnection);
     }
 
     async _onDropItem(event, data, uuid) {

@@ -1,3 +1,4 @@
+import "./blocks_foundry_actor.js";
 import "./blocks_foundry_chat.js";
 import "./blocks_foundry_combat.js";
 import "./blocks_foundry_item.js";
