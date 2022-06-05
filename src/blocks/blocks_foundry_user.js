@@ -4,7 +4,7 @@
 class GetAllUsersCustomBlock {
     constructor() {
         this.kind = "block";
-        this.key = "foundry_user_list";
+        this.key = "foundry_user_get_all_user";
         this.category = "Foundry.User";
     }
 

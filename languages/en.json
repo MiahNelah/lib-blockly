@@ -175,6 +175,23 @@
 
 
 
+  "LibBlockly.Blocks.Macro.RunMacro.Title": "Run macro %1",
+  "LibBlockly.Blocks.Macro.RunMacro.Tooltip": "",
+  "LibBlockly.Blocks.Macro.RunMacro.HelpUrl": "",
+  "LibBlockly.Blocks.Macro.RunMacro.Colour": "230",
+
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Title": "Get macro by %1 %2",
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Colour": "230",
+
+  "LibBlockly.Blocks.Macro.GetAllMacros.Title": "All macros",
+  "LibBlockly.Blocks.Macro.GetAllMacros.Tooltip": "",
+  "LibBlockly.Blocks.Macro.GetAllMacros.HelpUrl": "",
+  "LibBlockly.Blocks.Macro.GetAllMacros.Colour": "230",
+
+
+
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
   "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",

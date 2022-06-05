@@ -1,75 +1,141 @@
-Blockly.defineBlocksWithJsonArray([
-    {
-        "type": "foundry_macro_run_macro",
-        "message0": "Run macro %1",
-        "args0": [
-            {
-                "type": "input_value",
-                "name": "macro",
-                "check": "Macro"
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "foundry_macro_all_macro",
-        "message0": "All macros",
-        "output": "Array",
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-
-]);
-
-Blockly.Blocks['foundry_macro_get_macro'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("Get macro")
-            .appendField(new Blockly.FieldDropdown(this.getMacroList), "macro-id");
-        this.setOutput(true, "Macro");
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    },
-    getMacroList: function () {
-        return game.macros.map(x => [x.name, x.id]);
+class GetAllMacrosCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_macro_get_all_macros";
+        this.category = "Foundry.Macro";
     }
-};
 
-Blockly.JavaScript['foundry_macro_run_macro'] = function (block) {
-    const value_macro = Blockly.JavaScript.valueToCode(block, 'macro', Blockly.JavaScript.ORDER_ATOMIC);
-    let runMacroHelper = Blockly.JavaScript.provideFunction_("blockly_run_macro_helper", [
-        `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(macro) {`,
-        `  if (!macro) return undefined;`,
-        `  if (macro instanceof Macro && macro.canExecute) return macro.execute();`,
-        `  if (typeof macro === 'string') {`,
-        `    return ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(game.macros.get(macro) ?? game.macros.getName(macro));`,
-        `  }`,
-        `}`
-    ]);
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Macro.GetAllMacros.Title"),
+            "output": [
+                "Array"
+            ],
+            "colour": game.i18n.localize("LibBlockly.Blocks.Macro.GetAllMacros.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Macro.GetAllMacros.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Macro.GetAllMacros.HelpUrl"),
+        }
+    }
 
-    return `${runMacroHelper}(${value_macro});\n`;
-};
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        return ["game.macros", Blockly.JavaScript.ORDER_NONE];
+    }
+}
 
-Blockly.JavaScript['foundry_macro_all_macro'] = function (block) {
-    return ["game.macros", Blockly.JavaScript.ORDER_NONE];
-};
+class GetMacroByNameOrIdCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_macro_get_macro_by_name_or_id";
+        this.category = "Foundry.Macro";
+    }
 
-Blockly.JavaScript['foundry_macro_get_macro'] = function (block) {
-    var macro_input = block.getFieldValue('macro-id');
-    return [`game.macros.get("${macro_input}")`, Blockly.JavaScript.ORDER_NONE];
-};
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Macro.GetMacroByNameOrId.Title"),
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupById"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Macro"
+            ],
+            "colour": game.i18n.localize("LibBlockly.Blocks.Macro.GetMacroByNameOrId.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Macro.GetMacroByNameOrId.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Macro.GetMacroByNameOrId.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const dropdown_lookuptype = block.getFieldValue('lookupType');
+        const value_input = Blockly.JavaScript.valueToCode(block, 'input', Blockly.JavaScript.ORDER_ATOMIC);
+        switch (dropdown_lookuptype) {
+            case "name":
+                return [`game.macros.getName(${value_input})`, Blockly.JavaScript.ORDER_NONE];
+            case "id":
+                return [`game.macros.get(${value_input})`, Blockly.JavaScript.ORDER_NONE];
+        }
+    }
+}
+
+class RunMacroCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_macro_run_macro";
+        this.category = "Foundry.Macro";
+    }
+
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Macro.RunMacro.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "macro",
+                    "check": [
+                        "Macro",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Macro.RunMacro.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Macro.RunMacro.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Macro.RunMacro.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const value_macro = Blockly.JavaScript.valueToCode(block, 'macro', Blockly.JavaScript.ORDER_ATOMIC);
+        const runMacroHelper = Blockly.JavaScript.provideFunction_(`${this.key}_run_macro_helper`, [
+            `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(macro) {`,
+            `  if (!macro) return undefined;`,
+            `  if (macro instanceof Macro && macro.canExecute) return await macro.execute();`,
+            `  if (typeof macro === 'string') {`,
+            `    return ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(game.macros.get(macro) ?? game.macros.getName(macro));`,
+            `  }`,
+            `}`
+        ]);
+
+        return `${runMacroHelper}(${value_macro});\n`;
+    }
+}
 
 Hooks.once('ready', () => {
-    game.modules.get("libblockly")
-        .toolboxManager.getCategory("Foundry", true)
-        .addCategory("Macro")
-        .addBlock("block", "foundry_macro_all_macro")
-        .addBlock("block", "foundry_macro_get_macro")
-        .addBlock("block", "foundry_macro_run_macro");
+    game.modules.get("libblockly").blockManager.register([
+        new RunMacroCustomBlock(),
+        new GetMacroByNameOrIdCustomBlock(),
+        new GetAllMacrosCustomBlock()
+    ]);
 })

@@ -262,11 +262,21 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _onDropMacro(event, data, uuid) {
-        const id = data.id;
-        const getMacroBlock = this.workspace.newBlock("foundry_macro_get_macro");
-        getMacroBlock.getField("macro-id").setValue(id);
+        const macro = await fromUuid(uuid);
+
+
+
+        const getMacroBlock = this.workspace.newBlock("foundry_macro_get_macro_by_name_or_id");
+        getMacroBlock.getField("lookupType").setValue("name");
         getMacroBlock.initSvg();
         getMacroBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(macro.name);
+        text.initSvg();
+        text.render();
+
+        getMacroBlock.getInput("input").connection.connect(text.outputConnection);
 
         const runMacroBlock = this.workspace.newBlock("foundry_macro_run_macro");
         runMacroBlock.initSvg();
