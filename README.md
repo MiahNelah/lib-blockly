@@ -24,9 +24,8 @@ Hello, World !
 
 ![HelloWorld](https://user-images.githubusercontent.com/1334405/170825801-e54456d6-5bea-4874-a5de-b670f1a79a03.gif)
 
-Change tokens visibility
-
-![TokenVisibility](https://user-images.githubusercontent.com/1334405/170879543-21ac8ed0-e198-458d-a79b-2b8d902f3901.gif)
+Let's prepare a battle !
+![image](https://user-images.githubusercontent.com/1334405/172059866-a4dc2502-1c26-4622-a048-24072c5744a6.png)
 
 
 (more to come :blush:)
