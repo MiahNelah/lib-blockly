@@ -202,11 +202,19 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _onDropScene(event, data, uuid) {
-        const id = data.id;
-        const newChild = this.workspace.newBlock("foundry_scene_get_scene_dropdown");
-        newChild.getField("scene-id").setValue(id);
-        newChild.initSvg();
-        newChild.render();
+        const scene = await fromUuid(uuid);
+
+        const getSceneBlock = this.workspace.newBlock("foundry_scene_get_scene_by_name_or_id");
+        getSceneBlock.getField("lookupType").setValue("name");
+        getSceneBlock.initSvg();
+        getSceneBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(scene.name);
+        text.initSvg();
+        text.render();
+
+        getSceneBlock.getInput("input").connection.connect(text.outputConnection);
     }
 
     async _onDropActor(event, data, uuid) {

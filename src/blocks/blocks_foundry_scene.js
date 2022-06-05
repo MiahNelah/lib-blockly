@@ -1,112 +1,203 @@
-Blockly.defineBlocksWithJsonArray([
-  {
-    "type": "foundry_scene_get_current_scene",
-    "message0": "Current Scene",
-    "output": "Scene",
-    "colour": 230,
-    "tooltip": "",
-    "helpUrl": ""
-  },
-  {
-    "type": "foundry_scene_activate",
-    "message0": "Activate scene %1",
-    "args0": [
-      {
-        "type": "input_value",
-        "name": "scene",
-        "check": "Scene"
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": 230,
-    "tooltip": "",
-    "helpUrl": ""
-  },
-  {
-    "type": "foundry_scene_view",
-    "message0": "View scene %1",
-    "args0": [
-      {
-        "type": "input_value",
-        "name": "scene",
-        "check": "Scene"
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": 230,
-    "tooltip": "",
-    "helpUrl": ""
-  }
-]);
+class ActivateSceneCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_scene_activate_scene";
+        this.category = "Foundry.Scene";
+    }
 
-Blockly.Blocks['foundry_scene_get_scene_dropdown'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField("Get scene")
-      .appendField(new Blockly.FieldDropdown(this.getSceneList), "scene-id");
-    this.setOutput(true, null);
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-  getSceneList: function () {
-    return game.scenes.map(x => [x.name, x.id]);
-  }
-};
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Scene.ActivateScene.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "scene",
+                    "check": "Scene"
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Scene.ActivateScene.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Scene.ActivateScene.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Scene.ActivateScene.HelpUrl"),
+        }
+    }
 
-Blockly.Blocks['foundry_scene_rename_scene'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField("Rename scene")
-      .appendField(new Blockly.FieldDropdown(this.getSceneList), "scene-id")
-      .appendField("to")
-      .appendField(new Blockly.FieldTextInput(""), "newName");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-  getSceneList: function () {
-    return game.scenes.map(x => [x.name, x.id]);
-  }
-};
-
-Blockly.JavaScript["foundry_scene_get_current_scene"] = function (block) {
-  return [`canvas.scene`, Blockly.JavaScript.ORDER_NONE];
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const scene_input = Blockly.JavaScript.valueToCode(block, 'scene', Blockly.JavaScript.ORDER_ATOMIC);
+        return `if (${scene_input}) await ${scene_input}.activate();`;
+    }
 }
 
-Blockly.JavaScript["foundry_scene_activate"] = function (block) {
-  var scene_input = Blockly.JavaScript.valueToCode(block, 'scene', Blockly.JavaScript.ORDER_ATOMIC);
-  return `if (${scene_input} !== undefined && ${scene_input} instanceof Scene) { await (${scene_input}).activate(); }`;
+class ViewSceneCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_scene_view_scene";
+        this.category = "Foundry.Scene";
+    }
+
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Scene.ViewScene.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "scene",
+                    "check": "Scene"
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Scene.ViewScene.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Scene.ViewScene.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Scene.ViewScene.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const scene_input = Blockly.JavaScript.valueToCode(block, 'scene', Blockly.JavaScript.ORDER_ATOMIC);
+        return `if (${scene_input}) await ${scene_input}.view();`;
+    }
 }
 
-Blockly.JavaScript["foundry_scene_view"] = function (block) {
-  var scene_input = Blockly.JavaScript.valueToCode(block, 'scene', Blockly.JavaScript.ORDER_ATOMIC);
-  return `if (${scene_input} !== undefined && ${scene_input} instanceof Scene) { await ${scene_input}.view(); }`;
+class GetAllScenesCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_scene_get_all_scenes";
+        this.category = "Foundry.Scene";
+    }
+
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Scene.GetAllScenes.Title"),
+            "output": "Array",
+            "colour": game.i18n.localize("LibBlockly.Blocks.Scene.GetAllScenes.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Scene.GetAllScenes.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Scene.GetAllScenes.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        return [`game.scenes`, Blockly.JavaScript.ORDER_NONE];
+    }
 }
 
-Blockly.JavaScript["foundry_scene_get_scene_dropdown"] = function (block) {
-  const sceneId_input = block.getField('scene-id').getValue();
-  return [`game.scenes.get("${sceneId_input}")`, Blockly.JavaScript.ORDER_NONE];
+class GetCurrentSceneCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_scene_get_current_scene";
+        this.category = "Foundry.Scene";
+    }
+
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Scene.GetCurrentScene.Title"),
+            "output": "Scene",
+            "colour": game.i18n.localize("LibBlockly.Blocks.Scene.GetCurrentScene.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Scene.GetCurrentScene.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Scene.GetCurrentScene.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        return [`canvas.scene`, Blockly.JavaScript.ORDER_NONE];
+    }
 }
 
-Blockly.JavaScript["foundry_scene_rename_scene"] = function (block) {
-  const sceneId_input = block.getField('scene-id').getValue();
-  const text_newname = block.getFieldValue('newName');
-  return `await game.scenes.get("${sceneId_input}").update({name:"${text_newname}"});`;
-}
+class GetSceneByNameOrIdCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_scene_get_scene_by_name_or_id";
+        this.category = "Foundry.Scene";
+    }
 
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Scene.GetSceneByNameOrId.Title"),
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupById"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Scene"
+            ],
+            "colour": game.i18n.localize("LibBlockly.Blocks.Scene.GetSceneByNameOrId.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Scene.GetSceneByNameOrId.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Scene.GetSceneByNameOrId.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const dropdown_lookuptype = block.getFieldValue('lookupType');
+        const value_input = Blockly.JavaScript.valueToCode(block, 'input', Blockly.JavaScript.ORDER_ATOMIC);
+        switch (dropdown_lookuptype) {
+            case "name":
+                return [`game.scenes.getName(${value_input})`, Blockly.JavaScript.ORDER_NONE];
+            case "id":
+                return [`game.scenes.get(${value_input})`, Blockly.JavaScript.ORDER_NONE];
+        }
+    }
+}
 
 Hooks.once('ready', () => {
-  game.modules.get("libblockly")
-      .toolboxManager.getCategory("Foundry", true)
-      .addCategory("Scene")
-      .addBlock("block", "foundry_scene_get_scene_dropdown")
-      .addBlock("block", "foundry_scene_get_current_scene")
-      .addBlock("block", "foundry_scene_activate")
-      .addBlock("block", "foundry_scene_view")
-      .addBlock("block", "foundry_scene_rename_scene");
+    game.modules.get("libblockly").blockManager.register([
+        new GetSceneByNameOrIdCustomBlock(),
+        new ViewSceneCustomBlock(),
+        new ActivateSceneCustomBlock(),
+        new GetCurrentSceneCustomBlock(),
+        new GetAllScenesCustomBlock()
+    ]);
 })

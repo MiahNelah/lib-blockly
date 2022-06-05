@@ -269,6 +269,34 @@
   "LibBlockly.Blocks.Rolltable.GetTableResultData.InlineInputs": "true",
 
 
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Title": "Get scene by %1 %2",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Scene.GetSceneByNameOrId.LookupById": "ID",
+
+  "LibBlockly.Blocks.Scene.ViewScene.Title": "View scene %1",
+  "LibBlockly.Blocks.Scene.ViewScene.Tooltip": "",
+  "LibBlockly.Blocks.Scene.ViewScene.HelpUrl": "",
+  "LibBlockly.Blocks.Scene.ViewScene.Colour": "230",
+
+  "LibBlockly.Blocks.Scene.ActivateScene.Title": "Activate scene %1",
+  "LibBlockly.Blocks.Scene.ActivateScene.Tooltip": "",
+  "LibBlockly.Blocks.Scene.ActivateScene.HelpUrl": "",
+  "LibBlockly.Blocks.Scene.ActivateScene.Colour": "230",
+
+  "LibBlockly.Blocks.Scene.GetCurrentScene.Title": "Current scene",
+  "LibBlockly.Blocks.Scene.GetCurrentScene.Tooltip": "",
+  "LibBlockly.Blocks.Scene.GetCurrentScene.HelpUrl": "",
+  "LibBlockly.Blocks.Scene.GetCurrentScene.Colour": "230",
+
+  "LibBlockly.Blocks.Scene.GetAllScenes.Title": "All scenes",
+  "LibBlockly.Blocks.Scene.GetAllScenes.Tooltip": "",
+  "LibBlockly.Blocks.Scene.GetAllScenes.HelpUrl": "",
+  "LibBlockly.Blocks.Scene.GetAllScenes.Colour": "230",
+
+
 
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
