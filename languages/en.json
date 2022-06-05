@@ -44,12 +44,53 @@
 
 
 
+  "LibBlockly.Blocks.User.GetAllUsers.Title": "Get users",
+  "LibBlockly.Blocks.User.GetAllUsers.Tooltip": "",
+  "LibBlockly.Blocks.User.GetAllUsers.HelpUrl": "",
+  "LibBlockly.Blocks.User.GetAllUsers.Colour": "230",
+
+  "LibBlockly.Blocks.User.GetActorOfUser.Title": "Get user's actor %1",
+  "LibBlockly.Blocks.User.GetActorOfUser.Tooltip": "",
+  "LibBlockly.Blocks.User.GetActorOfUser.HelpUrl": "",
+  "LibBlockly.Blocks.User.GetActorOfUser.Colour": "230",
+
+  "LibBlockly.Blocks.User.GetTokenOfUserInScene.Title": "Get user's token in scene %1",
+  "LibBlockly.Blocks.User.GetTokenOfUserInScene.Tooltip": "",
+  "LibBlockly.Blocks.User.GetTokenOfUserInScene.HelpUrl": "",
+  "LibBlockly.Blocks.User.GetTokenOfUserInScene.Colour": "230",
+
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.Title": "Get user by %1 %2",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.Colour": "230",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.User.GetUserNyNameOrId.LookupById": "ID",
+
+  "LibBlockly.Blocks.User.PullUsersToScene.Title": "Pull user %1 to scene %2",
+  "LibBlockly.Blocks.User.PullUsersToScene.Tooltip": "",
+  "LibBlockly.Blocks.User.PullUsersToScene.HelpUrl": "",
+  "LibBlockly.Blocks.User.PullUsersToScene.Colour": "230",
+
+  "LibBlockly.Blocks.User.BanUser.Title": "Ban user %1",
+  "LibBlockly.Blocks.User.BanUser.Tooltip": "",
+  "LibBlockly.Blocks.User.BanUser.HelpUrl": "",
+  "LibBlockly.Blocks.User.BanUser.Colour": "230",
+
+  "LibBlockly.Blocks.User.UnbanUser.Title": "Un-Ban user %1",
+  "LibBlockly.Blocks.User.UnbanUser.Tooltip": "",
+  "LibBlockly.Blocks.User.UnbanUser.HelpUrl": "",
+  "LibBlockly.Blocks.User.UnbanUser.Colour": "230",
+
+
+
   "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
   "LibBlockly.Blocks.Utils.Wait.Seconds": "seconds",
   "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",
   "LibBlockly.Blocks.Utils.Wait.Tooltip": "",
   "LibBlockly.Blocks.Utils.Wait.HelpUrl": "",
   "LibBlockly.Blocks.Utils.Wait.Colour": "230",
+
+
 
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
