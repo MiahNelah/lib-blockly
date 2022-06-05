@@ -1,11 +1,3 @@
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetRolltableByNameOrIdCustomBlock(),
-        new RollTableCustomBlock(),
-        new GetTableResultDataCustomBlock()
-    ]);
-})
-
 class GetTableResultDataCustomBlock {
     constructor() {
         this.kind = "block";
@@ -183,3 +175,11 @@ class GetRolltableByNameOrIdCustomBlock {
         }
     }
 }
+
+Hooks.once('ready', () => {
+    game.modules.get("libblockly").blockManager.register([
+        new GetRolltableByNameOrIdCustomBlock(),
+        new RollTableCustomBlock(),
+        new GetTableResultDataCustomBlock()
+    ]);
+})

@@ -365,7 +365,6 @@ class UnbanUserCustomBlock {
     }
 }
 
-
 Hooks.once('ready', () => {
     game.modules.get("libblockly").blockManager.register([
         new GetAllUsersCustomBlock(),

@@ -297,6 +297,43 @@
   "LibBlockly.Blocks.Scene.GetAllScenes.Colour": "230",
 
 
+  "LibBlockly.Blocks.Token.ShowTokens.Title": "Show token %1",
+  "LibBlockly.Blocks.Token.ShowTokens.Tooltip": "",
+  "LibBlockly.Blocks.Token.ShowTokens.HelpUrl": "",
+  "LibBlockly.Blocks.Token.ShowTokens.Colour": "230",
+
+  "LibBlockly.Blocks.Token.HideTokens.Title": "Hide token %1",
+  "LibBlockly.Blocks.Token.HideTokens.Tooltip": "",
+  "LibBlockly.Blocks.Token.HideTokens.HelpUrl": "",
+  "LibBlockly.Blocks.Token.HideTokens.Colour": "230",
+
+  "LibBlockly.Blocks.Token.ToggleTokensVisibility.Title": "Toggle tokens visibility %1",
+  "LibBlockly.Blocks.Token.ToggleTokensVisibility.Tooltip": "",
+  "LibBlockly.Blocks.Token.ToggleTokensVisibility.HelpUrl": "",
+  "LibBlockly.Blocks.Token.ToggleTokensVisibility.Colour": "230",
+
+  "LibBlockly.Blocks.Token.GetSelectedTokens.Title": "Selected tokens",
+  "LibBlockly.Blocks.Token.GetSelectedTokens.Tooltip": "",
+  "LibBlockly.Blocks.Token.GetSelectedTokens.HelpUrl": "",
+  "LibBlockly.Blocks.Token.GetSelectedTokens.Colour": "230",
+
+  "LibBlockly.Blocks.Token.GetAllTokens.Title": "All tokens",
+  "LibBlockly.Blocks.Token.GetAllTokens.Tooltip": "",
+  "LibBlockly.Blocks.Token.GetAllTokens.HelpUrl": "",
+  "LibBlockly.Blocks.Token.GetAllTokens.Colour": "230",
+
+  "LibBlockly.Blocks.Token.ToggleCombatState.Title": "Toggle combat state %1",
+  "LibBlockly.Blocks.Token.ToggleCombatState.Tooltip": "",
+  "LibBlockly.Blocks.Token.ToggleCombatState.HelpUrl": "",
+  "LibBlockly.Blocks.Token.ToggleCombatState.Colour": "230",
+
+  "LibBlockly.Blocks.Token.GetAllTokensInScene.Title": "Get tokens in scene %1",
+  "LibBlockly.Blocks.Token.GetAllTokensInScene.Tooltip": "",
+  "LibBlockly.Blocks.Token.GetAllTokensInScene.HelpUrl": "",
+  "LibBlockly.Blocks.Token.GetAllTokensInScene.Colour": "230",
+
+
+
 
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
