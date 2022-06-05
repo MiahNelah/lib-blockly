@@ -57,7 +57,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
                 case "Item":
                     await this._onDropItem(event, data, uuid);
                     break;
-                case "Journal":
+                case "JournalEntry":
                     await this._onDropJournal(event, data, uuid);
                     break;
                 case "RollTable":
@@ -238,7 +238,19 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _onDropJournal(event, data, uuid) {
-        ui.notifications.warn("Drag & dropping Journal is not yet implemented !");
+        const journal = await fromUuid(uuid);
+
+        const getJournalBlock = this.workspace.newBlock("foundry_journal_get_journal_by_name_or_id");
+        getJournalBlock.getField("lookupType").setValue("name");
+        getJournalBlock.initSvg();
+        getJournalBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(journal.name);
+        text.initSvg();
+        text.render();
+
+        getJournalBlock.getInput("input").connection.connect(text.outputConnection);
     }
 
     async _onDropRollTable(event, data, uuid) {

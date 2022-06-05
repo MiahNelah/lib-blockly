@@ -337,5 +337,25 @@
   "LibBlockly.Blocks.Roll.Roll.Title": "Lander un dé %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
   "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",
-  "LibBlockly.Blocks.Roll.Roll.Colour": "230"
+  "LibBlockly.Blocks.Roll.Roll.Colour": "230",
+
+
+  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Title": "Trouver le journal par %1 %2",
+  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.LookupByName": "nom",
+  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.LookupById": "ID",
+
+  "LibBlockly.Blocks.Journal.OpenJournal.Title": "Ouvrir le journal %1",
+  "LibBlockly.Blocks.Journal.OpenJournal.Tooltip": "",
+  "LibBlockly.Blocks.Journal.OpenJournal.HelpUrl": "",
+  "LibBlockly.Blocks.Journal.OpenJournal.Colour": "230",
+
+  "LibBlockly.Blocks.Journal.ShowJournalAs.Title": "Afficher le journal %1 en tant que %2",
+  "LibBlockly.Blocks.Journal.ShowJournalAs.Tooltip": "",
+  "LibBlockly.Blocks.Journal.ShowJournalAs.HelpUrl": "",
+  "LibBlockly.Blocks.Journal.ShowJournalAs.Colour": "230",
+  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsText": "texte",
+  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsImage": "image"
 }

@@ -1,6 +1,7 @@
 import "./blocks_foundry_chat.js";
 import "./blocks_foundry_combat.js";
 import "./blocks_foundry_item.js";
+import "./blocks_foundry_journal.js";
 import "./blocks_foundry_macro.js";
 import "./blocks_foundry_playlist.js";
 import "./blocks_foundry_roll.js";
