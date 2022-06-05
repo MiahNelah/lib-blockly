@@ -73,8 +73,17 @@ class ToolboxCategory extends ToolboxEntry {
         return this.contents.filter(item => item instanceof ToolboxCategory);
     }
 
-    getCategory(name, createIfNone=false) {
+    getCategory(name, createIfNone = false) {
         if (this.keys.name === name) return this;
+        if (name.indexOf(".") >= 0) {
+            let parts = name.split(".");
+            let cat = this;
+            while (parts.length > 0 && cat) {
+                cat = cat.getCategory(parts[0], createIfNone);
+                parts.shift();
+            }
+            return cat;
+        }
         const result = this.getCategories().flatMap(item => item.getCategory(name)).filter(x => x)[0];
         if (result) return result;
         if (!createIfNone) return undefined;
