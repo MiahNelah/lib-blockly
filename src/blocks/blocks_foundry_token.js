@@ -192,9 +192,9 @@ class ToggleTokensVisibilityCustomBlock {
         const tokenShoweHelper = Blockly.JavaScript.provideFunction_(`${this.key}_toggle_token_visibility`, [
             `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
             `  if(Array.isArray(token)) {`,
-            `    await canvas.scene.updateEmbeddedDocuments("Token", token.map(t => { return {_id: t.id, hidden: !t.hidden}}));`,
+            `    await Promise.all(token.map(t => t.toggleVisibility()));`,
             `  } else if (token instanceof Token) {`,
-            `    await canvas.scene.updateEmbeddedDocuments("Token", {_id: token.id, hidden: !token.hidden});`,
+            `    await token.toggleVisibility();`,
             `  }`,
             `}`
         ]);
