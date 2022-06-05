@@ -49,7 +49,7 @@
   "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",
   "LibBlockly.Blocks.Utils.Wait.Tooltip": "",
   "LibBlockly.Blocks.Utils.Wait.HelpUrl": "",
-  "LibBlockly.Blocks.Utils.Wait.Colour": 230,
+  "LibBlockly.Blocks.Utils.Wait.Colour": "230",
 
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
