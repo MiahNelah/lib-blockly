@@ -1,9 +1,11 @@
 import {BlocklyEditorSheet} from "./BlocklyEditorSheet.js";
 import {ToolboxManager} from "./ToolboxManager.js";
+import {BlockManager} from "./BlockManager.js";
 
 export const LibBlockly = {
     ID: "libblockly",
     toolboxManager: new ToolboxManager(),
+    blockManager: new BlockManager(),
     backpack: [],
 
     init: function () {
@@ -11,6 +13,7 @@ export const LibBlockly = {
         this._registerHooks();
         this._registerSettings();
         game.modules.get(this.ID).toolboxManager = this.toolboxManager;
+        game.modules.get(this.ID).blockManager = this.blockManager;
     },
 
     _registerSettings: function () {
