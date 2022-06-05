@@ -149,6 +149,13 @@
 
 
 
+  "LibBlockly.Blocks.Chat.SendMessage.Title": "Send message %1 Flavor text %2 As actor/token %3 %4 Hide message",
+  "LibBlockly.Blocks.Chat.SendMessage.Tooltip": "",
+  "LibBlockly.Blocks.Chat.SendMessage.HelpUrl": "",
+  "LibBlockly.Blocks.Chat.SendMessage.Colour": "230",
+
+
+
   "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
   "LibBlockly.Blocks.Utils.Wait.Seconds": "seconds",
   "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",

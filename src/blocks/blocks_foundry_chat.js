@@ -1,51 +1,86 @@
-Blockly.Blocks['foundry_chat_sendmessage'] = {
-    init: function () {
-        this.appendValueInput("message")
-            .setCheck("String")
-            .appendField("Send message");
-        this.appendDummyInput()
-            .appendField("Type")
-            .appendField(new Blockly.FieldDropdown([["Other", "0"], ["Out Character", "1"], ["In Character", "2"], ["Emote", "3"], ["Whisper", "4"]/*, ["Roll","5"]*/]), "messageType");
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldCheckbox("FALSE", this.onHasFlavorChanged), "hasFlavorText")
-            .appendField("Flavor text")
-            .appendField(new Blockly.FieldTextInput(""), "flavorText");
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "blindMode")
-            .appendField("Make blind ?");
-        this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
+class SendMessageCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_chat_send_message";
+        this.category = "Foundry.Chat";
     }
-};
 
-Blockly.JavaScript["foundry_chat_sendmessage"] = function (block) {
-    const value_message = Blockly.JavaScript.valueToCode(block, 'message', Blockly.JavaScript.ORDER_ATOMIC);
-    const checkbox_hasflavortext = block.getFieldValue('hasFlavorText') === 'TRUE';
-    const text_flavortext = block.getFieldValue('flavorText');
-    const checkbox_blindmode = block.getFieldValue('blindMode') === 'TRUE';
-    const dropdown_messagetype = block.getFieldValue('messageType');
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Chat.SendMessage.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "message",
+                    "check": [
+                        "String",
+                        "RollResult"
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "flavorText",
+                    "check": "String",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "speakerActor",
+                    "check": [
+                        "Actor"
+                    ],
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "field_checkbox",
+                    "name": "blindMode",
+                    "checked": true
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Chat.SendMessage.Tooltip"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Chat.SendMessage.Title"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Chat.SendMessage.HelpUrl"),
+        }
+    }
 
-    let code = "ChatMessage.create({\n";
-    code += "\tuser: game.user.id,\n";
-    if (checkbox_blindmode)
-        code += "\tblind:true,\n";
-    if (checkbox_hasflavortext)
-        code += `\tflavor:\`${text_flavortext}\`,\n`
-    if (dropdown_messagetype !== "0")
-        code += `\ttype:${dropdown_messagetype},\n`
-    code += `\tcontent: ${value_message}\n`
-    code += "});";
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const value_message = Blockly.JavaScript.valueToCode(block, 'message', Blockly.JavaScript.ORDER_ATOMIC);
+        const value_flavortext = Blockly.JavaScript.valueToCode(block, 'flavorText', Blockly.JavaScript.ORDER_ATOMIC);
+        // const value_speakeractor = Blockly.JavaScript.valueToCode(block, 'speakerActor', Blockly.JavaScript.ORDER_ATOMIC);
+        const checkbox_blindmode = block.getFieldValue('blindMode') === 'TRUE';
 
-    return code;
+        const statements = [`ChatMessage.create({`];
+        if (checkbox_blindmode) statements.push(`blind:true,`);
+        if (value_flavortext !== "") statements.push(`flavor:${value_flavortext},`);
+        //if (value_speakeractor) statements.push(`blind:true,`);
+        statements.push([
+            `content: ${value_message}`,
+            "});\n"
+        ]);
+        return statements.join("\n");
+    }
 }
 
+
 Hooks.once('ready', () => {
-    game.modules.get("libblockly")
-        .toolboxManager.getCategory("Foundry", true)
-        .addCategory("Chat")
-        .addBlock("block", "foundry_chat_sendmessage");
+    game.modules.get("libblockly").blockManager.register([
+        new SendMessageCustomBlock()
+    ]);
 })
+
+
+
+
+
+
