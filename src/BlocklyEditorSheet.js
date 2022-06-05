@@ -214,11 +214,19 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _onDropItem(event, data, uuid) {
-        const id = data.id;
-        const newChild = this.workspace.newBlock("foundry_item_get_item_from_world");
-        newChild.getField("item-id").setValue(id);
-        newChild.initSvg();
-        newChild.render();
+        const item = await fromUuid(uuid);
+
+        const getItemNyNameBlock = this.workspace.newBlock("foundry_item_get_item_by_name_or_id");
+        getItemNyNameBlock.getField("lookupType").setValue("name");
+        getItemNyNameBlock.initSvg();
+        getItemNyNameBlock.render();
+
+        const text = this.workspace.newBlock("text");
+        text.getField("TEXT").setValue(item.name);
+        text.initSvg();
+        text.render();
+
+        getItemNyNameBlock.getInput("input").connection.connect(text.outputConnection);
     }
 
     async _onDropJournal(event, data, uuid) {

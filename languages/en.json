@@ -125,6 +125,27 @@
   "LibBlockly.Blocks.Playlist.CyclePlaylistMode.HelpUrl": "",
   "LibBlockly.Blocks.Playlist.CyclePlaylistMode.Colour": "230",
 
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.Title": "Get item by %1 %2",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Item.GetItemByNameOrId.LookupById": "ID",
+
+  "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Title": "Add item %1 to actors/tokens %2",
+  "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Tooltip": "",
+  "LibBlockly.Blocks.Item.AddItemToTokenOrActor.HelpUrl": "",
+  "LibBlockly.Blocks.Item.AddItemToTokenOrActor.Colour": "230",
+
+  "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Title": "Get items from actor/token %1",
+  "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Tooltip": "",
+  "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.HelpUrl": "",
+  "LibBlockly.Blocks.Item.GetItemsFromActorOrToken.Colour": "230",
+
+  "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Title": "Remove items %1 from actor/token %2",
+  "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Tooltip": "",
+  "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.HelpUrl": "",
+  "LibBlockly.Blocks.Item.RemoveItemFromActorOrToken.Colour": "230",
 
 
   "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
