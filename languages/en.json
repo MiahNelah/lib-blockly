@@ -192,6 +192,64 @@
 
 
 
+  "LibBlockly.Blocks.Combat.NextCombatRound.Title": "Next round %1",
+  "LibBlockly.Blocks.Combat.NextCombatRound.Tooltip": "",
+  "LibBlockly.Blocks.Combat.NextCombatRound.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.NextCombatRound.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.PreviousCombatRound.Title": "Previous round %1",
+  "LibBlockly.Blocks.Combat.PreviousCombatRound.Tooltip": "",
+  "LibBlockly.Blocks.Combat.PreviousCombatRound.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.PreviousCombatRound.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.NextCombatTurn.Title": "Next turn %1",
+  "LibBlockly.Blocks.Combat.NextCombatTurn.Tooltip": "",
+  "LibBlockly.Blocks.Combat.NextCombatTurn.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.NextCombatTurn.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.PreviousCombatTurn.Title": "Previous turn %1",
+  "LibBlockly.Blocks.Combat.PreviousCombatTurn.Tooltip": "",
+  "LibBlockly.Blocks.Combat.PreviousCombatTurn.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.PreviousCombatTurn.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.ResetCombat.Title": "Reset combat %1",
+  "LibBlockly.Blocks.Combat.ResetCombat.Tooltip": "",
+  "LibBlockly.Blocks.Combat.ResetCombat.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.ResetCombat.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.EndCombat.Title": "Stop combat %1 %2 Ask confirmation ?",
+  "LibBlockly.Blocks.Combat.EndCombat.Tooltip": "",
+  "LibBlockly.Blocks.Combat.EndCombat.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.EndCombat.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.ActivateCombat.Title": "Activate combat %1",
+  "LibBlockly.Blocks.Combat.ActivateCombat.Tooltip": "",
+  "LibBlockly.Blocks.Combat.ActivateCombat.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.ActivateCombat.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.StartCombat.Title": "Start combat %1",
+  "LibBlockly.Blocks.Combat.StartCombat.Tooltip": "",
+  "LibBlockly.Blocks.Combat.StartCombat.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.StartCombat.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.IsCombatActive.Title": "Is combat %1 active ?",
+  "LibBlockly.Blocks.Combat.IsCombatActive.Tooltip": "",
+  "LibBlockly.Blocks.Combat.IsCombatActive.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.IsCombatActive.Colour": "230",
+  "LibBlockly.Blocks.Combat.IsCombatActive.InlineInputs": "true",
+
+  "LibBlockly.Blocks.Combat.GetActiveCombat.Title": "Active combat",
+  "LibBlockly.Blocks.Combat.GetActiveCombat.Tooltip": "",
+  "LibBlockly.Blocks.Combat.GetActiveCombat.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.GetActiveCombat.Colour": "230",
+
+  "LibBlockly.Blocks.Combat.CreateCombat.Title": "Create combat in scene %1",
+  "LibBlockly.Blocks.Combat.CreateCombat.Tooltip": "",
+  "LibBlockly.Blocks.Combat.CreateCombat.HelpUrl": "",
+  "LibBlockly.Blocks.Combat.CreateCombat.Colour": "230",
+
+
+
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
   "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",
