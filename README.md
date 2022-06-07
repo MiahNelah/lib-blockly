@@ -1,7 +1,5 @@
 # About
 
- :warning: This module is still in experimental state, some issues are expected. :warning:
-
 You love creating fantastic worlds and stories in Foundry, but you're afraid of macros? Would you rather plan your campaign than lear how to program? 
 
 LibBlockly offers a visual macro editor integrated with Foundry using [Google Blockly](https://developers.google.com/blockly) technology. This type of editor is generally used for the initiation to programming, so it is easy to access: only the understanding of the algorithmic logic is necessary.
