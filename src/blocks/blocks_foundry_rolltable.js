@@ -62,7 +62,7 @@ class GetTableResultDataCustomBlock {
                 code += `(Array.isArray(${tableResult.range})) ? ${tableResult.range}[1] : ${tableResult.range}`;
                 break
             default:
-                code += `${tableResult}.data.${propertyKey}`;
+                code += `${tableResult}.${propertyKey}`;
         }
         return [code, Blockly.JavaScript.ORDER_NONE];
     }
