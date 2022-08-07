@@ -137,10 +137,10 @@ export const LibBlockly = {
     _handleMacroExecution: function (macro, wrapped, ...args) {
         if (macro.sheet instanceof BlocklyEditorSheet) {
             const workspace = this._loadWorkspace(macro, this._buildWorkspaceConfig());
-            const initialCommand = macro.data.command;
-            const initialType = macro.data.type;
-            macro.data.command = Blockly.JavaScript.workspaceToCode(workspace);
-            macro.data.type = "script";
+            const initialCommand = macro.command;
+            const initialType = macro.type;
+            macro.command = Blockly.JavaScript.workspaceToCode(workspace);
+            macro.type = "script";
             let result;
             try {
                 result = wrapped(...args);
@@ -148,8 +148,8 @@ export const LibBlockly = {
                 console.error(e);
                 alert(e.message);
             } finally {
-                macro.data.command = initialCommand;
-                macro.data.type = initialType;
+                macro.command = initialCommand;
+                macro.type = initialType;
             }
             return result;
         } else {
@@ -160,7 +160,7 @@ export const LibBlockly = {
     _loadWorkspace: function (macroObject, config) {
         let workspace = mergeObject(new Blockly.Workspace(), config);
         Blockly.JavaScript.addReservedWords(workspace);
-        Blockly.serialization.workspaces.load(JSON.parse(macroObject.data.flags.blockly?.workspace), workspace);
+        Blockly.serialization.workspaces.load(JSON.parse(macroObject.flags.blockly?.workspace), workspace);
         return workspace;
     },
 
@@ -202,3 +202,4 @@ Hooks.once("init", async () => {
         makeDefault: false
     });
 })
+
