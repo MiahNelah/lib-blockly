@@ -163,7 +163,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
 
     _loadWorkspace(workspace) {
         Blockly.JavaScript.addReservedWords(workspace);
-        const serialisedWorkspace = this.object.data.flags.blockly?.workspace;
+        const serialisedWorkspace = this.object.flags.blockly?.workspace;
         if (serialisedWorkspace) {
             Blockly.serialization.workspaces.load(JSON.parse(serialisedWorkspace), workspace);
         }
@@ -190,7 +190,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
     _onEditImage(event) {
         const fp = new FilePicker({
             type: "image",
-            current: this.object.data.img,
+            current: this.object.img,
             callback: path => {
                 event.currentTarget.src = path;
                 this._onSubmit(event, {preventClose: true, preventRender: true});
@@ -327,5 +327,6 @@ export class BlocklyEditorSheet extends DocumentSheet {
         runMacroBlock.getInput("macro").connection.connect(getMacroBlock.outputConnection);
     }
 }
+
 
 
