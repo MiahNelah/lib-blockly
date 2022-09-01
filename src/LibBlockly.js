@@ -1,11 +1,12 @@
-import {BlocklyEditorSheet} from "./BlocklyEditorSheet.js";
-import {ToolboxManager} from "./ToolboxManager.js";
-import {BlockManager} from "./BlockManager.js";
+import { BlocklyEditorSheet } from "./BlocklyEditorSheet.js";
+import { ToolboxManager } from "./ToolboxManager.js";
+import { BlockManager, Helpers } from "./BlockManager.js";
 
 export const LibBlockly = {
     ID: "libblockly",
     toolboxManager: new ToolboxManager(),
     blockManager: new BlockManager(),
+    helpers: new Helpers(),
     backpack: [],
 
     init: function () {
@@ -14,6 +15,7 @@ export const LibBlockly = {
         this._registerSettings();
         game.modules.get(this.ID).toolboxManager = this.toolboxManager;
         game.modules.get(this.ID).blockManager = this.blockManager;
+        game.modules.get(this.ID).helpers = this.helpers;
     },
 
     _registerSettings: function () {
@@ -139,7 +141,7 @@ export const LibBlockly = {
             const workspace = this._loadWorkspace(macro, this._buildWorkspaceConfig());
             const initialCommand = macro.command;
             const initialType = macro.type;
-            macro.command = Blockly.JavaScript.workspaceToCode(workspace);
+            macro.command = `const helpers = game.modules.get("libblockly").helpers;\r\n` + Blockly.JavaScript.workspaceToCode(workspace);
             macro.type = "script";
             let result;
             try {

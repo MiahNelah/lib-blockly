@@ -332,9 +332,29 @@
   "LibBlockly.Blocks.Token.GetAllTokensInScene.HelpUrl": "",
   "LibBlockly.Blocks.Token.GetAllTokensInScene.Colour": "230",
 
+  "LibBlockly.Blocks.Token.RotateToken.Title": "Tourner le jeton %1 %2 %3 °",
+  "LibBlockly.Blocks.Token.RotateToken.Tooltip": "",
+  "LibBlockly.Blocks.Token.RotateToken.HelpUrl": "",
+  "LibBlockly.Blocks.Token.RotateToken.Colour": "230",
+  "LibBlockly.Blocks.Token.RotateToken.AngleMode.By": "de",
+  "LibBlockly.Blocks.Token.RotateToken.AngleMode.To": "à",
 
+  "LibBlockly.Blocks.Token.SetTokenScale.Title": "Régler la taille du jeton %1 à un ratio de %2",
+  "LibBlockly.Blocks.Token.SetTokenScale.Tooltip": "",
+  "LibBlockly.Blocks.Token.SetTokenScale.HelpUrl": "",
+  "LibBlockly.Blocks.Token.SetTokenScale.Colour": "230",
 
-  "LibBlockly.Blocks.Roll.Roll.Title": "Lander un dé %1",
+  "LibBlockly.Blocks.Token.ResetTokenScale.Title": "Réinitialiser la taille du jeton %1",
+  "LibBlockly.Blocks.Token.ResetTokenScale.Tooltip": "",
+  "LibBlockly.Blocks.Token.ResetTokenScale.HelpUrl": "",
+  "LibBlockly.Blocks.Token.ResetTokenScale.Colour": "230",
+
+  "LibBlockly.Blocks.Token.MoveTokenScale.Title": "Déplacer le jeton %1 de %2 %3 %4",
+  "LibBlockly.Blocks.Token.MoveTokenScale.Tooltip": "",
+  "LibBlockly.Blocks.Token.MoveTokenScale.HelpUrl": "",
+  "LibBlockly.Blocks.Token.MoveTokenScale.Colour": "230",
+
+  "LibBlockly.Blocks.Roll.Roll.Title": "Lancer un dé %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
   "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",
   "LibBlockly.Blocks.Roll.Roll.Colour": "230",

@@ -38,16 +38,7 @@ class ToggleCombatStateCustomBlock {
     generateCode(block) {
         const token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
 
-        const toggleCombatStateHelper = Blockly.JavaScript.provideFunction_(`${this.key}_toggle_combat_state`, [
-            `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
-            `  if(Array.isArray(token) && token.length > 0) {`,
-            `    await Promise.all(token.map(t => t.toggleCombat()));`,
-            `  } else if (token instanceof Token) {`,
-            `    await token.toggleCombat();`,
-            `  }`,
-            `}`
-        ]);
-        return `if (${token_input}) await ${toggleCombatStateHelper}(${token_input});\n`;
+        return `await helpers.toggleTokenCombatState(${token_input});`;
     }
 }
 
@@ -77,7 +68,7 @@ class GetAllTokensCustomBlock {
      * @param {!Blockly.BlockSvg} block
      */
     generateCode(block) {
-        return [`canvas.tokens.controlled`, Blockly.JavaScript.ORDER_NONE];
+        return [`await helpers.getAllTokensInScene(canvas.scene)`, Blockly.JavaScript.ORDER_NONE];
     }
 }
 
@@ -115,7 +106,7 @@ class GetAllTokensInSceneCustomBlock {
      */
     generateCode(block) {
         const scene_input = Blockly.JavaScript.valueToCode(block, 'scene', Blockly.JavaScript.ORDER_ATOMIC);
-        return [`(${scene_input} ? ${scene_input}.tokens.contents : [])`, Blockly.JavaScript.ORDER_NONE];
+        return [`helpers.getAllTokensInScene(${scene_input})`, Blockly.JavaScript.ORDER_NONE]
     }
 }
 
@@ -188,18 +179,7 @@ class ToggleTokensVisibilityCustomBlock {
      */
     generateCode(block) {
         const token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
-
-        const tokenShoweHelper = Blockly.JavaScript.provideFunction_(`${this.key}_toggle_token_visibility`, [
-            `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token) {`,
-            `  if(Array.isArray(token)) {`,
-            `    await Promise.all(token.map(t => t.toggleVisibility()));`,
-            `  } else if (token instanceof Token) {`,
-            `    await token.toggleVisibility();`,
-            `  }`,
-            `}`
-        ]);
-
-        return `await ${tokenShoweHelper}(${token_input});\n`;
+        return `await helpers.toggleTokenVisibility(${token_input});`;
     }
 }
 
@@ -242,18 +222,7 @@ class ShowTokensCustomBlock {
      */
     generateCode(block) {
         const token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
-
-        const tokenShoweHelper = Blockly.JavaScript.provideFunction_(`${this.key}_set_token_visibility`, [
-            `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token, hidden) {`,
-            `  if(Array.isArray(token)) {`,
-            `    await canvas.scene.updateEmbeddedDocuments("Token", token.map(t => { return {_id: t.id, hidden: hidden}}));`,
-            `  } else if (token instanceof Token) {`,
-            `    await canvas.scene.updateEmbeddedDocuments("Token", {_id: token.id, hidden: hidden});`,
-            `  }`,
-            `}`
-        ]);
-
-        return `await ${tokenShoweHelper}(${token_input}, false);\n`;
+        return `await helpers.setTokenVisibility(${token_input}, false);`;
     }
 }
 
@@ -296,30 +265,273 @@ class HideTokensCustomBlock {
      */
     generateCode(block) {
         const token_input = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+        return `await helpers.setTokenVisibility(${token_input}, true);`;
+    }
+}
 
-        const tokenShoweHelper = Blockly.JavaScript.provideFunction_(`${this.key}_set_token_visibility`, [
-            `async function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(token, hidden) {`,
-            `  if(Array.isArray(token)) {`,
-            `    await canvas.scene.updateEmbeddedDocuments("Token", token.map(t => { return {_id: t.id, hidden: hidden}}));`,
-            `  } else if (token instanceof Token) {`,
-            `    await canvas.scene.updateEmbeddedDocuments("Token", {_id: token.id, hidden: hidden});`,
-            `  }`,
-            `}`
-        ]);
+class RotateTokenCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_token_rotate_tokens";
+        this.category = "Foundry.Token";
+    }
 
-        return `await ${tokenShoweHelper}(${token_input}, true);\n`;
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Token.RotateToken.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "tokens",
+                    "check": [
+                        "Array",
+                        "Token"
+                    ]
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "mode",
+                    "options": [
+                        [
+                            game.i18n.localize("LibBlockly.Blocks.Token.RotateToken.AngleMode.By"),
+                            "by"
+                        ],
+                        [
+
+                            game.i18n.localize("LibBlockly.Blocks.Token.RotateToken.AngleMode.To"),
+                            "to"
+                        ]
+                    ]
+                },
+                {
+                    "type": "field_number",
+                    "name": "angle",
+                    "value": 90
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Token.RotateToken.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Token.RotateToken.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Token.RotateToken.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const value_tokens = Blockly.JavaScript.valueToCode(block, 'tokens', Blockly.JavaScript.ORDER_ATOMIC);
+        const dropdown_mode = block.getFieldValue('mode');
+        const number_angle = block.getFieldValue('angle');
+
+        return `await helpers.rotateToken(${value_tokens}, ${number_angle}, "${dropdown_mode}");`;
+    }
+}
+
+class SetTokenScaleCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_set_token_scale";
+        this.category = "Foundry.Token";
+    }
+
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Token.SetTokenScale.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "token",
+                    "check": [
+                        "Array",
+                        "Token"
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "scale",
+                    "check": "Number"
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Token.SetTokenScale.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Token.SetTokenScale.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Token.SetTokenScale.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const value_token = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+        const value_scale = Blockly.JavaScript.valueToCode(block, 'scale', Blockly.JavaScript.ORDER_ATOMIC);
+
+        return `await helpers.setTokenScale(${value_token}, ${value_scale});`;
+    }
+}
+
+class ResetTokenScaleCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_reset_token_scale";
+        this.category = "Foundry.Token";
+    }
+
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Token.ResetTokenScale.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "token",
+                    "check": [
+                        "Array",
+                        "Token"
+                    ]
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Token.ResetTokenScale.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Token.ResetTokenScale.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Token.ResetTokenScale.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const value_token = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+
+        return `await helpers.setTokenScale(${value_token}, 1.0);`;
+    }
+}
+
+class MoveTokenCustomBlock {
+    constructor() {
+        this.kind = "block";
+        this.key = "foundry_move_token";
+        this.category = "Foundry.Token";
+    }
+
+    /**
+     *
+     * @return {!Object}
+     */
+    init() {
+        return {
+            "message0": game.i18n.localize("LibBlockly.Blocks.Token.MoveToken.Title"),
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "token",
+                    "check": [
+                        "Array",
+                        "Token"
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "distance",
+                    "check": "Number"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "unit",
+                    "options": [
+                        ["px", "px"],
+                        ["ft", "ft"],
+                        ["cell", "cell"]
+                    ]
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "direction",
+                    "options": [
+                        ["↑", "u"],
+                        ["↗", "ur"],
+                        ["→", "r"],
+                        ["↘", "dr"],
+                        ["↓", "d"],
+                        ["↙", "dl"],
+                        ["←", "l"],
+                        ["↖", "ul"]
+                    ]
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": game.i18n.localize("LibBlockly.Blocks.Token.MoveToken.Colour"),
+            "tooltip": game.i18n.localize("LibBlockly.Blocks.Token.MoveToken.Tooltip"),
+            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Token.MoveToken.HelpUrl"),
+        }
+    }
+
+    /**
+     *
+     * @param {!Blockly.BlockSvg} block
+     */
+    generateCode(block) {
+        const value_token = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+        const value_distance = Blockly.JavaScript.valueToCode(block, 'distance', Blockly.JavaScript.ORDER_ATOMIC);
+        const dropdown_unit = block.getFieldValue('unit');
+        const dropdown_direction = block.getFieldValue('direction');
+
+        var distance = value_distance;
+        switch (dropdown_unit) {
+            case "ft":  distance = distance * Math.floor(canvas.scene.grid.size / canvas.scene.grid.distance); break;
+            case "cell": distance = distance * canvas.scene.grid.size; break;
+            case "px":
+            default: break;
+        }
+
+        const vector = { x: 0, y: 0 };
+        if (dropdown_direction.includes("l")) vector.x = -distance;
+        if (dropdown_direction.includes("r")) vector.x = distance;
+        if (dropdown_direction.includes("u")) vector.y = -distance;
+        if (dropdown_direction.includes("d")) vector.y = distance;
+        return `await helpers.applyVectorToToken(${value_token}, {x:${vector.x}, y:${vector.y} });`;
     }
 }
 
 Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
+    const libblocky = game.modules.get("libblockly");
+    libblocky.blockManager.register([
         new ShowTokensCustomBlock(),
         new HideTokensCustomBlock(),
         new ToggleTokensVisibilityCustomBlock(),
         new GetSelectedTokensCustomBlock(),
         new GetAllTokensCustomBlock(),
         new ToggleCombatStateCustomBlock(),
-        new GetAllTokensInSceneCustomBlock()
+        new GetAllTokensInSceneCustomBlock(),
+        new RotateTokenCustomBlock(),
+        new SetTokenScaleCustomBlock(),
+        new ResetTokenScaleCustomBlock(),
+        //new MoveTokenCustomBlock()
     ]);
+
 })
 

@@ -330,7 +330,28 @@
   "LibBlockly.Blocks.Token.GetAllTokensInScene.HelpUrl": "",
   "LibBlockly.Blocks.Token.GetAllTokensInScene.Colour": "230",
 
+  "LibBlockly.Blocks.Token.RotateToken.Title": "Rotate token %1 %2 %3 °",
+  "LibBlockly.Blocks.Token.RotateToken.Tooltip": "",
+  "LibBlockly.Blocks.Token.RotateToken.HelpUrl": "",
+  "LibBlockly.Blocks.Token.RotateToken.Colour": "230",
+  "LibBlockly.Blocks.Token.RotateToken.AngleMode.By": "by",
+  "LibBlockly.Blocks.Token.RotateToken.AngleMode.To": "to",
 
+  "LibBlockly.Blocks.Token.SetTokenScale.Title": "Set token %1 scale to %2",
+  "LibBlockly.Blocks.Token.SetTokenScale.Tooltip": "",
+  "LibBlockly.Blocks.Token.SetTokenScale.HelpUrl": "",
+  "LibBlockly.Blocks.Token.SetTokenScale.Colour": "230",
+
+  "LibBlockly.Blocks.Token.ResetTokenScale.Title": "Reset token %1 scale",
+  "LibBlockly.Blocks.Token.ResetTokenScale.Tooltip": "",
+  "LibBlockly.Blocks.Token.ResetTokenScale.HelpUrl": "",
+  "LibBlockly.Blocks.Token.ResetTokenScale.Colour": "230",
+
+  "LibBlockly.Blocks.Token.MoveToken.Title": "Move token %1 %2 %3 %4",
+  "LibBlockly.Blocks.Token.MoveToken.Tooltip": "",
+  "LibBlockly.Blocks.Token.MoveToken.HelpUrl": "",
+  "LibBlockly.Blocks.Token.MoveToken.Colour": "230",
+  
 
   "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
   "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
