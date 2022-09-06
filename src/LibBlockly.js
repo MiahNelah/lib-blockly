@@ -2,7 +2,7 @@ import { BlocklyEditorSheet } from "./BlocklyEditorSheet.js";
 import { ToolboxManager } from "./ToolboxManager.js";
 import { BlockManager } from "./BlockManager.js";
 import { Helpers } from "./Helpers.js";
-import { WorkspaceLoader } from "./WorkspaceLoader.js";
+import { WorkspaceLoader } from "./WorkspaceManager.js";
 
 export class LibBlockly {
 
@@ -13,7 +13,7 @@ export class LibBlockly {
         this._blockManager = new BlockManager();
         this._helpers = new Helpers();
         this._definitions = {};
-        this._loader = new WorkspaceLoader();
+        this._workspaceManager = new WorkspaceLoader();
         this.backpack = [];
 
         this._registerHooks();
@@ -147,7 +147,7 @@ export class LibBlockly {
 
             const code = [
                 `const helpers = libBlockly.helpers;`,
-                this._loader.generateCode(macro)
+                this._workspaceManager.generateCode(macro)
             ].join("").replaceAll(";", ";\r\n");
 
             const initialCommand = macro.command;

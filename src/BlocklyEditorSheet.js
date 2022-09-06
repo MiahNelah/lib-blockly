@@ -1,11 +1,11 @@
-import { WorkspaceLoader } from "./WorkspaceLoader.js";
+import { WorkspaceLoader } from "./WorkspaceManager.js";
 import { ZoomToFitControl } from "../libs/plugins/zoom-to-fit/zoom-to-fit.js";
 import { Backpack } from "../libs/plugins/workspace-backpack/index.js";
 
 export class BlocklyEditorSheet extends DocumentSheet {
     constructor(object, options) {
         super(object, options);
-        this._loader = new WorkspaceLoader();
+        this._workspaceManager = new WorkspaceLoader();
     }
 
     static get defaultOptions() {
@@ -83,7 +83,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _injectEditor(event) {        
-        this.context = this._loader.inject(`#blockly-macro-${this.object.id}`, this.object);
+        this.context = this._workspaceManager.inject(`#blockly-macro-${this.object.id}`, this.object);
 
         // Enable "Zoom to fit" feature
         this.zoomToFit = new ZoomToFitControl(this.context);
@@ -125,7 +125,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _render(force=false, options={}) {
-        if (!this._loader.isValid(this.object)) {
+        if (!this._workspaceManager.isValid(this.object)) {
             this._showErrorDialog();
             await this.close();
             return false;
@@ -134,7 +134,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
     }
 
     async _showErrorDialog() {
-        const errors = this._loader.getErrors(this.object);
+        const errors = this._workspaceManager.getErrors(this.object);
 
         let message = game.i18n.localize("LibBlocky.CorruptedMacro.Dialog.Message");
         message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.MODULE_ID).bugs);
