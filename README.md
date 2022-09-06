@@ -41,27 +41,14 @@ The current roadmap is here : https://github.com/MiahNelah/lib-blockly/projects/
 You can easily add new custom blocks using [Google Blockly documentation](https://developers.google.com/blockly/guides/overview) and [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html).
 To create a new custom block, create a new class on the following template, then register the new block with Block Manager.
 
+First, we need to specify our now custom block definition:
+
 ```javascript
-class WaitCustomBlock {
-    constructor() {
-        // Only use "block"
-        this.kind = "block";
-        
-        // An unique identifier for this custom block.
-        this.key = "foundry_utils_delay";
-
-        // Toolbox category path. You cas use dot notation to manage sub-category.
-        // Categories will be created if needed;
-        this.category = "Foundry.Utils";
-    }
-
-    // init() must return an object. Object define block's configuration    
-    // Use Blockly Developer Tools to generate this object, then tweak it.
-    // You can use game.i18n.localize() a bit everywhere to handle translations.
-    // WARNING: Please remove "type" attribute: it will be append dynamically.
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Utils.Wait.Title"),
+// "message0", "colour", "tooltip" and "helpUrl" will be pulled from translation file for you.
+// Because we often need to translate strings inside definition, we expose defnitions as function to avoid "localize method is undefined" error
+const blocksDefinition = function() {
+    return {
+        "MyModule.MyCategory.Wait": {            
             "args0": [
                 {
                     "type": "field_number",
@@ -80,12 +67,28 @@ class WaitCustomBlock {
             ],
             "previousStatement": null,
             "nextStatement": null,
-            "colour": game.i18n.localize("LibBlockly.Blocks.Utils.Wait.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Utils.Wait.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Utils.Wait.HelpUrl"),
         }
     }
+}
+```
 
+Then, we need to add required translations. "Title", "Tooltip", "HelpUrl" and "Colour" are required.
+```json
+{
+  "MyModule.MyCategory.Wait.Title": "Wait %1 %2",
+  "MyModule.MyCategory.Wait.Tooltip": "",
+  "MyModule.MyCategory.Wait.HelpUrl": "",
+  "MyModule.MyCategory.Wait.Colour": "230",
+}
+```
+
+We finally define a custom class to handle code generation:
+```javascript
+class WaitCustomBlock extends CustomBlock {
+    constructor() {
+        super("Wait", "MyModule.MyCategory");
+    }
+  
     // The generateCode() describe how code is generated for your new block.
     // Use Blockly Developer Tools to get parameter resolution statements.
     generateCode(block) {
@@ -106,11 +109,15 @@ class WaitCustomBlock {
         return `await ${delayHelper}(${dropdown_units === "s" ? number_delay * 1000 : number_delay});\n`;
     }
 }
+```
 
-// We're done! Just register your block using global Block Manager.
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new WaitCustomBlock()
+Let's stick all together !
+```javascript
+Hooks.once("ready", () => {
+    libBlockly.registerDefinitions(blocksDefinition());
+
+    libBlockly.registerBlocks([
+        new Token.WaitCustomBlock()
     ]);
-})
+ })
 ```
