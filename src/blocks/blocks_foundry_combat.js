@@ -1,4 +1,4 @@
-class CreateCombatCustomBlock {
+export class CreateCombatCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_create_combat";
@@ -45,7 +45,7 @@ class CreateCombatCustomBlock {
     }
 }
 
-class GetActiveCombatCustomBlock {
+export class GetActiveCombatCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_get_active_combat";
@@ -75,7 +75,7 @@ class GetActiveCombatCustomBlock {
     }
 }
 
-class IsCombatActiveCustomBlock {
+export class IsCombatActiveCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_is_combat_active";
@@ -116,7 +116,7 @@ class IsCombatActiveCustomBlock {
     }
 }
 
-class StartCombatCustomBlock {
+export class StartCombatCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_start_combat";
@@ -157,7 +157,7 @@ class StartCombatCustomBlock {
     }
 }
 
-class ActivateCombatCustomBlock {
+export class ActivateCombatCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_activate_combat";
@@ -198,7 +198,7 @@ class ActivateCombatCustomBlock {
     }
 }
 
-class EndCombatCustomBlock {
+export class EndCombatCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_delete_combat";
@@ -245,7 +245,7 @@ class EndCombatCustomBlock {
     }
 }
 
-class ResetCombatCustomBlock {
+export class ResetCombatCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_reset_combat";
@@ -286,7 +286,7 @@ class ResetCombatCustomBlock {
     }
 }
 
-class NextCombatRoundCustomBlock {
+export class NextCombatRoundCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_next_combat_round";
@@ -327,7 +327,7 @@ class NextCombatRoundCustomBlock {
     }
 }
 
-class PreviousCombatRoundCustomBlock {
+export class PreviousCombatRoundCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_previous_combat_round";
@@ -368,7 +368,7 @@ class PreviousCombatRoundCustomBlock {
     }
 }
 
-class NextCombatTurnCustomBlock {
+export class NextCombatTurnCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_next_combat_turn";
@@ -409,7 +409,7 @@ class NextCombatTurnCustomBlock {
     }
 }
 
-class PreviousCombatTurnCustomBlock {
+export class PreviousCombatTurnCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_combat_previous_combat_turn";
@@ -449,19 +449,3 @@ class PreviousCombatTurnCustomBlock {
         return `if (${combat_value}) await ${combat_value}.previousTurn();\n`;
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new StartCombatCustomBlock(),
-        new ActivateCombatCustomBlock(),
-        new EndCombatCustomBlock(),
-        new ResetCombatCustomBlock(),
-        new NextCombatRoundCustomBlock(),
-        new PreviousCombatRoundCustomBlock(),
-        new NextCombatTurnCustomBlock(),
-        new PreviousCombatTurnCustomBlock(),
-        new IsCombatActiveCustomBlock(),
-        new GetActiveCombatCustomBlock(),
-        new CreateCombatCustomBlock()
-    ]);
-})

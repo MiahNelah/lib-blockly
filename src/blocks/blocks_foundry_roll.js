@@ -1,4 +1,4 @@
-class RollCustomBlock {
+export class RollCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_roll_roll";
@@ -39,9 +39,3 @@ class RollCustomBlock {
         return [`await ${rollHelper}("${rollexpression_value}")`, Blockly.JavaScript.ORDER_NONE];
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new RollCustomBlock()
-    ]);
-})

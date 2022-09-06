@@ -1,4 +1,4 @@
-class GetJournalByNameOrIdCustomBlock {
+export class GetJournalByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_journal_get_journal_by_name_or_id";
@@ -52,7 +52,7 @@ class GetJournalByNameOrIdCustomBlock {
     }
 }
 
-class OpenJournalCustomBlock {
+export class OpenJournalCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_journal_open_journal";
@@ -93,7 +93,7 @@ class OpenJournalCustomBlock {
     }
 }
 
-class ShowJournalAsCustomBlock {
+export class ShowJournalAsCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_journal_show_journal_as";
@@ -143,17 +143,5 @@ class ShowJournalAsCustomBlock {
         return `if (${value_name}) await ${value_name}.show("${dropdown_showAs}");\n`;
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetJournalByNameOrIdCustomBlock(),
-        new OpenJournalCustomBlock(),
-        new ShowJournalAsCustomBlock()
-    ]);
-})
-
-
-
-
 
 

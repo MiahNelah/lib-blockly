@@ -1,4 +1,4 @@
-class GetTableResultDataCustomBlock {
+export class GetTableResultDataCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_rolltable_get_tableresult_data";
@@ -68,7 +68,7 @@ class GetTableResultDataCustomBlock {
     }
 }
 
-class RollTableCustomBlock {
+export class RollTableCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_rolltable_roll_table";
@@ -122,7 +122,7 @@ class RollTableCustomBlock {
     }
 }
 
-class GetRolltableByNameOrIdCustomBlock {
+export class GetRolltableByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_rolltable_get_roltable_by_name_or_id";
@@ -175,11 +175,3 @@ class GetRolltableByNameOrIdCustomBlock {
         }
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetRolltableByNameOrIdCustomBlock(),
-        new RollTableCustomBlock(),
-        new GetTableResultDataCustomBlock()
-    ]);
-})

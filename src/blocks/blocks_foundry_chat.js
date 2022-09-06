@@ -1,4 +1,4 @@
-class SendMessageCustomBlock {
+export class SendMessageCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_chat_send_message";
@@ -71,15 +71,3 @@ class SendMessageCustomBlock {
         return statements.join("\n");
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new SendMessageCustomBlock()
-    ]);
-})
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-class GetAllMacrosCustomBlock {
+export class GetAllMacrosCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_macro_get_all_macros";
@@ -30,7 +30,7 @@ class GetAllMacrosCustomBlock {
     }
 }
 
-class GetMacroByNameOrIdCustomBlock {
+export class GetMacroByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_macro_get_macro_by_name_or_id";
@@ -84,7 +84,7 @@ class GetMacroByNameOrIdCustomBlock {
     }
 }
 
-class RunMacroCustomBlock {
+export class RunMacroCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_macro_run_macro";
@@ -131,11 +131,3 @@ class RunMacroCustomBlock {
         return `${runMacroHelper}(${value_macro});\n`;
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new RunMacroCustomBlock(),
-        new GetMacroByNameOrIdCustomBlock(),
-        new GetAllMacrosCustomBlock()
-    ]);
-})

@@ -1,4 +1,4 @@
-class GetActorByNameOrIdCustomBlock {
+export class GetActorByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_actor_get_actor_by_name_or_id";
@@ -52,7 +52,7 @@ class GetActorByNameOrIdCustomBlock {
     }
 }
 
-class GetTokenFromActorCustomBlock {
+export class GetTokenFromActorCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_actor_get_actor_from_token";
@@ -92,7 +92,7 @@ class GetTokenFromActorCustomBlock {
     }
 }
 
-class GetAllActorsCustomBlock {
+export class GetAllActorsCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_actor_get_all_actors";
@@ -122,7 +122,7 @@ class GetAllActorsCustomBlock {
     }
 }
 
-class GetTokensOfActorInCurrentSceneCustomBlock {
+export class GetTokensOfActorInCurrentSceneCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_actor_get_tokens_of_actor_in_current_scene";
@@ -161,19 +161,3 @@ class GetTokensOfActorInCurrentSceneCustomBlock {
         return [`${actor_input}.getActiveTokens()`, Blockly.JavaScript.ORDER_NONE];
     }
 }
-
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetActorByNameOrIdCustomBlock(),
-        new GetTokenFromActorCustomBlock(),
-        new GetAllActorsCustomBlock(),
-        new GetTokensOfActorInCurrentSceneCustomBlock()
-    ]);
-})
-
-
-
-
-
-

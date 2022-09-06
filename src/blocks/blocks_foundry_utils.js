@@ -1,4 +1,4 @@
-class WaitCustomBlock {
+export class WaitCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_utils_delay";
@@ -43,20 +43,11 @@ class WaitCustomBlock {
     generateCode(block) {
         const number_delay = block.getFieldValue('delay');
         const dropdown_units = block.getFieldValue('units');
-
-        const delayHelper = Blockly.JavaScript.provideFunction_("blockly_delay_helper", [
-            `function ${Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_}(delay) {`,
-            `  return new Promise(resolve => {`,
-            `    setTimeout(() => resolve(2), delay);`,
-            `  });`,
-            `}`
-        ]);
-
-        return `await ${delayHelper}(${dropdown_units === "s" ? number_delay * 1000 : number_delay});\n`;
+        return `await helpers.wait(${dropdown_units === "s" ? number_delay * 1000 : number_delay});`;
     }
 }
 
-class ShowNotificationCustomBlock {
+export class ShowNotificationCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_utils_show_notification";
@@ -104,10 +95,3 @@ class ShowNotificationCustomBlock {
         return `ui.notifications.${dropdown_notificationtype}(${value_message});\n`
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new WaitCustomBlock(),
-        new ShowNotificationCustomBlock()
-    ]);
-})

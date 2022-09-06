@@ -1,4 +1,4 @@
-class GetItemByNameOrIdCustomBlock {
+export class GetItemByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_item_get_item_by_name_or_id";
@@ -52,7 +52,7 @@ class GetItemByNameOrIdCustomBlock {
     }
 }
 
-class GetItemsFromActorOrTokenCustomBlock {
+export class GetItemsFromActorOrTokenCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_items_get_items_from_actor_or_token";
@@ -104,7 +104,7 @@ class GetItemsFromActorOrTokenCustomBlock {
     }
 }
 
-class AddItemToTokenOrActorCustomBlock {
+export class AddItemToTokenOrActorCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_item_add_item_to_token_or_actor";
@@ -175,7 +175,7 @@ class AddItemToTokenOrActorCustomBlock {
     }
 }
 
-class RemoveItemsFromActorOrTokenCustomBlock {
+export class RemoveItemsFromActorOrTokenCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_items_remove_items_from_actor_or_token";
@@ -232,12 +232,3 @@ class RemoveItemsFromActorOrTokenCustomBlock {
         return `await ${removeItemsFromActorOrTokenHelper}(${value_actorortoken}, ${value_items});\n`;
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetItemByNameOrIdCustomBlock(),
-        new AddItemToTokenOrActorCustomBlock(),
-        new GetItemsFromActorOrTokenCustomBlock(),
-        new RemoveItemsFromActorOrTokenCustomBlock()
-    ]);
-})

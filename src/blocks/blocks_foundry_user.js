@@ -1,7 +1,7 @@
 /**
  *
  */
-class GetAllUsersCustomBlock {
+export class GetAllUsersCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_get_all_user";
@@ -34,7 +34,7 @@ class GetAllUsersCustomBlock {
 /**
  *
  */
-class GetActorOfUserCustomBlock {
+export class GetActorOfUserCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_get_user_actor";
@@ -75,7 +75,7 @@ class GetActorOfUserCustomBlock {
 /**
  *
  */
-class GetTokenOfUserInSceneCustomBlock {
+export class GetTokenOfUserInSceneCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_get_user_token_in_scene";
@@ -116,7 +116,7 @@ class GetTokenOfUserInSceneCustomBlock {
 /**
  *
  */
-class GetUserNyNameOrIdCustomBlock {
+export class GetUserNyNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_get_user_by_name_or_id";
@@ -174,7 +174,7 @@ class GetUserNyNameOrIdCustomBlock {
 /**
  *
  */
-class PullUsersToSceneCustomBlock {
+export class PullUsersToSceneCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_pull_to_scene";
@@ -251,7 +251,7 @@ class PullUsersToSceneCustomBlock {
 /**
  *
  */
-class BanUserCustomBlock {
+export class BanUserCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_ban_user";
@@ -310,7 +310,7 @@ class BanUserCustomBlock {
 /**
  *
  */
-class UnbanUserCustomBlock {
+export class UnbanUserCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_user_unban_user";
@@ -364,15 +364,3 @@ class UnbanUserCustomBlock {
         return code;
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetAllUsersCustomBlock(),
-        new GetActorOfUserCustomBlock(),
-        new GetTokenOfUserInSceneCustomBlock(),
-        new GetUserNyNameOrIdCustomBlock(),
-        new PullUsersToSceneCustomBlock(),
-        new BanUserCustomBlock(),
-        new UnbanUserCustomBlock()
-    ]);
-})

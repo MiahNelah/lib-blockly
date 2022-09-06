@@ -1,4 +1,4 @@
-class GetPlaylistByNameOrIdCustomBlock {
+export class GetPlaylistByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_get_playlist_by_name_or_id";
@@ -52,7 +52,7 @@ class GetPlaylistByNameOrIdCustomBlock {
     }
 }
 
-class PlayPlaylistCustomBlock {
+export class PlayPlaylistCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_play_playlist";
@@ -101,7 +101,7 @@ class PlayPlaylistCustomBlock {
     }
 }
 
-class PlayNextTrackCustomBlock {
+export class PlayNextTrackCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_play_next_track";
@@ -150,7 +150,7 @@ class PlayNextTrackCustomBlock {
     }
 }
 
-class PlayPreviousTrackCustomBlock {
+export class PlayPreviousTrackCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_play_previous_track";
@@ -199,7 +199,7 @@ class PlayPreviousTrackCustomBlock {
     }
 }
 
-class GetAllPlaylistsCustomBlock {
+export class GetAllPlaylistsCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_get_all_playlists";
@@ -229,7 +229,7 @@ class GetAllPlaylistsCustomBlock {
     }
 }
 
-class GetPlayingPlaylistsCustomBlock {
+export class GetPlayingPlaylistsCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_get_playing_playlists";
@@ -259,7 +259,7 @@ class GetPlayingPlaylistsCustomBlock {
     }
 }
 
-class StopPlaylistCustomBlock {
+export class StopPlaylistCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_stop_playlist";
@@ -310,7 +310,7 @@ class StopPlaylistCustomBlock {
     }
 }
 
-class CyclePlaylistModeCustomBlock {
+export class CyclePlaylistModeCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_playlist_cycle_playlist_mode";
@@ -358,17 +358,3 @@ class CyclePlaylistModeCustomBlock {
         return `await ${cyclePlaylistModeHelper}(${value_name});\n`;
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetPlaylistByNameOrIdCustomBlock(),
-        new PlayPlaylistCustomBlock(),
-        new PlayNextTrackCustomBlock(),
-        new PlayPreviousTrackCustomBlock(),
-        new GetAllPlaylistsCustomBlock(),
-        new GetPlayingPlaylistsCustomBlock(),
-        new StopPlaylistCustomBlock(),
-        new CyclePlaylistModeCustomBlock()
-    ]);
-})
-

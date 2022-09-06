@@ -1,4 +1,4 @@
-class ActivateSceneCustomBlock {
+export class ActivateSceneCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_scene_activate_scene";
@@ -38,7 +38,7 @@ class ActivateSceneCustomBlock {
     }
 }
 
-class ViewSceneCustomBlock {
+export class ViewSceneCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_scene_view_scene";
@@ -78,7 +78,7 @@ class ViewSceneCustomBlock {
     }
 }
 
-class GetAllScenesCustomBlock {
+export class GetAllScenesCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_scene_get_all_scenes";
@@ -108,7 +108,7 @@ class GetAllScenesCustomBlock {
     }
 }
 
-class GetCurrentSceneCustomBlock {
+export class GetCurrentSceneCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_scene_get_current_scene";
@@ -138,7 +138,7 @@ class GetCurrentSceneCustomBlock {
     }
 }
 
-class GetSceneByNameOrIdCustomBlock {
+export class GetSceneByNameOrIdCustomBlock {
     constructor() {
         this.kind = "block";
         this.key = "foundry_scene_get_scene_by_name_or_id";
@@ -191,13 +191,3 @@ class GetSceneByNameOrIdCustomBlock {
         }
     }
 }
-
-Hooks.once('ready', () => {
-    game.modules.get("libblockly").blockManager.register([
-        new GetSceneByNameOrIdCustomBlock(),
-        new ViewSceneCustomBlock(),
-        new ActivateSceneCustomBlock(),
-        new GetCurrentSceneCustomBlock(),
-        new GetAllScenesCustomBlock()
-    ]);
-})
