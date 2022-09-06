@@ -40,6 +40,7 @@ class ToolboxEntry {
         Object.keys(array).sort().reduce((obj, key) => obj[key] = array[key], {});
     }
 }
+Object.freeze(ToolboxEntry);
 
 class ToolboxBlock extends ToolboxEntry {
     constructor(kind, type, others) {
@@ -48,6 +49,7 @@ class ToolboxBlock extends ToolboxEntry {
         }, others));
     }
 }
+Object.freeze(ToolboxBlock);
 
 class ToolboxSeparator extends ToolboxEntry {
     constructor() {
@@ -57,8 +59,8 @@ class ToolboxSeparator extends ToolboxEntry {
             }
         });
     }
-
 }
+Object.freeze(ToolboxSeparator);
 
 class ToolboxCategory extends ToolboxEntry {
     /**
@@ -158,6 +160,7 @@ class ToolboxCategory extends ToolboxEntry {
         return this;
     }
 }
+Object.freeze(ToolboxCategory);
 
 export class ToolboxManager extends ToolboxCategory {
     /**
@@ -238,3 +241,4 @@ export class ToolboxManager extends ToolboxCategory {
         this.addSeparator();
     }
 }
+Object.freeze(ToolboxManager);
