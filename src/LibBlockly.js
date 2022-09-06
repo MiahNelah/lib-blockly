@@ -1,25 +1,31 @@
 import { BlocklyEditorSheet } from "./BlocklyEditorSheet.js";
 import { ToolboxManager } from "./ToolboxManager.js";
-import { BlockManager, Helpers } from "./BlockManager.js";
+import { BlockManager } from "./BlockManager.js";
+import { Helpers } from "./Helpers.js";
+import { WorkspaceLoader } from "./WorkspaceLoader.js";
 
-export const LibBlockly = {
-    ID: "libblockly",
-    toolboxManager: new ToolboxManager(),
-    blockManager: new BlockManager(),
-    helpers: new Helpers(),
-    backpack: [],
+export class LibBlockly {
 
-    init: function () {
+    constructor() {
         Blockly.ShortcutRegistry.registry.reset();
+        this._moduleId = "lib-blockly";
+        this._toolboxManager = new ToolboxManager();
+        this._blockManager = new BlockManager();
+        this._helpers = new Helpers();
+        this._definitions = {};
+        this._loader = new WorkspaceLoader();
+        this.backpack = [];
+
         this._registerHooks();
         this._registerSettings();
-        game.modules.get(this.ID).toolboxManager = this.toolboxManager;
-        game.modules.get(this.ID).blockManager = this.blockManager;
-        game.modules.get(this.ID).helpers = this.helpers;
-    },
+        game.modules.get(this.MODULE_ID).toolboxManager = this._toolboxManager;
+        game.modules.get(this.MODULE_ID).blockManager = this._blockManager;
+        game.modules.get(this.MODULE_ID).helpers = this._helpers;
 
-    _registerSettings: function () {
-        game.settings.register(LibBlockly.ID, "collapse", {
+    }
+
+    _registerSettings() {
+        game.settings.register(this.MODULE_ID, "collapse", {
             name: game.i18n.localize("LibBlockly.Settings.Collapse.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Collapse.Description"),
             scope: "client",
@@ -28,7 +34,7 @@ export const LibBlockly = {
             default: true
         });
 
-        game.settings.register(LibBlockly.ID, "comments", {
+        game.settings.register(this.MODULE_ID, "comments", {
             name: game.i18n.localize("LibBlockly.Settings.Comments.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Comments.Description"),
             scope: "client",
@@ -37,7 +43,7 @@ export const LibBlockly = {
             default: true
         });
 
-        game.settings.register(LibBlockly.ID, "disable", {
+        game.settings.register(this.MODULE_ID, "disable", {
             name: game.i18n.localize("LibBlockly.Settings.Disable.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Disable.Description"),
             scope: "client",
@@ -46,7 +52,7 @@ export const LibBlockly = {
             default: true
         });
 
-        game.settings.register(LibBlockly.ID, "trashcan", {
+        game.settings.register(this.MODULE_ID, "trashcan", {
             name: game.i18n.localize("LibBlockly.Settings.Trashcan.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Trashcan.Description"),
             scope: "client",
@@ -55,7 +61,7 @@ export const LibBlockly = {
             default: true
         });
 
-        game.settings.register(LibBlockly.ID, "horizontalLayout", {
+        game.settings.register(this.MODULE_ID, "horizontalLayout", {
             name: game.i18n.localize("LibBlockly.Settings.HorizontalLayout.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.HorizontalLayout.Description"),
             scope: "client",
@@ -64,7 +70,7 @@ export const LibBlockly = {
             default: false
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-show-controls", {
+        game.settings.register(this.MODULE_ID, "zoom-show-controls", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.ShowControls.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.ShowControls.Description"),
             scope: "client",
@@ -73,7 +79,7 @@ export const LibBlockly = {
             default: true
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-wheel", {
+        game.settings.register(this.MODULE_ID, "zoom-wheel", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.Wheel.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.Wheel.Description"),
             scope: "client",
@@ -82,7 +88,7 @@ export const LibBlockly = {
             default: true
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-startScale", {
+        game.settings.register(this.MODULE_ID, "zoom-startScale", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.StartScale.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.StartScale.Description"),
             scope: "client",
@@ -91,7 +97,7 @@ export const LibBlockly = {
             default: 1.0
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-maxScale", {
+        game.settings.register(this.MODULE_ID, "zoom-maxScale", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.MaxScale.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.MaxScale.Description"),
             scope: "client",
@@ -100,7 +106,7 @@ export const LibBlockly = {
             default: 3
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-minScale", {
+        game.settings.register(this.MODULE_ID, "zoom-minScale", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.MinScale.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.MinScale.Description"),
             scope: "client",
@@ -109,7 +115,7 @@ export const LibBlockly = {
             default: 0.3
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-scaleSpeed", {
+        game.settings.register(this.MODULE_ID, "zoom-scaleSpeed", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.ScaleSpeed.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.ScaleSpeed.Description"),
             scope: "client",
@@ -118,7 +124,7 @@ export const LibBlockly = {
             default: 1.2
         });
 
-        game.settings.register(LibBlockly.ID, "zoom-pinch", {
+        game.settings.register(this.MODULE_ID, "zoom-pinch", {
             name: game.i18n.localize("LibBlockly.Settings.Zoom.Pinch.Title"),
             hint: game.i18n.localize("LibBlockly.Settings.Zoom.Pinch.Description"),
             scope: "client",
@@ -126,25 +132,30 @@ export const LibBlockly = {
             type: Boolean,
             default: true
         });
-    },
+    }
 
-    _registerHooks: function () {
+    _registerHooks() {
         if (typeof libWrapper !== undefined) {
-            libWrapper.register(LibBlockly.ID, "Macro.prototype.execute", function (wrapped, ...args) {
-                LibBlockly._handleMacroExecution(this, wrapped, ...args);
+            libWrapper.register(this.MODULE_ID, "Macro.prototype.execute", function (wrapped, ...args) {
+                libBlockly._handleMacroExecution(this, wrapped, ...args);
             }, libWrapper.WRAPPER);
         }
-    },
+    }
 
-    _handleMacroExecution: function (macro, wrapped, ...args) {
+    _handleMacroExecution(macro, wrapped, ...args) {
         if (macro.sheet instanceof BlocklyEditorSheet) {
-            const workspace = this._loadWorkspace(macro, this._buildWorkspaceConfig());
+
+            const code = [
+                `const helpers = libBlockly.helpers;`,
+                this._loader.generateCode(macro)
+            ].join("").replaceAll(";", ";\r\n");
+
             const initialCommand = macro.command;
             const initialType = macro.type;
-            macro.command = `const helpers = game.modules.get("libblockly").helpers;\r\n` + Blockly.JavaScript.workspaceToCode(workspace);
-            macro.type = "script";
-            let result;
-            try {
+            let result = undefined;
+            try {                
+                macro.command = code;
+                macro.type = "script";
                 result = wrapped(...args);
             } catch (e) {
                 console.error(e);
@@ -153,25 +164,19 @@ export const LibBlockly = {
                 macro.command = initialCommand;
                 macro.type = initialType;
             }
+
             return result;
         } else {
             return wrapped(...args);
         }
-    },
+    }
 
-    _loadWorkspace: function (macroObject, config) {
-        let workspace = mergeObject(new Blockly.Workspace(), config);
-        Blockly.JavaScript.addReservedWords(workspace);
-        Blockly.serialization.workspaces.load(JSON.parse(macroObject.flags.blockly?.workspace), workspace);
-        return workspace;
-    },
-
-    _buildWorkspaceConfig: function () {
+    _buildWorkspaceConfig() {
         return {
-            collapse: game.settings.get(LibBlockly.ID, "collapse"),
-            comments: game.settings.get(LibBlockly.ID, "comments"),
-            disable: game.settings.get(LibBlockly.ID, "disable"),
-            trashcan: game.settings.get(LibBlockly.ID, "trashcan"),
+            collapse: game.settings.get(this.MODULE_ID, "collapse"),
+            comments: game.settings.get(this.MODULE_ID, "comments"),
+            disable: game.settings.get(this.MODULE_ID, "disable"),
+            trashcan: game.settings.get(this.MODULE_ID, "trashcan"),
             move: {
                 scrollbars: {
                     horizontal: true,
@@ -181,25 +186,77 @@ export const LibBlockly = {
                 wheel: false
             },
             zoom: {
-                controls: game.settings.get(LibBlockly.ID, "zoom-show-controls"),
-                wheel: game.settings.get(LibBlockly.ID, "zoom-wheel"),
-                startScale: game.settings.get(LibBlockly.ID, "zoom-startScale"),// 1.0,
-                maxScale: game.settings.get(LibBlockly.ID, "zoom-maxScale"),//3,
-                minScale: game.settings.get(LibBlockly.ID, "zoom-minScale"),//0.3,
-                scaleSpeed: game.settings.get(LibBlockly.ID, "zoom-scaleSpeed"),//1.2,
-                pinch: game.settings.get(LibBlockly.ID, "zoom-pinch"),//true
+                controls: game.settings.get(this.MODULE_ID, "zoom-show-controls"),
+                wheel: game.settings.get(this.MODULE_ID, "zoom-wheel"),
+                startScale: game.settings.get(this.MODULE_ID, "zoom-startScale"),
+                maxScale: game.settings.get(this.MODULE_ID, "zoom-maxScale"),
+                minScale: game.settings.get(this.MODULE_ID, "zoom-minScale"),
+                scaleSpeed: game.settings.get(this.MODULE_ID, "zoom-scaleSpeed"),
+                pinch: game.settings.get(this.MODULE_ID, "zoom-pinch"),
             },
-            horizontalLayout: game.settings.get(LibBlockly.ID, "horizontalLayout"),
-            toolbox: this.toolboxManager.toJson()
+            horizontalLayout: game.settings.get(this.MODULE_ID, "horizontalLayout"),
+            toolbox: this._toolboxManager.toJson()
         };
     }
+
+    /**
+     *
+     * @param {!Array.<CustomBlock>} blocks
+     */
+    registerBlocks(blocks) {
+        Blockly.defineBlocksWithJsonArray(
+            blocks.map(block =>
+                mergeObject({ type: block.key, ...block.init() })
+            )
+        );
+        for (let block of blocks) {
+            if (!block || block.constructor.name === "CustomBlock") continue;
+            Blockly.JavaScript[block.key] = block.generateCode;
+            const category = this._toolboxManager.getCategory(block.category, true);
+            category.addBlock(block.kind, block.key);
+        };
+    }
+
+    registerDefinitions(definitions) {
+        this._definitions = mergeObject(this._definitions, definitions);
+    }
+
+    getDefinition(definitionName) {
+        if (definitionName.indexOf(".") >= 0) {
+            let parts = definitionName.split(".");
+            let iterator = this._definitions[parts[0]];
+            parts.shift();
+            while (parts.length > 0) {
+                iterator = iterator[parts[0]];
+                parts.shift();
+            }
+            return iterator;
+        } else
+            return this._definitions[definitionName];
+    }
+
+    get MODULE_ID() { return this._moduleId; }
+    get helpers() { return this._helpers; }
+
+    /**
+     * @deprecated Replace with libBlockly.registerBlocks()
+     */
+    get blockManager() { return this._blockManager; }
+
 }
+Object.freeze(LibBlockly);
 
 
 Hooks.once("init", async () => {
-    LibBlockly.init();
 
-    Macros.registerSheet(LibBlockly.ID, BlocklyEditorSheet, {
+    const libBlockly = new LibBlockly();
+    Object.defineProperty(globalThis, "libBlockly", {
+        get: () => libBlockly,
+        set: () => { console.error("Can't redefine libBlocky") },
+        configurable: false
+    });
+
+    Macros.registerSheet(libBlockly.MODULE_ID, BlocklyEditorSheet, {
         label: game.i18n.localize("LibBlockly.BlocklyEditorSheet.Sheet.Label"),
         makeDefault: false
     });
