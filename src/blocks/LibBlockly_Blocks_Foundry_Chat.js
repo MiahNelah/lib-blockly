@@ -1,9 +1,21 @@
 import { CustomBlock } from "../CustomBlock.js";
 
+/**
+ * Send a message to chat.
+ * @extends CustomBlock
+ * @category Foundry.Utils
+ * 
+ * @param {String} message The message to send.
+ * @param {String} speaker The speaker to use.
+ * @param {String} flavor The flavor to use.
+ * @param {*} rollMode The roll mode to use.
+ * @param {User|Array<User>} whisperTo The whisper target.
+ */
 export class SendMessageCustomBlock extends CustomBlock {
     constructor() {
         super("SendMessage", "Foundry.Chat");
     }
+
     /**
      *
      * @param {!Blockly.BlockSvg} block
