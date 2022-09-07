@@ -172,8 +172,8 @@ export class WorkspaceLoader {
             "foundry_reset_token_scale": "Foundry.Token.ResetScale",
             "foundry_move_token": "Foundry.Token.Move",
             "foundry_utils_delay": "Foundry.Utils.Wait",
-            "foundry_utils_show_notification": "Foundry.Utils.ShowNotification"
-
+            "foundry_utils_show_notification": "Foundry.Utils.ShowNotification",
+            "foundry_chat_send_message": "Foundry.Chat.SendMessage"
         };
         let migratedWorkspace = oldWorkspace;
         for (let c of Object.keys(changes)) {

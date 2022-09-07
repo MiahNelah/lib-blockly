@@ -1,5 +1,67 @@
 export default function () {
     return {
+        /******* ACTOR *******/
+
+
+        /******* CHAT *******/
+        "Foundry.Chat.SendMessage": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "message",
+                    "check": [
+                        "String",
+                        "RollResult"
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "flavorText",
+                    "check": "String",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "speakerActor",
+                    "check": [
+                        "Actor"
+                    ],
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "field_checkbox",
+                    "name": "blindMode",
+                    "checked": true
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        /******* COMBAT *******/
+
+
+        /******* ITEM *******/
+
+
+        /******* JOURNAL *******/
+
+
+        /******* MACRO *******/
+
+
+        /******* PLAYLIST *******/
+
+
+        /******* ROLL *******/
+
+
+        /******* ROLLTABLE *******/
+
+
+        /******* SCENE *******/
+
 
         /******* TOKEN *******/
         "Foundry.Token.ToggleCombatState": {
@@ -219,6 +281,11 @@ export default function () {
             "previousStatement": null,
             "nextStatement": null
         },
+
+
+        /******* USER *******/
+
+
 
         /******* UTILS *******/
         "Foundry.Utils.Wait": {
