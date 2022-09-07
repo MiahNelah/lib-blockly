@@ -218,6 +218,50 @@ export default function () {
             "inputsInline": true,
             "previousStatement": null,
             "nextStatement": null
-        }
+        },
+
+        /******* UTILS *******/
+        "Foundry.Utils.Wait": {
+            "args0": [
+                {
+                    "type": "field_number",
+                    "name": "delay",
+                    "value": 1,
+                    "min": 0
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "units",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.Wait.Seconds"), "s"],
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.Wait.Milliseconds"), "ms"]
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Utils.ShowNotification": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "notificationType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.ShowNotification.NotificationType.Info"), "info"],
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.ShowNotification.NotificationType.Warning"), "warn"],
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.ShowNotification.NotificationType.Error"), "error"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "message",
+                    "check": "String"
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
     }
 }

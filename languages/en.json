@@ -161,20 +161,20 @@
 
 
 
-  "LibBlockly.Blocks.Utils.Wait.Title": "Wait %1 %2",
-  "LibBlockly.Blocks.Utils.Wait.Seconds": "seconds",
-  "LibBlockly.Blocks.Utils.Wait.Milliseconds": "milliseconds",
-  "LibBlockly.Blocks.Utils.Wait.Tooltip": "",
-  "LibBlockly.Blocks.Utils.Wait.HelpUrl": "",
-  "LibBlockly.Blocks.Utils.Wait.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Title": "Wait %1 %2",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Seconds": "seconds",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Milliseconds": "milliseconds",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Colour": "230",
 
-  "LibBlockly.Blocks.Utils.ShowNotification.Title": "Show %1 notification %2",
-  "LibBlockly.Blocks.Utils.ShowNotification.Tooltip": "",
-  "LibBlockly.Blocks.Utils.ShowNotification.HelpUrl": "",
-  "LibBlockly.Blocks.Utils.ShowNotification.Colour": "230",
-  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Info": "information",
-  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Warning": "warning",
-  "LibBlockly.Blocks.Utils.ShowNotification.NotificationType.Error": "error",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.Title": "Show %1 notification %2",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.NotificationType.Info": "information",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.NotificationType.Warning": "warning",
+  "LibBlockly.Blocks.Foundry.Utils.ShowNotification.NotificationType.Error": "error",
 
 
 
