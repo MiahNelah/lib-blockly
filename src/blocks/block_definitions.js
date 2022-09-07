@@ -1,7 +1,57 @@
 export default function () {
     return {
         /******* ACTOR *******/
+        "Foundry.Actor.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Actor"
+            ],
+        },
 
+        "Foundry.Actor.GetToken": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "token",
+                    "check": [
+                        "Token"
+                    ]
+                }
+            ],
+            "output": "Actor",
+        },
+
+        "Foundry.Actor.GetAll": {
+            "output": "Array",
+        },
+
+        "Foundry.Actor.GetTokensInCurrentScene": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "actor",
+                    "check": [
+                        "Actor"
+                    ]
+                }
+            ],
+            "output": "Array",
+            "inputsInline": true,
+        },
 
         /******* CHAT *******/
         "Foundry.Chat.SendMessage": {

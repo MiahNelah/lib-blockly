@@ -19,10 +19,10 @@ Hooks.once("ready", () => {
 
     libBlockly.registerBlocks([
         /* ACTOR */
-        new Actor.GetActorByNameOrIdCustomBlock(),
-        new Actor.GetTokenFromActorCustomBlock(),
-        new Actor.GetAllActorsCustomBlock(),
-        new Actor.GetTokensOfActorInCurrentSceneCustomBlock(),
+        new Actor.ActorGetByNameOrIdCustomBlock(),
+        new Actor.ActorGetTokenCustomBlock(),
+        new Actor.ActorGetAllCustomBlock(),
+        new Actor.ActorGetTokensInCurrentSceneCustomBlock(),
 
         /* CHAT */
         new Chat.SendMessageCustomBlock(),

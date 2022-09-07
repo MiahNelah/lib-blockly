@@ -171,9 +171,16 @@ export class WorkspaceLoader {
             "foundry_set_token_scale": "Foundry.Token.SetScale",
             "foundry_reset_token_scale": "Foundry.Token.ResetScale",
             "foundry_move_token": "Foundry.Token.Move",
+            
             "foundry_utils_delay": "Foundry.Utils.Wait",
             "foundry_utils_show_notification": "Foundry.Utils.ShowNotification",
-            "foundry_chat_send_message": "Foundry.Chat.SendMessage"
+
+            "foundry_chat_send_message": "Foundry.Chat.SendMessage",
+
+            "foundry_actor_get_actor_by_name_or_id":"Foundry.Actor.GetActorByNameOrId",
+            "foundry_actor_get_actor_from_token":"Foundry.Actor.GetTokenFromActorCustomBlock",
+            "foundry_actor_get_all_actors":"Foundry.Actor.GetAllActors",
+            "foundry_actor_get_tokens_of_actor_in_current_scene":"Foundry.Actor.GetTokensOfActorInCurrentScene"
         };
         let migratedWorkspace = oldWorkspace;
         for (let c of Object.keys(changes)) {

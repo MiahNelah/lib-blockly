@@ -1,39 +1,8 @@
-export class GetActorByNameOrIdCustomBlock {
-    constructor() {
-        this.kind = "block";
-        this.key = "foundry_actor_get_actor_by_name_or_id";
-        this.category = "Foundry.Actor";
-    }
+import { CustomBlock } from "../CustomBlock.js";
 
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Actor.GetActorByNameOrId.Title"),
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "lookupType",
-                    "options": [
-                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupByName"), "name"],
-                        [game.i18n.localize("LibBlockly.Blocks.Item.GetItemByNameOrId.LookupById"), "id"]
-                    ]
-                },
-                {
-                    "type": "input_value",
-                    "name": "input",
-                    "check": "String"
-                }
-            ],
-            "output": [
-                "Actor"
-            ],
-            "colour": game.i18n.localize("LibBlockly.Blocks.Actor.GetActorByNameOrId.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Actor.GetActorByNameOrId.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Actor.GetActorByNameOrId.HelpUrl"),
-        }
+export class ActorGetByNameOrIdCustomBlock extends CustomBlock {
+    constructor() {
+        super("GetByNameOrId", "Foundry.Actor");
     }
 
     /**
@@ -51,35 +20,11 @@ export class GetActorByNameOrIdCustomBlock {
         }
     }
 }
+Object.freeze(ActorGetByNameOrIdCustomBlock);
 
-export class GetTokenFromActorCustomBlock {
+export class ActorGetTokenCustomBlock extends CustomBlock {
     constructor() {
-        this.kind = "block";
-        this.key = "foundry_actor_get_actor_from_token";
-        this.category = "Foundry.Actor";
-    }
-
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokenFromActor.Title"),
-            "args0": [
-                {
-                    "type": "input_value",
-                    "name": "token",
-                    "check": [
-                        "Token"
-                    ]
-                }
-            ],
-            "output": "Actor",
-            "colour": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokenFromActor.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokenFromActor.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokenFromActor.HelpUrl"),
-        }
+        super("GetToken", "Foundry.Actor");
     }
 
     /**
@@ -91,26 +36,11 @@ export class GetTokenFromActorCustomBlock {
         return [`${value_input}?.actors`, Blockly.JavaScript.ORDER_NONE];
     }
 }
+Object.freeze(ActorGetTokenCustomBlock);
 
-export class GetAllActorsCustomBlock {
+export class ActorGetAllCustomBlock extends CustomBlock {
     constructor() {
-        this.kind = "block";
-        this.key = "foundry_actor_get_all_actors";
-        this.category = "Foundry.Actor";
-    }
-
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Actor.GetAllActors.Title"),
-            "output": "Array",
-            "colour": game.i18n.localize("LibBlockly.Blocks.Actor.GetAllActors.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Actor.GetAllActors.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Actor.GetAllActors.HelpUrl"),
-        }
+        super("GetAll", "Foundry.Actor");
     }
 
     /**
@@ -121,35 +51,11 @@ export class GetAllActorsCustomBlock {
         return [`game.actors`, Blockly.JavaScript.ORDER_NONE];
     }
 }
+Object.freeze(ActorGetAllCustomBlock);
 
-export class GetTokensOfActorInCurrentSceneCustomBlock {
+export class ActorGetTokensInCurrentSceneCustomBlock extends CustomBlock {
     constructor() {
-        this.kind = "block";
-        this.key = "foundry_actor_get_tokens_of_actor_in_current_scene";
-        this.category = "Foundry.Actor";
-    }
-
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.Title"),
-            "args0": [
-                {
-                    "type": "input_value",
-                    "name": "actor",
-                    "check": [
-                        "Actor"
-                    ]
-                }
-            ],
-            "output": "Array",
-            "colour": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Actor.GetTokensOfActorInCurrentScene.HelpUrl"),
-        }
+        super("GetTokensInCurrentScene", "Foundry.Actor");
     }
 
     /**
@@ -161,3 +67,4 @@ export class GetTokensOfActorInCurrentSceneCustomBlock {
         return [`${actor_input}.getActiveTokens()`, Blockly.JavaScript.ORDER_NONE];
     }
 }
+Object.freeze(ActorGetTokensInCurrentSceneCustomBlock);
