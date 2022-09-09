@@ -3,6 +3,7 @@ import { ToolboxManager } from "./ToolboxManager.js";
 import { BlockManager } from "./BlockManager.js";
 import { Helpers } from "./Helpers.js";
 import { WorkspaceLoader } from "./WorkspaceManager.js";
+import { CustomBlock } from "./CustomBlock.js";
 
 export class LibBlockly {
 
@@ -217,9 +218,17 @@ export class LibBlockly {
         };
     }
 
+    registerBlockTypes(blockTypes) {
+        if (!Array.isArray(blockTypes)) return undefined;
+        const blocks = blockTypes.map(blockType => {
+            return  (blockType && blockType.constructor.name !== "CustomBlock") ? new blockType() : undefined;
+        }).filter(x => x);
+        this.registerBlocks(blocks);
+    }
+
     registerDefinitions(definitions) {
         this._definitions = mergeObject(this._definitions, definitions);
-    }
+    }    
 
     getDefinition(definitionName) {
         if (definitionName.indexOf(".") >= 0) {

@@ -17,97 +17,97 @@ import BlockDefnitions from "./block_definitions.js";
 Hooks.once("ready", () => {
     libBlockly.registerDefinitions(BlockDefnitions());
 
-    libBlockly.registerBlocks([
+    libBlockly.registerBlockTypes([
         /* ACTOR */
-        new Actor.ActorGetByNameOrIdCustomBlock(),
-        new Actor.ActorGetTokenCustomBlock(),
-        new Actor.ActorGetAllCustomBlock(),
-        new Actor.ActorGetTokensInCurrentSceneCustomBlock(),
+        Actor.ActorGetByNameOrIdCustomBlock,
+        Actor.ActorGetTokenCustomBlock,
+        Actor.ActorGetAllCustomBlock,
+        Actor.ActorGetTokensInCurrentSceneCustomBlock,
 
         /* CHAT */
-        new Chat.SendMessageCustomBlock(),
+        Chat.SendMessageCustomBlock,
 
         /* COMBAT */
-        new Combat.CombatStartCustomBlock(),
-        new Combat.CombatActivateCustomBlock(),
-        new Combat.CombatEndCustomBlock(),
-        new Combat.CombatResetCustomBlock(),
-        new Combat.CombatNextRoundCustomBlock(),
-        new Combat.CombatPreviousRoundCustomBlock(),
-        new Combat.CombatNextTurnCustomBlock(),
-        new Combat.CombatPreviousTurnCustomBlock(),
-        new Combat.CombatIsActiveCustomBlock(),
-        new Combat.CombatGetActiveCustomBlock(),
-        new Combat.CombatCreateCustomBlock(),
+        Combat.CombatStartCustomBlock,
+        Combat.CombatActivateCustomBlock,
+        Combat.CombatEndCustomBlock,
+        Combat.CombatResetCustomBlock,
+        Combat.CombatNextRoundCustomBlock,
+        Combat.CombatPreviousRoundCustomBlock,
+        Combat.CombatNextTurnCustomBlock,
+        Combat.CombatPreviousTurnCustomBlock,
+        Combat.CombatIsActiveCustomBlock,
+        Combat.CombatGetActiveCustomBlock,
+        Combat.CombatCreateCustomBlock,
 
         /* ITEM */
-        new Item.ItemGetByNameOrIdCustomBlock(),
-        new Item.ItemAddToTokenOrActorCustomBlock(),
-        new Item.ItemGetFromActorOrTokenCustomBlock(),
-        new Item.ItemRemoveFromActorOrTokenCustomBlock(),
+        Item.ItemGetByNameOrIdCustomBlock,
+        Item.ItemAddToTokenOrActorCustomBlock,
+        Item.ItemGetFromActorOrTokenCustomBlock,
+        Item.ItemRemoveFromActorOrTokenCustomBlock,
 
         /* JOURNAL */
-        new Journal.JournalGetByNameOrIdCustomBlock(),
-        new Journal.JournalOpenCustomBlock(),
-        new Journal.JournalShowAsCustomBlock(),
+        Journal.JournalGetByNameOrIdCustomBlock,
+        Journal.JournalOpenCustomBlock,
+        Journal.JournalShowAsCustomBlock,
 
         /* MACRO */
-        new Macro.MacroGetAllCustomBlock(),
-        new Macro.MacroGetByNameOrIdCustomBlock(),
-        new Macro.MacroRunCustomBlock(),
-        new Macro.MacroCanRunCustomBlock(),
+        Macro.MacroGetAllCustomBlock,
+        Macro.MacroGetByNameOrIdCustomBlock,
+        Macro.MacroRunCustomBlock,
+        Macro.MacroCanRunCustomBlock,
 
         /* PLAYLIST */
-        new Playlist.PlaylistGetByNameOrIdCustomBlock(),
-        new Playlist.PlaylistPlayCustomBlock(),
-        new Playlist.PlaylistPlayNextTrackCustomBlock(),
-        new Playlist.PlaylistPlayPreviousTrackCustomBlock(),
-        new Playlist.PlaylistGetAllCustomBlock(),
-        new Playlist.PlaylistGetPlayingCustomBlock(),
-        new Playlist.PlaylistStopCustomBlock(),
-        new Playlist.PlaylistCycleModeCustomBlock(),
+        Playlist.PlaylistGetByNameOrIdCustomBlock,
+        Playlist.PlaylistPlayCustomBlock,
+        Playlist.PlaylistPlayNextTrackCustomBlock,
+        Playlist.PlaylistPlayPreviousTrackCustomBlock,
+        Playlist.PlaylistGetAllCustomBlock,
+        Playlist.PlaylistGetPlayingCustomBlock,
+        Playlist.PlaylistStopCustomBlock,
+        Playlist.PlaylistCycleModeCustomBlock,
 
         /* ROLL */
-        new Roll.RollCustomBlock(),
+        Roll.RollCustomBlock,
 
         /* ROLLTABLE */
-        new RollTable.RollTableGetTableResultDataCustomBlock(),
-        new RollTable.RollTableRollCustomBlock(),
-        new RollTable.RollTableGetTableResultDataCustomBlock(),
+        RollTable.RollTableGetTableResultDataCustomBlock,
+        RollTable.RollTableRollCustomBlock,
+        RollTable.RollTableGetTableResultDataCustomBlock,
 
         /* SCENE */
-        new Scene.SceneGetByNameOrIdCustomBlock(),
-        new Scene.SceneViewCustomBlock(),
-        new Scene.SceneActivateCustomBlock(),
-        new Scene.SceneGetCurrentCustomBlock(),
-        new Scene.SceneGetAllCustomBlock(),
+        Scene.SceneGetByNameOrIdCustomBlock,
+        Scene.SceneViewCustomBlock,
+        Scene.SceneActivateCustomBlock,
+        Scene.SceneGetCurrentCustomBlock,
+        Scene.SceneGetAllCustomBlock,
 
         /* TOKEN */
-        new Token.TokenShowCustomBlock(),
-        new Token.TokenHideCustomBlock(),
-        new Token.TokenToggleVisibilityCustomBlock(),
-        new Token.TokenGetSelectionCustomBlock(),
-        new Token.TokenGetAllInCurrentSceneCustomBlock(),
-        new Token.TokenToggleCombatStateCustomBlock(),
-        new Token.TokenGetAllInSceneCustomBlock(),
-        new Token.TokenRotateCustomBlock(),
-        new Token.TokenSetScaleCustomBlock(),
-        new Token.TokenResetScaleCustomBlock(),
-        new Token.TokenMoveCustomBlock(),
-        new Token.TokenChangeElevationCustomBlock(),
+        Token.TokenShowCustomBlock,
+        Token.TokenHideCustomBlock,
+        Token.TokenToggleVisibilityCustomBlock,
+        Token.TokenGetSelectionCustomBlock,
+        Token.TokenGetAllInCurrentSceneCustomBlock,
+        Token.TokenToggleCombatStateCustomBlock,
+        Token.TokenGetAllInSceneCustomBlock,
+        Token.TokenRotateCustomBlock,
+        Token.TokenSetScaleCustomBlock,
+        Token.TokenResetScaleCustomBlock,
+        Token.TokenMoveCustomBlock,
+        Token.TokenChangeElevationCustomBlock,
 
         /* USER */
-        new User.UserGetAllCustomBlock(),
-        new User.UserGetActorCustomBlock(),
-        new User.UserGetTokenInSceneCustomBlock(),
-        new User.UserGetNyNameOrIdCustomBlock(),
-        new User.UserPullToSceneCustomBlock(),
-        new User.UserBanCustomBlock(),
-        new User.UserUnbanCustomBlock(),
+        User.UserGetAllCustomBlock,
+        User.UserGetActorCustomBlock,
+        User.UserGetTokenInSceneCustomBlock,
+        User.UserGetNyNameOrIdCustomBlock,
+        User.UserPullToSceneCustomBlock,
+        User.UserBanCustomBlock,
+        User.UserUnbanCustomBlock,
 
         /* UTILS */
-        new Utils.WaitCustomBlock(),
-        new Utils.ShowNotificationCustomBlock(),
+        Utils.WaitCustomBlock,
+        Utils.ShowNotificationCustomBlock,
 
     ]);
 })
