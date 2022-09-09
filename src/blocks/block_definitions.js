@@ -443,6 +443,7 @@ export default function () {
                     ]
                 }
             ],
+            "inputsInline": true,
             "output": "Boolean",
         },
 
