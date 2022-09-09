@@ -179,6 +179,72 @@ export default function () {
 
 
         /******* ROLLTABLE *******/
+        "Foundry.RollTable.GetTableResultData": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "propertyKey",
+                    "options": [
+                        ["Text", "text"],
+                        ["Drawn", "drawn"],
+                        ["Type", "type"],
+                        ["Weight", "weight"],
+                        ["Result ID", "resultId"],
+                        ["Low Range", "lowRange"],
+                        ["High Range", "highRange"],
+                        ["Image", "img"],
+                        ["Collection", "collection"]
+                    ]
+                },
+                {
+                    "type": "input_dummy"
+                },
+                {
+                    "type": "input_value",
+                    "name": "tableResult",
+                    "check": "TableResult"
+                }
+            ],
+            "inputsInline": game.i18n.localize("LibBlockly.Blocks.Foundry.RollTable.GetTableResultData.InlineInputs"),
+            "output": null,
+        },
+
+
+        "Foundry.RollTable.Roll": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "rolltable",
+                    "check": [
+                        "RollTable",
+                        "String"
+                    ]
+                }
+            ],
+            "output": "Array",
+        },
+
+
+        "Foundry.RollTable.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "RollTable"
+            ],
+        },
 
 
         /******* SCENE *******/

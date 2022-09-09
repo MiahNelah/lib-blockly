@@ -1,48 +1,17 @@
-export class GetTableResultDataCustomBlock {
-    constructor() {
-        this.kind = "block";
-        this.key = "foundry_rolltable_get_tableresult_data";
-        this.category = "Foundry.Rolltable";
-    }
+import { CustomBlock } from "../CustomBlock.js";
 
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetTableResultData.Title"),
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "propertyKey",
-                    "options": [
-                        ["Text", "text"],
-                        ["Drawn", "drawn"],
-                        ["Type", "type"],
-                        ["Weight", "weight"],
-                        ["Result ID", "resultId"],
-                        ["Low Range", "lowRange"],
-                        ["High Range", "highRange"],
-                        ["Image", "img"],
-                        ["Collection", "collection"]
-                    ]
-                },
-                {
-                    "type": "input_dummy"
-                },
-                {
-                    "type": "input_value",
-                    "name": "tableResult",
-                    "check": "TableResult"
-                }
-            ],
-            "inputsInline": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetTableResultData.InlineInputs"),
-            "output": null,
-            "colour": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetTableResultData.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetTableResultData.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetTableResultData.HelpUrl"),
-        }
+/**
+ * Get data from a rolltable result.
+ * @extends CustomBlock
+ * @category Foundry.RollTable
+ * 
+ * @param {String} propertyKey - The property to get. Default: "text".
+ * @param {String} tableResult - The table result from which to get the property.
+ * @returns {*} The value of the property.
+ */
+export class RollTableGetTableResultDataCustomBlock extends CustomBlock {
+    constructor() {
+        super("GetTableResultData", "Foundry.RollTable");
     }
 
     /**
@@ -67,36 +36,19 @@ export class GetTableResultDataCustomBlock {
         return [code, Blockly.JavaScript.ORDER_NONE];
     }
 }
+Object.freeze(RollTableGetTableResultDataCustomBlock);
 
-export class RollTableCustomBlock {
+/**
+ * Roll a table.
+ * @extends CustomBlock
+ * @category Foundry.RollTable
+ * 
+ * @param {String} tableNameOrId - The name or id of the table to roll. Default: "Table".
+ * @returns {Array<TableResult>} The results of the roll.
+ */
+export class RollTableRollCustomBlock extends CustomBlock {
     constructor() {
-        this.kind = "block";
-        this.key = "foundry_rolltable_roll_table";
-        this.category = "Foundry.Rolltable";
-    }
-
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Rolltable.RollTable.Title"),
-            "args0": [
-                {
-                    "type": "input_value",
-                    "name": "rolltable",
-                    "check": [
-                        "RollTable",
-                        "String"
-                    ]
-                }
-            ],
-            "output": "Array",
-            "colour": game.i18n.localize("LibBlockly.Blocks.Rolltable.RollTable.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Rolltable.RollTable.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Rolltable.RollTable.HelpUrl"),
-        }
+        super("Roll", "Foundry.RollTable");
     }
 
     /**
@@ -121,43 +73,19 @@ export class RollTableCustomBlock {
         return [`await ${rolltableHelper}(${rolltableId_input})`, Blockly.JavaScript.ORDER_NONE];
     }
 }
+Object.freeze(RollTableRollCustomBlock);
 
-export class GetRolltableByNameOrIdCustomBlock {
+/**
+ * Get a table by name or id.
+ * @extends CustomBlock
+ * @category Foundry.RollTable
+ * 
+ * @param {String} tableNameOrId - The name or id of the table to get. Default: "Table".
+ * @returns {RollTable} The table.
+ */
+export class RolltableGetByNameOrIdCustomBlock extends CustomBlock {
     constructor() {
-        this.kind = "block";
-        this.key = "foundry_rolltable_get_roltable_by_name_or_id";
-        this.category = "Foundry.Rolltable";
-    }
-
-    /**
-     *
-     * @return {!Object}
-     */
-    init() {
-        return {
-            "message0": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Title"),
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "lookupType",
-                    "options": [
-                        [game.i18n.localize("LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupByName"), "name"],
-                        [game.i18n.localize("LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupById"), "id"]
-                    ]
-                },
-                {
-                    "type": "input_value",
-                    "name": "input",
-                    "check": "String"
-                }
-            ],
-            "output": [
-                "RollTable"
-            ],
-            "colour": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Colour"),
-            "tooltip": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Tooltip"),
-            "helpUrl": game.i18n.localize("LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.HelpUrl"),
-        }
+        super("GetByNameOrId", "Foundry.RollTable");
     }
 
     /**
@@ -175,3 +103,4 @@ export class GetRolltableByNameOrIdCustomBlock {
         }
     }
 }
+Object.freeze(RolltableGetByNameOrIdCustomBlock);

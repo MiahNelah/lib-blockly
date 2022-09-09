@@ -258,23 +258,23 @@
 
 
 
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Title": "Trouver la table par %1 %2",
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Tooltip": "",
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.HelpUrl": "",
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupByName": "nom",
-  "LibBlockly.Blocks.Rolltable.GetRolltableByNameOrId.LookupById": "ID",
+  "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.Title": "Trouver la table par %1 %2",
+  "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.LookupByName": "nom",
+  "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Rolltable.RollTable.Title": "Lancer un jet sur la table %1",
-  "LibBlockly.Blocks.Rolltable.RollTable.Tooltip": "",
-  "LibBlockly.Blocks.Rolltable.RollTable.HelpUrl": "",
-  "LibBlockly.Blocks.Rolltable.RollTable.Colour": "230",
+  "LibBlockly.Blocks.Foundry.RollTable.Roll.Title": "Lancer un jet sur la table %1",
+  "LibBlockly.Blocks.Foundry.RollTable.Roll.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.RollTable.Roll.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.RollTable.Roll.Colour": "230",
 
-  "LibBlockly.Blocks.Rolltable.GetTableResultData.Title": "Récupérer %1 %2 depuis le résultat de table %3",
-  "LibBlockly.Blocks.Rolltable.GetTableResultData.Tooltip": "",
-  "LibBlockly.Blocks.Rolltable.GetTableResultData.HelpUrl": "",
-  "LibBlockly.Blocks.Rolltable.GetTableResultData.Colour": "230",
-  "LibBlockly.Blocks.Rolltable.GetTableResultData.InlineInputs": "true",
+  "LibBlockly.Blocks.Foundry.RollTable.GetTableResultData.Title": "Récupérer %1 %2 depuis le résultat de table %3",
+  "LibBlockly.Blocks.Foundry.RollTable.GetTableResultData.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.RollTable.GetTableResultData.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.RollTable.GetTableResultData.Colour": "230",
+  "LibBlockly.Blocks.Foundry.RollTable.GetTableResultData.InlineInputs": "true",
 
 
   "LibBlockly.Blocks.Scene.GetSceneByNameOrId.Title": "Trouver la scène par %1 %2",

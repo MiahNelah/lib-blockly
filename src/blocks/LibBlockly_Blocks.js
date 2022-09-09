@@ -71,9 +71,9 @@ Hooks.once("ready", () => {
         new Roll.RollCustomBlock(),
 
         /* ROLLTABLE */
-        new RollTable.GetRolltableByNameOrIdCustomBlock(),
-        new RollTable.RollTableCustomBlock(),
-        new RollTable.GetTableResultDataCustomBlock(),
+        new RollTable.RollTableGetTableResultDataCustomBlock(),
+        new RollTable.RollTableRollCustomBlock(),
+        new RollTable.RollTableGetTableResultDataCustomBlock(),
 
         /* SCENE */
         new Scene.GetSceneByNameOrIdCustomBlock(),
