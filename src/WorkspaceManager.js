@@ -29,12 +29,12 @@ export class WorkspaceLoader {
         if (!originalWorkspace || originalWorkspace.trim().length === 0) return "{}";
         let migratedWorkspace = undefined;
         const originalWorkspaceErrors = this.analyseWorkspace(originalWorkspace);
-        if (originalWorkspaceErrors.length > 0) {
+        if (originalWorkspaceErrors && originalWorkspaceErrors.length > 0) {
 
             migratedWorkspace = this._migrate(originalWorkspace);
             const migratedWorkspaceErrors = this.analyseWorkspace(migratedWorkspace);
 
-            if (migratedWorkspaceErrors.length > 0) {
+            if (migratedWorkspaceErrors && migratedWorkspaceErrors.length > 0) {
                 throw new WorkspaceError("Macro is corrupted", {
                     system: {
                         id: game.system.id,
@@ -234,7 +234,9 @@ export class WorkspaceLoader {
 
 
     analyseWorkspace(originalWorkspace) {
+        if (!originalWorkspace) return undefined;
         const json = JSON.parse(originalWorkspace);
+        if (!json.blocks?.blocks) return undefined;
         return json.blocks.blocks.flatMap(block => this._analyseBlock(block));
     }
 
