@@ -1,15 +1,15 @@
 import * as Actor from "./LibBlockly_Blocks_Foundry_Actor.js";
 import * as Chat from "./LibBlockly_Blocks_Foundry_Chat.js";
-import * as Combat from "./blocks_foundry_combat.js";
-import * as Item from "./blocks_foundry_item.js";
+import * as Combat from "./LibBlockly_Blocks_Foundry_Combat.js";
+import * as Item from "./LibBlockly_Blocks_Foundry_Item.js";
 import * as Journal from "./LibBlockly_Blocks_Foundry_Journal.js";
 import * as Macro from "./LibBlockly_Blocks_Foundry_Macro.js";
-import * as Playlist from "./blocks_foundry_playlist.js";
+import * as Playlist from "./LibBlockly_Blocks_Foundry_Playlist.js";
 import * as Roll from "./LibBlockly_Blocks_Foundry_Roll.js";
 import * as RollTable from "./LibBlockly_Blocks_Foundry_RollTable.js";
-import * as Scene from "./blocks_foundry_scene.js";
+import * as Scene from "./LibBlockly_Blocks_Foundry_Scene.js";
 import * as Token from "./LibBlockly_Blocks_Foundry_Token.js";
-import * as User from "./blocks_foundry_user.js";
+import * as User from "./LibBlockly_Blocks_Foundry_User.js";
 import * as Utils from "./LibBlockly_Blocks_Foundry_Utils.js";
 
 import BlockDefnitions from "./block_definitions.js";
@@ -28,23 +28,23 @@ Hooks.once("ready", () => {
         new Chat.SendMessageCustomBlock(),
 
         /* COMBAT */
-        new Combat.StartCombatCustomBlock(),
-        new Combat.ActivateCombatCustomBlock(),
-        new Combat.EndCombatCustomBlock(),
-        new Combat.ResetCombatCustomBlock(),
-        new Combat.NextCombatRoundCustomBlock(),
-        new Combat.PreviousCombatRoundCustomBlock(),
-        new Combat.NextCombatTurnCustomBlock(),
-        new Combat.PreviousCombatTurnCustomBlock(),
-        new Combat.IsCombatActiveCustomBlock(),
-        new Combat.GetActiveCombatCustomBlock(),
-        new Combat.CreateCombatCustomBlock(),
+        new Combat.CombatStartCustomBlock(),
+        new Combat.CombatActivateCustomBlock(),
+        new Combat.CombatEndCustomBlock(),
+        new Combat.CombatResetCustomBlock(),
+        new Combat.CombatNextRoundCustomBlock(),
+        new Combat.CombatPreviousRoundCustomBlock(),
+        new Combat.CombatNextTurnCustomBlock(),
+        new Combat.CombatPreviousTurnCustomBlock(),
+        new Combat.CombatIsActiveCustomBlock(),
+        new Combat.CombatGetActiveCustomBlock(),
+        new Combat.CombatCreateCustomBlock(),
 
         /* ITEM */
-        new Item.GetItemByNameOrIdCustomBlock(),
-        new Item.AddItemToTokenOrActorCustomBlock(),
-        new Item.GetItemsFromActorOrTokenCustomBlock(),
-        new Item.RemoveItemsFromActorOrTokenCustomBlock(),
+        new Item.ItemGetByNameOrIdCustomBlock(),
+        new Item.ItemAddToTokenOrActorCustomBlock(),
+        new Item.ItemGetFromActorOrTokenCustomBlock(),
+        new Item.ItemRemoveFromActorOrTokenCustomBlock(),
 
         /* JOURNAL */
         new Journal.JournalGetByNameOrIdCustomBlock(),
@@ -58,14 +58,14 @@ Hooks.once("ready", () => {
         new Macro.MacroCanRunCustomBlock(),
 
         /* PLAYLIST */
-        new Playlist.GetPlaylistByNameOrIdCustomBlock(),
-        new Playlist.PlayPlaylistCustomBlock(),
-        new Playlist.PlayNextTrackCustomBlock(),
-        new Playlist.PlayPreviousTrackCustomBlock(),
-        new Playlist.GetAllPlaylistsCustomBlock(),
-        new Playlist.GetPlayingPlaylistsCustomBlock(),
-        new Playlist.StopPlaylistCustomBlock(),
-        new Playlist.CyclePlaylistModeCustomBlock(),
+        new Playlist.PlaylistGetByNameOrIdCustomBlock(),
+        new Playlist.PlaylistPlayCustomBlock(),
+        new Playlist.PlaylistPlayNextTrackCustomBlock(),
+        new Playlist.PlaylistPlayPreviousTrackCustomBlock(),
+        new Playlist.PlaylistGetAllCustomBlock(),
+        new Playlist.PlaylistGetPlayingCustomBlock(),
+        new Playlist.PlaylistStopCustomBlock(),
+        new Playlist.PlaylistCycleModeCustomBlock(),
 
         /* ROLL */
         new Roll.RollCustomBlock(),
@@ -76,11 +76,11 @@ Hooks.once("ready", () => {
         new RollTable.RollTableGetTableResultDataCustomBlock(),
 
         /* SCENE */
-        new Scene.GetSceneByNameOrIdCustomBlock(),
-        new Scene.ViewSceneCustomBlock(),
-        new Scene.ActivateSceneCustomBlock(),
-        new Scene.GetCurrentSceneCustomBlock(),
-        new Scene.GetAllScenesCustomBlock(),
+        new Scene.SceneGetByNameOrIdCustomBlock(),
+        new Scene.SceneViewCustomBlock(),
+        new Scene.SceneActivateCustomBlock(),
+        new Scene.SceneGetCurrentCustomBlock(),
+        new Scene.SceneGetAllCustomBlock(),
 
         /* TOKEN */
         new Token.TokenShowCustomBlock(),
@@ -97,13 +97,13 @@ Hooks.once("ready", () => {
         new Token.TokenChangeElevationCustomBlock(),
 
         /* USER */
-        new User.GetAllUsersCustomBlock(),
-        new User.GetActorOfUserCustomBlock(),
-        new User.GetTokenOfUserInSceneCustomBlock(),
-        new User.GetUserNyNameOrIdCustomBlock(),
-        new User.PullUsersToSceneCustomBlock(),
-        new User.BanUserCustomBlock(),
-        new User.UnbanUserCustomBlock(),
+        new User.UserGetAllCustomBlock(),
+        new User.UserGetActorCustomBlock(),
+        new User.UserGetTokenInSceneCustomBlock(),
+        new User.UserGetNyNameOrIdCustomBlock(),
+        new User.UserPullToSceneCustomBlock(),
+        new User.UserBanCustomBlock(),
+        new User.UserUnbanCustomBlock(),
 
         /* UTILS */
         new Utils.WaitCustomBlock(),

@@ -90,10 +90,237 @@ export default function () {
         },
 
         /******* COMBAT *******/
+        "Foundry.Combat.Create": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "scene",
+                    "check": [
+                        "Scene"
+                    ]
+                }
+            ],
+            "output": "Combat",
+        },
+
+        "Foundry.Combat.GetActive": {
+            "output": "Combat",
+        },
+
+        "Foundry.Combat.IsActive": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "output": "Boolean",
+        },
+
+        "Foundry.Combat.Start": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.Activate": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.Delete": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": "Combat"
+                },
+                {
+                    "type": "field_checkbox",
+                    "name": "confirmation",
+                    "checked": true
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.Reset": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.NextRound": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.PreviousRound": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.NextTurn": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Combat.PreviousTurn": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "combat",
+                    "check": [
+                        "Combat"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
 
 
         /******* ITEM *******/
+        "Foundry.Item.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Item"
+            ],
+        },
 
+        "Foundry.Item.GetFromActorOrToken": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "actorOrToken",
+                    "check": [
+                        "Actor",
+                        "Token",
+                        "String"
+                    ]
+                }
+            ],
+            "output": [
+                "Array"
+            ],
+        },
+
+        "Foundry.Item.AddToActorOrToken": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "item",
+                    "check": [
+                        "Item",
+                        "Array",
+                        "String"
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "parent",
+                    "check": [
+                        "Token",
+                        "Actor",
+                        "Array"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Item.RemoveFromActorOrToken": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "items",
+                    "check": ["Array", "Item"]
+                },
+                {
+                    "type": "input_value",
+                    "name": "actorOrToken",
+                    "check": [
+                        "Actor",
+                        "Token",
+                        "Array"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
 
         /******* JOURNAL *******/
         "Foundry.Journal.GetByNameOrId": {
@@ -117,7 +344,7 @@ export default function () {
             ],
         },
 
-        
+
         "Foundry.Journal.Open": {
             "args0": [
                 {
@@ -132,7 +359,7 @@ export default function () {
             "nextStatement": null,
         },
 
-        
+
         "Foundry.Journal.ShowAs": {
             "args0": [
                 {
@@ -221,6 +448,110 @@ export default function () {
 
 
         /******* PLAYLIST *******/
+        "Foundry.Playlist.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Playlist"
+            ],
+        },
+
+        "Foundry.Playlist.Play": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "playlist",
+                    "check": [
+                        "Playlist",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Playlist.PlayNext": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "playlist",
+                    "check": [
+                        "Playlist",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Playlist.PlayPrevious": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "playlist",
+                    "check": [
+                        "Playlist",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Playlist.GetAll": {
+            "output": "Array",
+        },
+
+        "Foundry.Playlist.GetPlaying": {
+            "output": "Array",
+        },
+
+        "Foundry.Playlist.Stop": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "playlist",
+                    "check": [
+                        "Playlist",
+                        "Array",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Playlist.CycleMode": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "playlist",
+                    "check": [
+                        "Playlist",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
 
 
         /******* ROLL *******/
@@ -307,6 +638,60 @@ export default function () {
 
 
         /******* SCENE *******/
+        "Foundry.Scene.Activate": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "scene",
+                    "check": "Scene"
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Scene.View": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "scene",
+                    "check": "Scene"
+                }
+            ],
+            "inputsInline": false,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.Scene.GetAll": {
+            "output": "Array",
+        },
+
+        "Foundry.Scene.GetCurrent": {
+            "output": "Scene",
+        },
+
+        "Foundry.Scene.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Scene"
+            ],
+        },
 
 
         /******* TOKEN *******/
@@ -530,6 +915,105 @@ export default function () {
 
 
         /******* USER *******/
+        "Foundry.User.GetAll": {
+            "output": "Array",
+
+        },
+
+        "Foundry.User.GetActor": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "user",
+                    "check": "User"
+                }
+            ],
+            "output": "Actor",
+        },
+
+        "Foundry.User.GetTokenInScene": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "user",
+                    "check": "User"
+                }
+            ],
+            "output": "Token",
+        },
+
+        "Foundry.User.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.User.GetUserNyNameOrId.LookupByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.User.GetUserNyNameOrId.LookupById"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "User",
+                "undefined"
+            ],
+        },
+
+        "Foundry.User.PullToScene": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "userInput",
+                    "check": [
+                        "String",
+                        "Array",
+                        "User"
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "sceneInput",
+                    "check": [
+                        "String",
+                        "Scene"
+                    ]
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.User.Ban": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "userInput",
+                    "check": ["User", "Array", "String"]
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        "Foundry.User.Unban": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "userInput",
+                    "check": ["User", "Array", "String"]
+                }
+            ],
+            "inputsInline": true,
+            "previousStatement": null,
+            "nextStatement": null,
+        },
 
 
 

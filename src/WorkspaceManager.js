@@ -194,7 +194,50 @@ export class WorkspaceLoader {
 
             "foundry_journal_get_journal_by_name_or_id":"Foundry.Journal.GetByNameOrId",
             "foundry_journal_open_journal":"Foundry.Journal.Open",
-            "foundry_journal_show_journal_as":"Foundry.Journal.ShowAs"
+            "foundry_journal_show_journal_as":"Foundry.Journal.ShowAs",
+
+            "foundry_combat_create_combat":"Foundry.Combat.Create",
+            "foundry_combat_get_active_combat":"Foundry.Combat.GetActive",
+            "foundry_combat_is_combat_active":"Foundry.Combat.IsActive",
+            "foundry_combat_start_combat":"Foundry.Combat.Start",
+            "foundry_combat_activate_combat":"Foundry.Combat.Activate",
+            "foundry_combat_delete_combat":"Foundry.Combat.Delete",
+            "foundry_combat_reset_combat":"Foundry.Combat.Reset",
+            "foundry_combat_next_combat_round":"Foundry.Combat.NextRound",
+            "foundry_combat_previous_combat_round":"Foundry.Combat.PreviousRound",
+            "foundry_combat_next_combat_turn":"Foundry.Combat.NextTurn",
+            "foundry_combat_previous_combat_turn":"Foundry.Combat.PreviousTurn",
+
+            "foundry_item_get_item_by_name_or_id":"Foundry.Item.GetByNameOrId",
+            "foundry_items_get_items_from_actor_or_token":"Foundry.Item.GetFromActorOrToken",
+            "foundry_item_add_item_to_token_or_actor":"Foundry.Item.AddToActorOrToken",
+            "foundry_items_remove_items_from_actor_or_token":"Foundry.Item.RemoveFromActorOrToken",
+
+            "foundry_playlist_get_playlist_by_name_or_id":"Foundry.Playlist.GetByNameOrId",
+            "foundry_playlist_play_playlist":"Foundry.Playlist.Play",
+            "foundry_playlist_play_next_track":"Foundry.Playlist.PlayNext",
+            "foundry_playlist_play_previous_track":"Foundry.Playlist.PlayPrevious",
+            "foundry_playlist_get_all_playlists":"Foundry.Playlist.GetAll",
+            "foundry_playlist_get_playing_playlists":"Foundry.Playlist.GetPlaying",
+            "foundry_playlist_stop_playlist":"Foundry.Playlist.Stop",
+            "foundry_playlist_cycle_playlist_mode":"Foundry.Playlist.CycleMode",
+
+            "foundry_scene_activate_scene":"Foundry.Scene.Activate",
+            "foundry_scene_view_scene":"Foundry.Scene.View",
+            "foundry_scene_get_all_scenes":"Foundry.Scene.GetAll",
+            "foundry_scene_get_current_scene":"Foundry.Scene.GetCurrent",
+            "foundry_scene_get_scene_by_name_or_id":"Foundry.Scene.GetByNameOrId",
+
+
+
+            "foundry_user_get_all_user":"Foundry.User.GetAll",
+            "foundry_user_get_user_actor":"Foundry.User.GetActor",
+            "foundry_user_get_user_token_in_scene":"Foundry.User.GetTokenInScene",
+            "foundry_user_get_user_by_name_or_id":"Foundry.User.GetByNameOrId",
+            "foundry_user_pull_to_scene":"Foundry.User.PullToScene",
+            "foundry_user_ban_user":"Foundry.User.Ban",
+            "foundry_user_unban_user":"Foundry.User.Unban",
+
 
         };
         let migratedWorkspace = oldWorkspace;
