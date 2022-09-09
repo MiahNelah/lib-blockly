@@ -360,7 +360,7 @@
   "LibBlockly.Blocks.Foundry.Token.Move.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.Token.Move.Colour": "230",
 
-  "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Title": "Modifier l'élévation du jeton %1 %2 %3 %4",
+  "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Title": "Modifier l'élévation du jeton %1 %2 %3",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Tooltip": "",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Colour": "230",

@@ -898,8 +898,8 @@ export default function () {
                     "type": "field_dropdown",
                     "name": "mode",
                     "options": [
-                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Token.ChangeElevation.AngleMode.By"), "by"],
-                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Token.ChangeElevation.Mode.To"), "to"]
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Step.By"), "by"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Step.To"), "to"]
                     ]
                 },
                 {

@@ -53,6 +53,8 @@
   "LibBlockly.Blocks.Generic.Range.From": "from",
   "LibBlockly.Blocks.Generic.Range.To": "to",
 
+  "LibBlockly.Blocks.Generic.Step.By": "by",
+  "LibBlockly.Blocks.Generic.Step.To": "to",
 
   "LibBlockly.Blocks.Foundry.User.GetAll.Title": "Get users",
   "LibBlockly.Blocks.Foundry.User.GetAll.Tooltip": "",
@@ -370,7 +372,7 @@
   "LibBlockly.Blocks.Foundry.Roll.Roll.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.Roll.Roll.Colour": "230",
 
-  "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Title": "Change token %1 elevation %2 %3 %4",
+  "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Title": "Change token %1 elevation %2 %3",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Tooltip": "",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Colour": "230",
