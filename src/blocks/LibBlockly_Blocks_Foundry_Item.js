@@ -2,7 +2,7 @@ import { CustomBlock } from "../CustomBlock.js";
 
 export class ItemGetByNameOrIdCustomBlock extends CustomBlock {
     constructor() {
-        super("GetByNameOrId", "Foundry.Playlist");
+        super("GetByNameOrId", "Foundry.Item");
     }
 
 
@@ -25,7 +25,7 @@ Object.freeze(ItemGetByNameOrIdCustomBlock);
 
 export class ItemGetFromActorOrTokenCustomBlock extends CustomBlock {
     constructor() {
-        super("GetFromActorOrToken", "Foundry.Playlist");
+        super("GetFromActorOrToken", "Foundry.Item");
     }
 
 
@@ -50,7 +50,7 @@ Object.freeze(ItemGetFromActorOrTokenCustomBlock);
 
 export class ItemAddToTokenOrActorCustomBlock extends CustomBlock {
     constructor() {
-        super("AddToActorOrToken", "Foundry.Playlist");
+        super("AddToActorOrToken", "Foundry.Item");
     }
 
     /**
@@ -85,7 +85,7 @@ Object.freeze(ItemAddToTokenOrActorCustomBlock);
 
 export class ItemRemoveFromActorOrTokenCustomBlock extends CustomBlock {
     constructor() {
-        super("RemoveFromActorOrToken", "Foundry.Playlist");
+        super("RemoveFromActorOrToken", "Foundry.Item");
     }
 
     /**
