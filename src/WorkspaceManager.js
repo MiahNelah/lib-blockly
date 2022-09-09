@@ -180,7 +180,12 @@ export class WorkspaceLoader {
             "foundry_actor_get_actor_by_name_or_id":"Foundry.Actor.GetActorByNameOrId",
             "foundry_actor_get_actor_from_token":"Foundry.Actor.GetTokenFromActorCustomBlock",
             "foundry_actor_get_all_actors":"Foundry.Actor.GetAllActors",
-            "foundry_actor_get_tokens_of_actor_in_current_scene":"Foundry.Actor.GetTokensOfActorInCurrentScene"
+            "foundry_actor_get_tokens_of_actor_in_current_scene":"Foundry.Actor.GetTokensOfActorInCurrentScene",
+
+            "foundry_macro_get_all_macros": "Foundry.Macro.GetAll",
+            "foundry_macro_get_macro_by_name_or_id":"Foundry.Macro.GetByNameOrId",
+            "foundry_macro_run_macro": "Foundry.Macro.Run"
+
         };
         let migratedWorkspace = oldWorkspace;
         for (let c of Object.keys(changes)) {

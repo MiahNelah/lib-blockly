@@ -99,6 +99,66 @@ export default function () {
 
 
         /******* MACRO *******/
+        "Foundry.Macro.GetAll": {
+            "output": [
+                "Array"
+            ],
+        },
+
+
+        "Foundry.Macro.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "check": "String",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "Macro"
+            ],
+        },
+
+
+        "Foundry.Macro.Run": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "macro",
+                    "check": [
+                        "Macro",
+                        "Array",
+                        "String"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+
+        "Foundry.Macro.CanRun": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "macro",
+                    "check": [
+                        "Macro",
+                        "String"
+                    ]
+                }
+            ],
+            "output": "Boolean",
+        },
 
 
         /******* PLAYLIST *******/

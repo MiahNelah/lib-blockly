@@ -52,31 +52,30 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDrop(event) {
         const data = JSON.parse(event.dataTransfer.getData("text"));
         if (data) {
-            const uuid = `${data.pack ? data.pack + "." : ""}${data.type}.${data.id}`;
             switch (data.type) {
                 case "Scene":
-                    await this._onDropScene(event, data, uuid);
+                    await this._onDropScene(event, data, data.uuid);
                     break;
                 case "Actor":
-                    await this._onDropActor(event, data, uuid);
+                    await this._onDropActor(event, data, data.uuid);
                     break;
                 case "Item":
-                    await this._onDropItem(event, data, uuid);
+                    await this._onDropItem(event, data, data.uuid);
                     break;
                 case "JournalEntry":
-                    await this._onDropJournal(event, data, uuid);
+                    await this._onDropJournal(event, data, data.uuid);
                     break;
                 case "RollTable":
-                    await this._onDropRollTable(event, data, uuid);
+                    await this._onDropRollTable(event, data, data.uuid);
                     break;
                 case "Playlist":
-                    await this._onDropPlaylist(event, data, uuid);
+                    await this._onDropPlaylist(event, data, data.uuid);
                     break;
                 case "Compendium":
-                    await this._onDropCompendium(event, data, uuid);
+                    await this._onDropCompendium(event, data, data.uuid);
                     break;
                 case "Macro":
-                    await this._onDropMacro(event, data, uuid);
+                    await this._onDropMacro(event, data, data.uuid);
                     break;
             }
         }
@@ -341,19 +340,19 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropMacro(event, data, uuid) {
         const macro = await fromUuid(uuid);
 
-        const getMacroBlock = this.context.newBlock("foundry_macro_get_macro_by_name_or_id");
-        getMacroBlock.getField("lookupType").setValue("name");
+        const getMacroBlock = this.context.newBlock("Foundry.Macro.GetByNameOrId");
+        getMacroBlock.getField("lookupType").setValue("id");
         getMacroBlock.initSvg();
         getMacroBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(macro.name);
+        text.getField("TEXT").setValue(macro.id);
         text.initSvg();
         text.render();
 
         getMacroBlock.getInput("input").connection.connect(text.outputConnection);
 
-        const runMacroBlock = this.context.newBlock("foundry_macro_run_macro");
+        const runMacroBlock = this.context.newBlock("Foundry.Macro.Run");
         runMacroBlock.initSvg();
         runMacroBlock.render();
         runMacroBlock.getInput("macro").connection.connect(getMacroBlock.outputConnection);

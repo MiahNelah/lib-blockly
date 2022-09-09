@@ -3,7 +3,7 @@ import * as Chat from "./LibBlockly_Blocks_Foundry_Chat.js";
 import * as Combat from "./blocks_foundry_combat.js";
 import * as Item from "./blocks_foundry_item.js";
 import * as Journal from "./blocks_foundry_journal.js";
-import * as Macro from "./blocks_foundry_macro.js";
+import * as Macro from "./LibBlockly_Blocks_Foundry_Macro.js";
 import * as Playlist from "./blocks_foundry_playlist.js";
 import * as Roll from "./blocks_foundry_roll.js";
 import * as RollTable from "./blocks_foundry_rolltable.js";
@@ -52,9 +52,10 @@ Hooks.once("ready", () => {
         new Journal.ShowJournalAsCustomBlock(),
 
         /* MACRO */
-        new Macro.RunMacroCustomBlock(),
-        new Macro.GetMacroByNameOrIdCustomBlock(),
-        new Macro.GetAllMacrosCustomBlock(),
+        new Macro.MacroGetAllCustomBlock(),
+        new Macro.MacroGetByNameOrIdCustomBlock(),
+        new Macro.MacroRunCustomBlock(),
+        new Macro.MacroCanRunCustomBlock(),
 
         /* PLAYLIST */
         new Playlist.GetPlaylistByNameOrIdCustomBlock(),
@@ -92,7 +93,7 @@ Hooks.once("ready", () => {
         new Token.TokenRotateCustomBlock(),
         new Token.TokenSetScaleCustomBlock(),
         new Token.TokenResetScaleCustomBlock(),
-      //  new Token.TokenMoveCustomBlock(),
+        new Token.TokenMoveCustomBlock(),
         new Token.TokenChangeElevationCustomBlock(),
 
         /* USER */

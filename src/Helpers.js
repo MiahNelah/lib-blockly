@@ -115,4 +115,37 @@ export class Helpers {
         if (scene === undefined || (!scene instanceof Scene)) return [];
         return scene.getEmbeddedCollection("Token").contents
     }
+
+    resolveMacro(mode, value) {
+        if (mode === undefined || value === undefined) return undefined;
+        switch (mode) {
+            default:
+            case "id":
+                return game.macros.get(value);
+            case "name":
+                return game.macros.getName(value);
+        }
+    }
+
+    executeMacro(caller, macro) {
+        if (macro === undefined) return;
+        if (typeof macro === "string") macro = this.resolveMacro("id", macro);
+        if (!(macro instanceof Macro)) return;
+        if (macro === caller) return;
+
+        if (Array.isArray(macro)) {
+            macro.forEach(m => this.executeMacro(caller, m))
+        }
+        else {
+            macro.execute();
+        }
+    }
+
+    canExecuteMacro(macro) {
+        if (macro === undefined) return;
+        if (typeof macro === "string") macro = this.resolveMacro("id", macro);
+        if (!(macro instanceof Macro)) return;
+
+        return macro.canExecute();
+    }
 }

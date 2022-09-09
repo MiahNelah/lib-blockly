@@ -183,20 +183,25 @@
 
 
 
-  "LibBlockly.Blocks.Macro.RunMacro.Title": "Run macro %1",
-  "LibBlockly.Blocks.Macro.RunMacro.Tooltip": "",
-  "LibBlockly.Blocks.Macro.RunMacro.HelpUrl": "",
-  "LibBlockly.Blocks.Macro.RunMacro.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Macro.Run.Title": "Run macro %1",
+  "LibBlockly.Blocks.Foundry.Macro.Run.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.Run.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.Run.Colour": "230",
 
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Title": "Get macro by %1 %2",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Tooltip": "",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.HelpUrl": "",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.Title": "Can current user run macro %1 ?",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.Colour": "230",
 
-  "LibBlockly.Blocks.Macro.GetAllMacros.Title": "All macros",
-  "LibBlockly.Blocks.Macro.GetAllMacros.Tooltip": "",
-  "LibBlockly.Blocks.Macro.GetAllMacros.HelpUrl": "",
-  "LibBlockly.Blocks.Macro.GetAllMacros.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.Title": "Get macro by %1 %2",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.Colour": "230",
+
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.Title": "All macros",
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.Colour": "230",
 
 
 

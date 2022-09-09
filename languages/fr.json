@@ -178,22 +178,25 @@
 
 
 
-  "LibBlockly.Blocks.Macro.RunMacro.Title": "Exécuter la macro %1",
-  "LibBlockly.Blocks.Macro.RunMacro.Tooltip": "",
-  "LibBlockly.Blocks.Macro.RunMacro.HelpUrl": "",
-  "LibBlockly.Blocks.Macro.RunMacro.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Macro.Run.Title": "Exécuter la macro %1",
+  "LibBlockly.Blocks.Foundry.Macro.Run.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.Run.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.Run.Colour": "230",
 
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Title": "Trouver la macro par %1 %2",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Tooltip": "",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.HelpUrl": "",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.LookupByName": "nom",
-  "LibBlockly.Blocks.Macro.GetMacroByNameOrId.LookupById": "ID",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.Title": "L'utilisateur actuel peut-il exécuter la macro %1 ?",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.CanRun.Colour": "230",
 
-  "LibBlockly.Blocks.Macro.GetAllMacros.Title": "Toutes les macros",
-  "LibBlockly.Blocks.Macro.GetAllMacros.Tooltip": "",
-  "LibBlockly.Blocks.Macro.GetAllMacros.HelpUrl": "",
-  "LibBlockly.Blocks.Macro.GetAllMacros.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.Title": "Récupérer la macro %1 %2",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetByNameOrId.Colour": "230",
+
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.Title": "Toutes les macros",
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Macro.GetAll.Colour": "230",
 
 
 
