@@ -148,4 +148,11 @@ export class Helpers {
 
         return macro.canExecute();
     }
+
+    async roll(rollExpression) {
+        if (rollExpression === undefined) return 0;
+        const roll_object = new Roll(rollExpression);
+        const roll = await roll_object.roll({ async: true });
+        return roll.total;
+    }
 }

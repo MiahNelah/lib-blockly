@@ -5,7 +5,7 @@ import * as Item from "./blocks_foundry_item.js";
 import * as Journal from "./blocks_foundry_journal.js";
 import * as Macro from "./LibBlockly_Blocks_Foundry_Macro.js";
 import * as Playlist from "./blocks_foundry_playlist.js";
-import * as Roll from "./blocks_foundry_roll.js";
+import * as Roll from "./LibBlockly_Blocks_Foundry_Roll.js";
 import * as RollTable from "./blocks_foundry_rolltable.js";
 import * as Scene from "./blocks_foundry_scene.js";
 import * as Token from "./LibBlockly_Blocks_Foundry_Token.js";

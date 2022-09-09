@@ -184,7 +184,9 @@ export class WorkspaceLoader {
 
             "foundry_macro_get_all_macros": "Foundry.Macro.GetAll",
             "foundry_macro_get_macro_by_name_or_id":"Foundry.Macro.GetByNameOrId",
-            "foundry_macro_run_macro": "Foundry.Macro.Run"
+            "foundry_macro_run_macro": "Foundry.Macro.Run",
+            
+            "foundry_roll_roll": "Foundry.Roll.Roll"
 
         };
         let migratedWorkspace = oldWorkspace;

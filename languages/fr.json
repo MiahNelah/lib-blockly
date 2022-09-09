@@ -370,10 +370,10 @@
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Mode.To": "à",
   
 
-  "LibBlockly.Blocks.Roll.Roll.Title": "Lancer un dé %1",
-  "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
-  "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",
-  "LibBlockly.Blocks.Roll.Roll.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.Title": "Lancer un dé %1",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.Colour": "230",
 
 
   "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Title": "Trouver le journal par %1 %2",

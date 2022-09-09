@@ -165,6 +165,17 @@ export default function () {
 
 
         /******* ROLL *******/
+        "Foundry.Roll.Roll": {
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "rollExpression",
+                    "check": "String",
+                    "text": "1d6"
+                }
+            ],
+            "output": "Number",
+        },
 
 
         /******* ROLLTABLE *******/
@@ -433,7 +444,11 @@ export default function () {
                 {
                     "type": "input_value",
                     "name": "message",
-                    "check": "String"
+                    "check": [
+                        "Number",
+                        "String",
+                        "Boolean"
+                    ]
                 }
             ],
             "previousStatement": null,

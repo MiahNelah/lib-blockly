@@ -367,10 +367,10 @@
   "LibBlockly.Blocks.Foundry.Token.Move.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.Token.Move.Colour": "230",
 
-  "LibBlockly.Blocks.Roll.Roll.Title": "Roll %1",
-  "LibBlockly.Blocks.Roll.Roll.Tooltip": "",
-  "LibBlockly.Blocks.Roll.Roll.HelpUrl": "",
-  "LibBlockly.Blocks.Roll.Roll.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.Title": "Roll %1",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Roll.Roll.Colour": "230",
 
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Title": "Change token %1 elevation %2 %3 %4",
   "LibBlockly.Blocks.Foundry.Token.ChangeElevation.Tooltip": "",
