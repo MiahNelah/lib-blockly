@@ -261,6 +261,11 @@
   "LibBlockly.Blocks.Foundry.Combat.Create.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.Combat.Create.Colour": "230",
 
+  "LibBlockly.Blocks.Foundry.Combat.Delete.Title": "Delete combat %1 %2",
+  "LibBlockly.Blocks.Foundry.Combat.Delete.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Combat.Delete.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Combat.Delete.Colour": "230",
+
 
 
   "LibBlockly.Blocks.Foundry.RollTable.GetByNameOrId.Title": "Get rolltable by %1 %2",
