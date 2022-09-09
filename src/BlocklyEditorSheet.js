@@ -235,13 +235,13 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropScene(event, data, uuid) {
         const scene = await fromUuid(uuid);
 
-        const getSceneBlock = this.context.newBlock("foundry_scene_get_scene_by_name_or_id");
-        getSceneBlock.getField("lookupType").setValue("name");
+        const getSceneBlock = this.context.newBlock("Foundry.Scene.GetByNameOrId");
+        getSceneBlock.getField("lookupType").setValue("id");
         getSceneBlock.initSvg();
         getSceneBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(scene.name);
+        text.getField("TEXT").setValue(scene.id);
         text.initSvg();
         text.render();
 
@@ -251,13 +251,13 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropActor(event, data, uuid) {
         const actor = await fromUuid(uuid);
 
-        const getActorNyNameBlock = this.context.newBlock("foundry_actor_get_actor_by_name_or_id");
-        getActorNyNameBlock.getField("lookupType").setValue("name");
+        const getActorNyNameBlock = this.context.newBlock("Foundry.Actor.GetActorByNameOrId");
+        getActorNyNameBlock.getField("lookupType").setValue("id");
         getActorNyNameBlock.initSvg();
         getActorNyNameBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(actor.name);
+        text.getField("TEXT").setValue(actor.id);
         text.initSvg();
         text.render();
 
@@ -267,13 +267,13 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropItem(event, data, uuid) {
         const item = await fromUuid(uuid);
 
-        const getItemNyNameBlock = this.context.newBlock("foundry_item_get_item_by_name_or_id");
-        getItemNyNameBlock.getField("lookupType").setValue("name");
+        const getItemNyNameBlock = this.context.newBlock("Foundry.Item.GetByNameOrId");
+        getItemNyNameBlock.getField("lookupType").setValue("id");
         getItemNyNameBlock.initSvg();
         getItemNyNameBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(item.name);
+        text.getField("TEXT").setValue(item.id);
         text.initSvg();
         text.render();
 
@@ -320,13 +320,13 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropPlaylist(event, data, uuid) {
         const playlist = await fromUuid(uuid);
 
-        const getPlaylistNyNameBlock = this.context.newBlock("foundry_playlist_get_playlist_by_name_or_id");
-        getPlaylistNyNameBlock.getField("lookupType").setValue("name");
+        const getPlaylistNyNameBlock = this.context.newBlock("Foundry.Playlist.GetByNameOrId");
+        getPlaylistNyNameBlock.getField("lookupType").setValue("id");
         getPlaylistNyNameBlock.initSvg();
         getPlaylistNyNameBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(playlist.name);
+        text.getField("TEXT").setValue(playlist.id);
         text.initSvg();
         text.render();
 

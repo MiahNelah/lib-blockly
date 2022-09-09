@@ -160,10 +160,6 @@ export class WorkspaceLoader {
     _migrate(oldWorkspace) {
         if (!oldWorkspace || oldWorkspace.trim().length === 0) throw Error("Macro is empty");
         const changes = {
-            "foundry_scene_get_selected_tokens": "Foundry.Token.GetSelection",
-            "foundry_token_toggle_combat_state": "Foundry.Token.ToggleCombatState",
-            "foundry_scene_get_all_tokens_in_scene": "Foundry.Token.GetAllInScene",
-            "foundry_scene_get_all_tokens": "Foundry.Token.GetAllInCurrentScene",
             "foundry_token_toggle_tokens_visibility": "Foundry.Token.ToggleVisibility",
             "foundry_token_show_tokens": "Foundry.Token.Show",
             "foundry_token_hide_tokens": "Foundry.Token.Hide",
@@ -228,8 +224,6 @@ export class WorkspaceLoader {
             "foundry_scene_get_current_scene":"Foundry.Scene.GetCurrent",
             "foundry_scene_get_scene_by_name_or_id":"Foundry.Scene.GetByNameOrId",
 
-
-
             "foundry_user_get_all_user":"Foundry.User.GetAll",
             "foundry_user_get_user_actor":"Foundry.User.GetActor",
             "foundry_user_get_user_token_in_scene":"Foundry.User.GetTokenInScene",
@@ -237,8 +231,6 @@ export class WorkspaceLoader {
             "foundry_user_pull_to_scene":"Foundry.User.PullToScene",
             "foundry_user_ban_user":"Foundry.User.Ban",
             "foundry_user_unban_user":"Foundry.User.Unban",
-
-
         };
         let migratedWorkspace = oldWorkspace;
         for (let c of Object.keys(changes)) {
