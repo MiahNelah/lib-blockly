@@ -948,8 +948,8 @@ export default function () {
                     "type": "field_dropdown",
                     "name": "lookupType",
                     "options": [
-                        [game.i18n.localize("LibBlockly.Blocks.User.GetUserNyNameOrId.LookupByName"), "name"],
-                        [game.i18n.localize("LibBlockly.Blocks.User.GetUserNyNameOrId.LookupById"), "id"]
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
                     ]
                 },
                 {

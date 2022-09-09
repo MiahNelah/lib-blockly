@@ -64,12 +64,10 @@
   "LibBlockly.Blocks.Foundry.User.GetTokenInScene.HelpUrl": "",
   "LibBlockly.Blocks.Foundry.User.GetTokenInScene.Colour": "230",
 
-  "LibBlockly.Blocks.Foundry.User.GetNyNameOrId.Title": "Trouver le joueur par %1 %2",
-  "LibBlockly.Blocks.Foundry.User.GetNyNameOrId.Tooltip": "",
-  "LibBlockly.Blocks.Foundry.User.GetNyNameOrId.HelpUrl": "",
-  "LibBlockly.Blocks.Foundry.User.GetNyNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Foundry.User.GetNyNameOrId.LookupByName": "nom",
-  "LibBlockly.Blocks.Foundry.User.GetNyNameOrId.LookupById": "ID",
+  "LibBlockly.Blocks.Foundry.User.GetByNameOrId.Title": "Trouver le joueur par %1 %2",
+  "LibBlockly.Blocks.Foundry.User.GetByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.User.GetByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.User.GetByNameOrId.Colour": "230",
 
   "LibBlockly.Blocks.Foundry.User.PullToScene.Title": "Amener les joueurs %1 sur la scène %2",
   "LibBlockly.Blocks.Foundry.User.PullToScene.Tooltip": "",
