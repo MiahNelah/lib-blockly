@@ -47,7 +47,7 @@ Object.freeze(PlaylistPlayCustomBlock);
 
 export class PlaylistPlayNextTrackCustomBlock extends CustomBlock {
     constructor() {
-        super("PlayNext", "Foundry.Playlist");
+        super("PlayNextTrack", "Foundry.Playlist");
     }
 
     /**
@@ -70,7 +70,7 @@ Object.freeze(PlaylistPlayNextTrackCustomBlock);
 
 export class PlaylistPlayPreviousTrackCustomBlock extends CustomBlock {
     constructor() {
-        super("PlayPrevious", "Foundry.Playlist");
+        super("PlayPreviousTrack", "Foundry.Playlist");
     }
 
     /**

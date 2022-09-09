@@ -484,7 +484,7 @@ export default function () {
             "nextStatement": null,
         },
 
-        "Foundry.Playlist.PlayNext": {
+        "Foundry.Playlist.PlayNextTrack": {
             "args0": [
                 {
                     "type": "input_value",
@@ -499,7 +499,7 @@ export default function () {
             "nextStatement": null,
         },
 
-        "Foundry.Playlist.PlayPrevious": {
+        "Foundry.Playlist.PlayPreviousTrack": {
             "args0": [
                 {
                     "type": "input_value",
