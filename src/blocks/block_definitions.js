@@ -276,7 +276,7 @@ export default function () {
             ],
         },
 
-        "Foundry.Item.AddToActorOrToken": {
+        "Foundry.Item.AddToTokenOrActor": {
             "args0": [
                 {
                     "type": "input_value",

@@ -50,7 +50,7 @@ Object.freeze(ItemGetFromActorOrTokenCustomBlock);
 
 export class ItemAddToTokenOrActorCustomBlock extends CustomBlock {
     constructor() {
-        super("AddToActorOrToken", "Foundry.Item");
+        super("AddToTokenOrActor", "Foundry.Item");
     }
 
     /**
