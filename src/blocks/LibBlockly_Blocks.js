@@ -2,11 +2,11 @@ import * as Actor from "./LibBlockly_Blocks_Foundry_Actor.js";
 import * as Chat from "./LibBlockly_Blocks_Foundry_Chat.js";
 import * as Combat from "./blocks_foundry_combat.js";
 import * as Item from "./blocks_foundry_item.js";
-import * as Journal from "./blocks_foundry_journal.js";
+import * as Journal from "./LibBlockly_Blocks_Foundry_Journal.js";
 import * as Macro from "./LibBlockly_Blocks_Foundry_Macro.js";
 import * as Playlist from "./blocks_foundry_playlist.js";
 import * as Roll from "./LibBlockly_Blocks_Foundry_Roll.js";
-import * as RollTable from "./blocks_foundry_rolltable.js";
+import * as RollTable from "./LibBlockly_Blocks_Foundry_RollTable.js";
 import * as Scene from "./blocks_foundry_scene.js";
 import * as Token from "./LibBlockly_Blocks_Foundry_Token.js";
 import * as User from "./blocks_foundry_user.js";
@@ -47,9 +47,9 @@ Hooks.once("ready", () => {
         new Item.RemoveItemsFromActorOrTokenCustomBlock(),
 
         /* JOURNAL */
-        new Journal.GetJournalByNameOrIdCustomBlock(),
-        new Journal.OpenJournalCustomBlock(),
-        new Journal.ShowJournalAsCustomBlock(),
+        new Journal.JournalGetByNameOrIdCustomBlock(),
+        new Journal.JournalOpenCustomBlock(),
+        new Journal.JournalShowAsCustomBlock(),
 
         /* MACRO */
         new Macro.MacroGetAllCustomBlock(),

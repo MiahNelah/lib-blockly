@@ -192,6 +192,10 @@ export class WorkspaceLoader {
             "foundry_rolltable_get_roltable_by_name_or_id":"Foundry.RollTable.GetByNameOrId",
             "foundry_rolltable_roll_table":"Foundry.RollTable.Roll",
 
+            "foundry_journal_get_journal_by_name_or_id":"Foundry.Journal.GetByNameOrId",
+            "foundry_journal_open_journal":"Foundry.Journal.Open",
+            "foundry_journal_show_journal_as":"Foundry.Journal.ShowAs"
+
         };
         let migratedWorkspace = oldWorkspace;
         for (let c of Object.keys(changes)) {

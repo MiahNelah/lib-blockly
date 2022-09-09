@@ -283,13 +283,13 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropJournal(event, data, uuid) {
         const journal = await fromUuid(uuid);
 
-        const getJournalBlock = this.context.newBlock("foundry_journal_get_journal_by_name_or_id");
-        getJournalBlock.getField("lookupType").setValue("name");
+        const getJournalBlock = this.context.newBlock("Foundry.Journal.GetByNameOrId");
+        getJournalBlock.getField("lookupType").setValue("id");
         getJournalBlock.initSvg();
         getJournalBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(journal.name);
+        text.getField("TEXT").setValue(journal.id);
         text.initSvg();
         text.render();
 
@@ -299,19 +299,19 @@ export class BlocklyEditorSheet extends DocumentSheet {
     async _onDropRollTable(event, data, uuid) {
         const rolltable = await fromUuid(uuid);
 
-        const getRolltableBlock = this.context.newBlock("foundry_rolltable_get_roltable_by_name_or_id");
-        getRolltableBlock.getField("lookupType").setValue("name");
+        const getRolltableBlock = this.context.newBlock("Foundry.RollTable.GetByNameOrId");
+        getRolltableBlock.getField("lookupType").setValue("id");
         getRolltableBlock.initSvg();
         getRolltableBlock.render();
 
         const text = this.context.newBlock("text");
-        text.getField("TEXT").setValue(rolltable.name);
+        text.getField("TEXT").setValue(rolltable.id);
         text.initSvg();
         text.render();
 
         getRolltableBlock.getInput("input").connection.connect(text.outputConnection);
 
-        const rollTableBlock = this.context.newBlock("foundry_rolltable_roll_table");
+        const rollTableBlock = this.context.newBlock("Foundry.RollTable.Roll");
         rollTableBlock.initSvg();
         rollTableBlock.render();
         rollTableBlock.getInput("rolltable").connection.connect(getRolltableBlock.outputConnection);

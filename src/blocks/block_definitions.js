@@ -96,6 +96,65 @@ export default function () {
 
 
         /******* JOURNAL *******/
+        "Foundry.Journal.GetByNameOrId": {
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "lookupType",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByName"), "name"],
+                        [game.i18n.localize("LibBlockly.Blocks.Generic.Lookup.ByKey"), "id"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "input",
+                    "check": "String"
+                }
+            ],
+            "output": [
+                "JournalEntry"
+            ],
+        },
+
+        
+        "Foundry.Journal.Open": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "journal",
+                    "check": [
+                        "JournalEntry"
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
+
+        
+        "Foundry.Journal.ShowAs": {
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "journal",
+                    "check": [
+                        "JournalEntry",
+                        "String"
+                    ]
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "showAs",
+                    "options": [
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Journal.ShowAs.ShowAsText"), "text"],
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Journal.ShowAs.ShowAsImage"), "image"]
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+        },
 
 
         /******* MACRO *******/

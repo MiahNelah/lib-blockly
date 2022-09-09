@@ -381,24 +381,24 @@
 
 
 
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Title": "Get journal by %1 %2",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Tooltip": "",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.HelpUrl": "",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.LookupByName": "name",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.LookupById": "ID",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.Title": "Get journal by %1 %2",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.LookupByName": "name",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Journal.OpenJournal.Title": "Open journal %1",
-  "LibBlockly.Blocks.Journal.OpenJournal.Tooltip": "",
-  "LibBlockly.Blocks.Journal.OpenJournal.HelpUrl": "",
-  "LibBlockly.Blocks.Journal.OpenJournal.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Journal.Open.Title": "Open journal %1",
+  "LibBlockly.Blocks.Foundry.Journal.Open.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Journal.Open.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Journal.Open.Colour": "230",
 
-  "LibBlockly.Blocks.Journal.ShowJournalAs.Title": "Show journal %1 as %2",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.Tooltip": "",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.HelpUrl": "",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.Colour": "230",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsText": "text",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsImage": "image",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.Title": "Show journal %1 as %2",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.ShowAsText": "text",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.ShowAsImage": "image",
 
 
 

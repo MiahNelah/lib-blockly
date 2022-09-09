@@ -376,24 +376,24 @@
   "LibBlockly.Blocks.Foundry.Roll.Roll.Colour": "230",
 
 
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Title": "Trouver le journal par %1 %2",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Tooltip": "",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.HelpUrl": "",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.Colour": "230",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.LookupByName": "nom",
-  "LibBlockly.Blocks.Journal.GetJournalByNameOrId.LookupById": "ID",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.Title": "Trouver le journal par %1 %2",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.LookupByName": "nom",
+  "LibBlockly.Blocks.Foundry.Journal.GetByNameOrId.LookupById": "ID",
 
-  "LibBlockly.Blocks.Journal.OpenJournal.Title": "Ouvrir le journal %1",
-  "LibBlockly.Blocks.Journal.OpenJournal.Tooltip": "",
-  "LibBlockly.Blocks.Journal.OpenJournal.HelpUrl": "",
-  "LibBlockly.Blocks.Journal.OpenJournal.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Journal.Open.Title": "Ouvrir le journal %1",
+  "LibBlockly.Blocks.Foundry.Journal.Open.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Journal.Open.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Journal.Open.Colour": "230",
 
-  "LibBlockly.Blocks.Journal.ShowJournalAs.Title": "Afficher le journal %1 en tant que %2",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.Tooltip": "",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.HelpUrl": "",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.Colour": "230",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsText": "texte",
-  "LibBlockly.Blocks.Journal.ShowJournalAs.ShowAsImage": "image",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.Title": "Afficher le journal %1 en tant que %2",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.ShowAsText": "texte",
+  "LibBlockly.Blocks.Foundry.Journal.ShowAs.ShowAsImage": "image",
 
 
 
