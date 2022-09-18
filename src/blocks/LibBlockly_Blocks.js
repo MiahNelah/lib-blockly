@@ -12,10 +12,10 @@ import * as Token from "./LibBlockly_Blocks_Foundry_Token.js";
 import * as User from "./LibBlockly_Blocks_Foundry_User.js";
 import * as Utils from "./LibBlockly_Blocks_Foundry_Utils.js";
 
-import BlockDefnitions from "./block_definitions.js";
+import BlockDefinitions from "./block_definitions.js";
 
 Hooks.once("ready", () => {
-    libBlockly.registerDefinitions(BlockDefnitions());
+    libBlockly.registerDefinitions(BlockDefinitions());
 
     libBlockly.registerBlockTypes([
         /* ACTOR */
