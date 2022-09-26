@@ -41,14 +41,14 @@ The current roadmap is here : https://github.com/MiahNelah/lib-blockly/projects/
 You can easily add new custom blocks using [Google Blockly documentation](https://developers.google.com/blockly/guides/overview) and [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html).
 To create a new custom block, create a new class on the following template, then register the new block with Block Manager.
 
-First, we need to specify our now custom block definition:
+First, we need to specify our own custom block definition:
 
 ```javascript
 // "message0", "colour", "tooltip" and "helpUrl" will be pulled from translation file for you.
-// Because we often need to translate strings inside definition, we expose defnitions as function to avoid "localize method is undefined" error
+// Because we often need to translate strings inside definition, we expose defnitions as function to grant access to game.i18n.localise() helper.
 const blocksDefinition = function() {
     return {
-        "MyModule.MyCategory.Wait": {            
+        "Foundry.Utils.Wait": {            
             "args0": [
                 {
                     "type": "field_number",
@@ -60,8 +60,8 @@ const blocksDefinition = function() {
                     "type": "field_dropdown",
                     "name": "units",
                     "options": [
-                        [game.i18n.localize("LibBlockly.Blocks.Utils.Wait.Seconds"), "s"],
-                        [game.i18n.localize("LibBlockly.Blocks.Utils.Wait.Milliseconds"), "ms"]
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.Wait.Seconds"), "s"],
+                        [game.i18n.localize("LibBlockly.Blocks.Foundry.Utils.Wait.Milliseconds"), "ms"]
                     ]
                 }
             ],
@@ -73,12 +73,13 @@ const blocksDefinition = function() {
 ```
 
 Then, we need to add required translations. "Title", "Tooltip", "HelpUrl" and "Colour" are required.
+If you want to custimise "LibBlockly.Blocks" prefix, please have a look at `CustomBlock` constructor's parameters.
 ```json
 {
-  "MyModule.MyCategory.Wait.Title": "Wait %1 %2",
-  "MyModule.MyCategory.Wait.Tooltip": "",
-  "MyModule.MyCategory.Wait.HelpUrl": "",
-  "MyModule.MyCategory.Wait.Colour": "230",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Title": "Wait %1 %2",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Tooltip": "",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.HelpUrl": "",
+  "LibBlockly.Blocks.Foundry.Utils.Wait.Colour": "230",
 }
 ```
 
@@ -86,7 +87,7 @@ We finally define a custom class to handle code generation:
 ```javascript
 class WaitCustomBlock extends CustomBlock {
     constructor() {
-        super("Wait", "MyModule.MyCategory");
+        super("Wait", "Foundry.Utils");
     }
   
     // The generateCode() describe how code is generated for your new block.
@@ -114,10 +115,10 @@ class WaitCustomBlock extends CustomBlock {
 Let's stick all together !
 ```javascript
 Hooks.once("ready", () => {
-    libBlockly.registerDefinitions(blocksDefinition());
+    libBlockly.registerDefinitions(blocksDefinition());    
 
-    libBlockly.registerBlocks([
-        new Token.WaitCustomBlock()
+    libBlockly.registerBlockTypes([
+        new WaitCustomBlock()
     ]);
  })
 ```
