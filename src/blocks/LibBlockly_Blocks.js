@@ -71,6 +71,7 @@ Hooks.once("ready", () => {
         Roll.RollCustomBlock,
 
         /* ROLLTABLE */
+        RollTable.RolltableGetByNameOrIdCustomBlock,
         RollTable.RollTableGetTableResultDataCustomBlock,
         RollTable.RollTableRollCustomBlock,
         RollTable.RollTableGetTableResultDataCustomBlock,

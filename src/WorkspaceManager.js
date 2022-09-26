@@ -233,7 +233,7 @@ export class WorkspaceLoader {
             "foundry_user_unban_user":"Foundry.User.Unban",
         };
         let migratedWorkspace = oldWorkspace;
-        for (let c of Object.keys(changes)) {
+        for (let c in changes) {
             migratedWorkspace = migratedWorkspace.replaceAll(c, changes[c]);
         }
 
