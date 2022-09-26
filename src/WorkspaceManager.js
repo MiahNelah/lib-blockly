@@ -219,6 +219,7 @@ export class WorkspaceLoader {
             "foundry_playlist_cycle_playlist_mode":"Foundry.Playlist.CycleMode",
 
             "foundry_scene_activate_scene":"Foundry.Scene.Activate",
+            "foundry_scene_get_selected_tokens": "Foundry.Scene.GetCurrent",
             "foundry_scene_view_scene":"Foundry.Scene.View",
             "foundry_scene_get_all_scenes":"Foundry.Scene.GetAll",
             "foundry_scene_get_current_scene":"Foundry.Scene.GetCurrent",
