@@ -44,7 +44,7 @@ export class WorkspaceLoader {
                         language: game.settings.get("core", "language")
                     },
                     libBlockly: {
-                        version: game.modules.get(libBlockly.MODULE_ID).version
+                        version: game.modules.get(libBlockly.ID).version
                     },
                     state: {
                         pre: originalWorkspace,
@@ -109,7 +109,7 @@ export class WorkspaceLoader {
     _showErrorsDialog(oldWorkspace, migratedWorkspace, errors) {
         const bugReport = {
             libBlockly: {
-                version: game.modules.get(this.MODULE_ID).version,
+                version: game.modules.get(this.ID).version,
             },
             state: {
                 pre: oldWorkspace,
@@ -121,7 +121,7 @@ export class WorkspaceLoader {
 
 
         let message = game.i18n.localize("LibBlocky.CorruptedMacro.Dialog.Message");
-        message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.MODULE_ID).bugs);
+        message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.ID).bugs);
 
         const dialog = new Dialog({
             title: game.i18n.localize("LibBlockly.BlocklyEditorSheet.Sheet.Label"),
@@ -243,7 +243,7 @@ export class WorkspaceLoader {
     _showErrorsDialog(oldWorkspace, migratedWorkspace, originalWorkspaceErrors) {
         const bugReport = {
             libBlockly: {
-                version: game.modules.get(libBlockly.MODULE_ID).version,
+                version: game.modules.get(libBlockly.ID).version,
             },
             state: {
                 pre: oldWorkspace,
@@ -255,7 +255,7 @@ export class WorkspaceLoader {
 
 
         let message = game.i18n.localize("LibBlocky.CorruptedMacro.Dialog.Message");
-        message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.MODULE_ID).bugs);
+        message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.ID).bugs);
 
         const dialog = new Dialog({
             title: game.i18n.localize("LibBlockly.BlocklyEditorSheet.Sheet.Label"),

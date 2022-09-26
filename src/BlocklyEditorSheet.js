@@ -13,7 +13,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
             class: ["sheet", "macro-sheet"],
             popOut: true,
             title: game.i18n.localize("LibBlockly.BlocklyEditorSheet.Sheet.Label"),
-            template: `modules/${libBlockly.MODULE_ID}/templates/blockly-editor-sheet.hbs`,
+            template: `modules/${libBlockly.ID}/templates/blockly-editor-sheet.hbs`,
             width: 960,
             height: 720,
             resizable: true,
@@ -136,7 +136,7 @@ export class BlocklyEditorSheet extends DocumentSheet {
         const errors = this._workspaceManager.getErrors(this.object);
 
         let message = game.i18n.localize("LibBlocky.CorruptedMacro.Dialog.Message");
-        message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.MODULE_ID).bugs);
+        message = message.replace("%GITHUB_ISSUE_URL%", game.modules.get(libBlockly.ID).bugs);
 
         const dialog = new Dialog({
             title: game.i18n.localize("LibBlockly.BlocklyEditorSheet.Sheet.Label"),
