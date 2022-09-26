@@ -140,12 +140,12 @@ export class BlocklyEditorSheet extends DocumentSheet {
 
         const dialog = new Dialog({
             title: game.i18n.localize("LibBlockly.BlocklyEditorSheet.Sheet.Label"),
-            content: `${message}<textarea readonly="readonly" rows="15">${JSON.stringify(errors.errors)}</textarea>`,
+            content: `${message}<textarea readonly="readonly" rows="15">${JSON.stringify(errors)}</textarea>`,
             buttons: {
                 copy: {
                     icon: '<i class="fas fa-copy"></i>',
                     label: game.i18n.localize("LibBlocky.CorruptedMacro.Dialog.Button.Copy"),
-                    callback: async () => await navigator.clipboard.writeText(JSON.stringify(errors.errors))
+                    callback: async () => await navigator.clipboard.writeText(JSON.stringify(errors))
                 },
                 close: {
                     icon: '<i class="fas fa-door-closed"></i>',
