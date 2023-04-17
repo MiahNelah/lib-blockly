@@ -3,10 +3,9 @@
     "title": "LibBlockly",
     "description": "An integration of Google Blockly into Foundry VirtualTop.",
     "version": "0.0.1",
-    "minimumCoreVersion": "10", 
     "compatibility": {
-        "minimum": "10",
-        "verified": "10.286"
+        "minimum": "11",
+        "verified": "11.295"
     },
     "authors": [
         {
