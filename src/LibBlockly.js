@@ -132,7 +132,7 @@ const libBlockly = {
     _registerHooks() {
         if (typeof libWrapper !== undefined) {
             libWrapper.register(libBlockly.ID, "Macro.prototype.execute", function (wrapped, ...args) {
-                libBlockly._handleMacroExecution(this, wrapped, ...args);
+                return libBlockly._handleMacroExecution(this, wrapped, ...args);
             }, libWrapper.WRAPPER);
         }
     },
